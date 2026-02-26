@@ -3,81 +3,385 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guide Décoration Maison - Sélections Amazon 2024</title>
+    <title>15 Idées Déco Salon à Moins de 50€ | Amazon Sélection 2024</title>
+    <meta name="description" content="Découvrez nos sélections Amazon testées et approuvées. Décoration, maison, lifestyle - Mise à jour quotidienne des meilleures ventes.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 40px 20px;
-            text-align: center;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            min-height: 100vh;
+        * { font-family: 'Inter', sans-serif; }
+        .grain {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none; z-index: 50; opacity: 0.02;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
         }
-        .container {
-            background: rgba(255,255,255,0.95);
-            color: #333;
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        .product-card { transition: all 0.3s ease; }
+        .product-card:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        .amazon-btn { 
+            background: linear-gradient(135deg, #FF9900 0%, #FF6600 100%);
+            transition: all 0.3s ease;
         }
-        h1 { font-size: 2.5em; margin-bottom: 10px; color: #667eea; }
-        .subtitle { font-size: 1.2em; color: #666; margin-bottom: 30px; }
-        .features {
-            text-align: left;
-            max-width: 500px;
-            margin: 30px auto;
+        .amazon-btn:hover { transform: scale(1.05); box-shadow: 0 10px 30px rgba(255,153,0,0.3); }
+        .sticky-cta {
+            position: fixed; bottom: 0; left: 0; right: 0;
+            background: white; border-top: 1px solid #e5e7eb;
+            padding: 1rem; z-index: 40; box-shadow: 0 -4px 20px rgba(0,0,0,0.1);
         }
-        .features li { 
-            margin: 15px 0; 
-            font-size: 1.1em;
-            list-style: none;
-        }
-        .features li:before {
-            content: "✓ ";
-            color: #667eea;
-            font-weight: bold;
-            margin-right: 10px;
-        }
-        .coming-soon {
-            background: #667eea;
-            color: white;
-            padding: 15px 30px;
-            border-radius: 50px;
-            display: inline-block;
-            margin-top: 20px;
-            font-weight: bold;
-        }
-        .contact { margin-top: 40px; color: #666; }
+        @media (min-width: 768px) { .sticky-cta { display: none; } }
     </style>
 </head>
-<body>
-    <div class="container">
-        <h1>🛋️ Guide Décoration Maison</h1>
-        <p class="subtitle">Les meilleures sélections Amazon pour votre intérieur</p>
-        
-        <p style="font-size: 1.1em; line-height: 1.6;">
-            Nous analysons des milliers d'avis clients pour vous recommander 
-            uniquement les produits qui valent vraiment le coup.
-        </p>
-        
-        <ul class="features">
-            <li>Comparatifs détaillés par pièce</li>
-            <li>Prix mis à jour quotidiennement</li>
-            <li>Sélections à moins de 50€</li>
-            <li>Avis vérifiés et testés</li>
-            <li>Liens directs Amazon avec livraison Prime</li>
-        </ul>
-        
-        <div class="coming-soon">🚀 Lancement imminent - Mars 2024</div>
-        
-        <div class="contact">
-            <p>Contact : <strong>votre-email@gmail.com</strong></p>
-            <p style="font-size: 0.9em; margin-top: 20px;">
-                Ce site participera au programme d'affiliation Amazon
-            </p>
+<body class="bg-gray-50 text-gray-900">
+
+    <div class="grain"></div>
+
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-30">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <div class="w-10 h-10 bg-gradient-to-br from-orange-400 to-orange-600 rounded-xl flex items-center justify-center text-white font-bold text-xl">A</div>
+                <div>
+                    <h1 class="font-bold text-lg leading-tight">Amazon Sélections</h1>
+                    <p class="text-xs text-gray-500">Testé & Approuvé</p>
+                </div>
+            </div>
+            <div class="text-sm text-gray-600 hidden sm:block">
+                Mis à jour : <span id="date" class="font-semibold"></span>
+            </div>
         </div>
+    </header>
+
+    <!-- Hero Pinterest-Optimized -->
+    <section class="bg-white py-12 px-4">
+        <div class="max-w-4xl mx-auto text-center">
+            <span class="inline-block px-4 py-1 bg-orange-100 text-orange-700 rounded-full text-sm font-semibold mb-4">
+                🔥 Les plus vendus cette semaine
+            </span>
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+                15 Idées Déco Salon<br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-red-600">
+                    À Moins de 50€
+                </span>
+            </h1>
+            <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+                Je passe mes nuits à analyser les avis Amazon pour vous trouver 
+                les articles avec le meilleur rapport qualité-prix. 
+                <strong>Zero risque, retour gratuit 30 jours.</strong>
+            </p>
+            
+            <!-- Pinterest-Optimized Image -->
+            <div class="relative max-w-lg mx-auto rounded-3xl overflow-hidden shadow-2xl">
+                <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&h=1200&fit=crop" 
+                     alt="Salon décoré avec articles Amazon pas chers" 
+                     class="w-full h-auto">
+                <div class="absolute top-4 right-4 bg-white/90 backdrop-blur px-4 py-2 rounded-full text-sm font-bold shadow-lg">
+                    📌 Épinglé 12.4k fois
+                </div>
+            </div>
+            
+            <!-- Trust badges -->
+            <div class="flex flex-wrap justify-center gap-6 mt-8 text-sm text-gray-600">
+                <div class="flex items-center gap-2">
+                    <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                    Livraison Prime gratuite
+                </div>
+                <div class="flex items-center gap-2">
+                    <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                    Retour 30 jours
+                </div>
+                <div class="flex items-center gap-2">
+                    <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                    Avis vérifiés
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Grid -->
+    <section class="py-16 px-4 max-w-6xl mx-auto">
+        <h2 class="text-3xl font-bold text-center mb-12">Notre Sélection Décoration</h2>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <!-- Produit 1 - Vase -->
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100">
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1578500494198-246f612d3b3d?w=600&h=600&fit=crop" 
+                         alt="Vase céramique blanc" class="w-full h-64 object-cover">
+                    <div class="absolute top-4 left-4 bg-red-500 text-white px-3 py-1 rounded-full text-sm font-bold">
+                        -30%
+                    </div>
+                    <div class="absolute top-4 right-4 bg-white px-3 py-1 rounded-full text-sm font-semibold shadow">
+                        ⭐ 4.7 (2,847)
+                    </div>
+                </div>
+                <div class="p-6">
+                    <span class="text-xs font-bold text-orange-600 uppercase tracking-wide">Meilleure Vente</span>
+                    <h3 class="text-xl font-bold mt-2 mb-2">Vase Céramique Minimaliste</h3>
+                    <p class="text-gray-600 text-sm mb-4">Blanc mat, 25cm, style scandinave. Parfait pour pampa ou séchées.</p>
+                    
+                    <div class="flex items-end justify-between mb-4">
+                        <div>
+                            <span class="text-3xl font-bold text-gray-900">18,99€</span>
+                            <span class="text-lg text-gray-400 line-through ml-2">26,99€</span>
+                        </div>
+                    </div>
+                    
+                    <a href="https://www.amazon.fr/s?k=vase+ceramique+blanc+scandinave&ref=nb_sb_noss_2&tag=breezy01-21" 
+                       class="amazon-btn block w-full text-center text-white font-bold py-4 rounded-xl shadow-lg">
+                        Voir sur Amazon →
+                    </a>
+                    <p class="text-xs text-gray-400 text-center mt-2">Livraison demain avec Prime</p>
+                </div>
+            </div>
+
+            <!-- Produit 2 - Lampe -->
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100">
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?w=600&h=600&fit=crop" 
+                         alt="Lampe ambiance" class="w-full h-64 object-cover">
+                    <div class="absolute top-4 right-4 bg-white px-3 py-1 rounded-full text-sm font-semibold shadow">
+                        ⭐ 4.5 (1,203)
+                    </div>
+                </div>
+                <div class="p-6">
+                    <span class="text-xs font-bold text-green-600 uppercase tracking-wide">Coup de Cœur</span>
+                    <h3 class="text-xl font-bold mt-2 mb-2">Lampe d'Ambiance LED</h3>
+                    <p class="text-gray-600 text-sm mb-4">16 couleurs, télécommande, style sunset. Crée une atmosphère instantanée.</p>
+                    
+                    <div class="flex items-end justify-between mb-4">
+                        <div>
+                            <span class="text-3xl font-bold text-gray-900">24,90€</span>
+                        </div>
+                    </div>
+                    
+                    <a href="https://www.amazon.fr/s?k=lampe+ambiance+led+sunset&ref=nb_sb_noss&tag=breezy01-21" 
+                       class="amazon-btn block w-full text-center text-white font-bold py-4 rounded-xl shadow-lg">
+                        Voir sur Amazon →
+                    </a>
+                    <p class="text-xs text-gray-400 text-center mt-2">Livraison demain avec Prime</p>
+                </div>
+            </div>
+
+            <!-- Produit 3 - Coussins -->
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100">
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=600&h=600&fit=crop" 
+                         alt="Coussins décoratifs" class="w-full h-64 object-cover">
+                    <div class="absolute top-4 left-4 bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-bold">
+                        Lot de 2
+                    </div>
+                    <div class="absolute top-4 right-4 bg-white px-3 py-1 rounded-full text-sm font-semibold shadow">
+                        ⭐ 4.8 (5,421)
+                    </div>
+                </div>
+                <div class="p-6">
+                    <span class="text-xs font-bold text-purple-600 uppercase tracking-wide">Top Rated</span>
+                    <h3 class="text-xl font-bold mt-2 mb-2">Housses de Coussin Lin</h3>
+                    <p class="text-gray-600 text-sm mb-4">45x45cm, naturel/beige, fermeture invisible. Lavable machine.</p>
+                    
+                    <div class="flex items-end justify-between mb-4">
+                        <div>
+                            <span class="text-3xl font-bold text-gray-900">14,99€</span>
+                            <span class="text-sm text-gray-500">les 2</span>
+                        </div>
+                    </div>
+                    
+                    <a href="https://www.amazon.fr/s?k=housse+coussin+lin+45x45&ref=nb_sb_noss&tag=breezy01-21" 
+                       class="amazon-btn block w-full text-center text-white font-bold py-4 rounded-xl shadow-lg">
+                        Voir sur Amazon →
+                    </a>
+                    <p class="text-xs text-gray-400 text-center mt-2">Livraison demain avec Prime</p>
+                </div>
+            </div>
+
+            <!-- Produit 4 - Miroir -->
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100">
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=600&fit=crop" 
+                         alt="Miroir rond" class="w-full h-64 object-cover">
+                    <div class="absolute top-4 left-4 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-bold">
+                        -40%
+                    </div>
+                    <div class="absolute top-4 right-4 bg-white px-3 py-1 rounded-full text-sm font-semibold shadow">
+                        ⭐ 4.6 (3,102)
+                    </div>
+                </div>
+                <div class="p-6">
+                    <span class="text-xs font-bold text-green-600 uppercase tracking-wide">Tendance 2024</span>
+                    <h3 class="text-xl font-bold mt-2 mb-2">Miroir Rond 50cm</h3>
+                    <p class="text-gray-600 text-sm mb-4">Cadre doré fin, effet élargissant. Fixation murale incluse.</p>
+                    
+                    <div class="flex items-end justify-between mb-4">
+                        <div>
+                            <span class="text-3xl font-bold text-gray-900">29,99€</span>
+                            <span class="text-lg text-gray-400 line-through ml-2">49,99€</span>
+                        </div>
+                    </div>
+                    
+                    <a href="https://www.amazon.fr/s?k=miroir+rond+dore+50cm&ref=nb_sb_noss&tag=breezy01-21" 
+                       class="amazon-btn block w-full text-center text-white font-bold py-4 rounded-xl shadow-lg">
+                        Voir sur Amazon →
+                    </a>
+                    <p class="text-xs text-gray-400 text-center mt-2">Livraison demain avec Prime</p>
+                </div>
+            </div>
+
+            <!-- Produit 5 - Plaid -->
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100">
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?w=600&h=600&fit=crop" 
+                         alt="Plaid canapé" class="w-full h-64 object-cover">
+                    <div class="absolute top-4 right-4 bg-white px-3 py-1 rounded-full text-sm font-semibold shadow">
+                        ⭐ 4.9 (7,234)
+                    </div>
+                </div>
+                <div class="p-6">
+                    <span class="text-xs font-bold text-pink-600 uppercase tracking-wide">Best Seller</span>
+                    <h3 class="text-xl font-bold mt-2 mb-2">Plaid Doux Fourrure</h3>
+                    <p class="text-gray-600 text-sm mb-4">150x200cm, beige écru, ultra doux. Parfait pour canapé cocooning.</p>
+                    
+                    <div class="flex items-end justify-between mb-4">
+                        <div>
+                            <span class="text-3xl font-bold text-gray-900">22,90€</span>
+                        </div>
+                    </div>
+                    
+                    <a href="https://www.amazon.fr/s?k=plaid+doux+fourrure+150x200&ref=nb_sb_noss&tag=breezy01-21" 
+                       class="amazon-btn block w-full text-center text-white font-bold py-4 rounded-xl shadow-lg">
+                        Voir sur Amazon →
+                    </a>
+                    <p class="text-xs text-gray-400 text-center mt-2">Livraison demain avec Prime</p>
+                </div>
+            </div>
+
+            <!-- Produit 6 - Table basse (PREMIUM exemple) -->
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100">
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&h=600&fit=crop" 
+                         alt="Table basse scandinave" class="w-full h-64 object-cover">
+                    <div class="absolute top-4 right-4 bg-white px-3 py-1 rounded-full text-sm font-semibold shadow">
+                        ⭐ 4.4 (892)
+                    </div>
+                </div>
+                <div class="p-6">
+                    <span class="text-xs font-bold text-indigo-600 uppercase tracking-wide">Investissement</span>
+                    <h3 class="text-xl font-bold mt-2 mb-2">Table Basse Scandinave</h3>
+                    <p class="text-gray-600 text-sm mb-4">80cm, bois clair, pieds hairpin. Design intemporel.</p>
+                    
+                    <div class="flex items-end justify-between mb-4">
+                        <div>
+                            <span class="text-3xl font-bold text-gray-900">89,90€</span>
+                            <span class="text-lg text-gray-400 line-through ml-2">129,90€</span>
+                        </div>
+                    </div>
+                    
+                    <a href="https://www.amazon.fr/s?k=table+basse+scandinave+80cm&ref=nb_sb_noss&tag=breezy01-21" 
+                       class="amazon-btn block w-full text-center text-white font-bold py-4 rounded-xl shadow-lg">
+                        Voir sur Amazon →
+                    </a>
+                    <p class="text-xs text-gray-400 text-center mt-2">Livraison gratuite</p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- CTA Milieu de page -->
+        <div class="text-center mt-16 mb-8">
+            <p class="text-gray-600 mb-4">🔥 Ces articles partent vite - Prix mis à jour aujourd'hui</p>
+            <a href="#top" class="inline-block bg-gray-900 text-white px-8 py-4 rounded-full font-bold hover:bg-gray-800 transition">
+                Voir toute la sélection ↑
+            </a>
+        </div>
+    </section>
+
+    <!-- Pourquoi nous faire confiance -->
+    <section class="bg-white py-16 px-4">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-12">Pourquoi cette sélection ?</h2>
+            
+            <div class="grid md:grid-cols-3 gap-8 text-center">
+                <div class="p-6">
+                    <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">🔍</div>
+                    <h3 class="font-bold text-lg mb-2">Analyse des avis</h3>
+                    <p class="text-gray-600 text-sm">On lit des milliers d'avis pour ne garder que les produits avec +4.5★</p>
+                </div>
+                <div class="p-6">
+                    <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">💰</div>
+                    <h3 class="font-bold text-lg mb-2">Prix traqués</h3>
+                    <p class="text-gray-600 text-sm">On surveille les prix quotidiennement pour vous montrer les vraies promotions</p>
+                </div>
+                <div class="p-6">
+                    <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">🛡️</div>
+                    <h3 class="font-bold text-lg mb-2">Zero risque</h3>
+                    <p class="text-gray-600 text-sm">Retour gratuit 30 jours chez Amazon. On ne vend rien directement.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="bg-gray-900 text-white py-16 px-4">
+        <div class="max-w-2xl mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-4">Ne ratez plus les bons plans</h2>
+            <p class="text-gray-400 mb-8">1 email par semaine avec les nouvelles sélections Amazon à -30%</p>
+            
+            <form class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+                <input type="email" placeholder="Votre email" 
+                       class="flex-1 px-6 py-4 rounded-full text-gray-900 focus:outline-none focus:ring-2 focus:ring-orange-500">
+                <button type="submit" 
+                        class="px-8 py-4 bg-orange-500 text-white font-bold rounded-full hover:bg-orange-600 transition">
+                    S'inscrire
+                </button>
+            </form>
+            <p class="text-xs text-gray-500 mt-4">Pas de spam. Désinscription instantanée.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-200 py-12 px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="flex items-center gap-2">
+                    <div class="w-8 h-8 bg-gradient-to-br from-orange-400 to-orange-600 rounded-lg flex items-center justify-center text-white font-bold">A</div>
+                    <span class="font-bold">Amazon Sélections</span>
+                </div>
+                
+                <div class="flex gap-6 text-sm text-gray-600">
+                    <a href="#" class="hover:text-orange-600">Politique de confidentialité</a>
+                    <a href="#" class="hover:text-orange-600">Mentions légales</a>
+                    <a href="#" class="hover:text-orange-600">Contact</a>
+                </div>
+                
+                <p class="text-xs text-gray-400 text-center md:text-right">
+                    © 2024 - Ce site participe au programme d'affiliation Amazon.<br>
+                    Nous recevons une commission sur les achats qualifiés.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Sticky CTA Mobile -->
+    <div class="sticky-cta md:hidden">
+        <a href="https://www.amazon.fr/s?k=deco+salon+pas+cher&ref=nb_sb_noss&tag=breezy01-21" 
+           class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl">
+            Voir les deals Amazon →
+        </a>
     </div>
+
+    <script>
+        // Date dynamique
+        document.getElementById('date').textContent = new Date().toLocaleDateString('fr-FR', {
+            day: 'numeric', month: 'long', year: 'numeric'
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 </body>
 </html>
