@@ -40,6 +40,11 @@
         .hero-gradient {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
         }
+        .product-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-900">
@@ -69,7 +74,6 @@
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
                 </button>
             </div>
-            <!-- Mobile Menu -->
             <div id="mobileMenu" class="hidden md:hidden mt-4 pb-4 space-y-2">
                 <a href="#living" class="block py-2 text-gray-700">Salon</a>
                 <a href="#home" class="block py-2 text-gray-700">Maison</a>
@@ -116,8 +120,8 @@
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             <!-- Modern Living Room -->
             <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100">
-                <div class="relative h-64 bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
-                    <span class="text-gray-400 text-sm">modern-living-room.jpg</span>
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&h=400&fit=crop" alt="Modern Beige Sofa" class="product-image">
                     <div class="absolute top-3 left-3 bg-blue-500 text-white px-3 py-1 rounded-full text-xs font-bold">Moderne</div>
                 </div>
                 <div class="p-5">
@@ -129,8 +133,8 @@
 
             <!-- Beige / Neutral -->
             <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100">
-                <div class="relative h-64 bg-gradient-to-br from-amber-50 to-orange-100 flex items-center justify-center">
-                    <span class="text-gray-400 text-sm">neutral-living-room.jpg</span>
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1533090481720-856c6e3c1fdc?w=600&h=400&fit=crop" alt="Neutral Coffee Table" class="product-image">
                     <div class="absolute top-3 left-3 bg-amber-500 text-white px-3 py-1 rounded-full text-xs font-bold">Neutre</div>
                 </div>
                 <div class="p-5">
@@ -142,8 +146,8 @@
 
             <!-- Luxury / Chic -->
             <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100">
-                <div class="relative h-64 bg-gradient-to-br from-yellow-100 to-yellow-200 flex items-center justify-center">
-                    <span class="text-gray-400 text-sm">luxury-living-room.jpg</span>
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1618220179428-22790b461013?w=600&h=400&fit=crop" alt="Gold Wall Mirror" class="product-image">
                     <div class="absolute top-3 left-3 bg-yellow-600 text-white px-3 py-1 rounded-full text-xs font-bold">Luxe</div>
                 </div>
                 <div class="p-5">
@@ -155,8 +159,8 @@
 
             <!-- Small Space -->
             <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100">
-                <div class="relative h-64 bg-gradient-to-br from-green-50 to-emerald-100 flex items-center justify-center">
-                    <span class="text-gray-400 text-sm">small-space-living.jpg</span>
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?w=600&h=400&fit=crop" alt="Foldable Side Table" class="product-image">
                     <div class="absolute top-3 left-3 bg-green-500 text-white px-3 py-1 rounded-full text-xs font-bold">Petit Espace</div>
                 </div>
                 <div class="p-5">
@@ -168,8 +172,8 @@
 
             <!-- Wall Decor -->
             <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100">
-                <div class="relative h-64 bg-gradient-to-br from-purple-50 to-pink-100 flex items-center justify-center">
-                    <span class="text-gray-400 text-sm">wall-decor-living.jpg</span>
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1513519245088-0e12902e35a6?w=600&h=400&fit=crop" alt="Decorative Wall Art" class="product-image">
                     <div class="absolute top-3 left-3 bg-purple-500 text-white px-3 py-1 rounded-full text-xs font-bold">Mur</div>
                 </div>
                 <div class="p-5">
@@ -181,8 +185,8 @@
 
             <!-- Minimalist -->
             <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100">
-                <div class="relative h-64 bg-gradient-to-br from-slate-100 to-gray-200 flex items-center justify-center">
-                    <span class="text-gray-400 text-sm">minimalist-living.jpg</span>
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1564078516393-cf04bd966897?w=600&h=400&fit=crop" alt="Minimalist Rug" class="product-image">
                     <div class="absolute top-3 left-3 bg-slate-500 text-white px-3 py-1 rounded-full text-xs font-bold">Minimaliste</div>
                 </div>
                 <div class="p-5">
@@ -194,8 +198,8 @@
 
             <!-- Cozy -->
             <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100">
-                <div class="relative h-64 bg-gradient-to-br from-orange-50 to-red-100 flex items-center justify-center">
-                    <span class="text-gray-400 text-sm">cozy-living.jpg</span>
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?w=600&h=400&fit=crop" alt="Soft Throw Blanket" class="product-image">
                     <div class="absolute top-3 left-3 bg-orange-500 text-white px-3 py-1 rounded-full text-xs font-bold">Cozy</div>
                 </div>
                 <div class="p-5">
@@ -220,8 +224,8 @@
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             <!-- Modern Bedroom -->
             <div class="product-card bg-gray-50 rounded-2xl overflow-hidden shadow-lg border border-gray-200">
-                <div class="relative h-64 bg-gradient-to-br from-indigo-100 to-purple-200 flex items-center justify-center">
-                    <span class="text-gray-400 text-sm">modern-bedroom.jpg</span>
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=600&h=400&fit=crop" alt="Bedside Lamp" class="product-image">
                     <div class="absolute top-3 left-3 bg-indigo-500 text-white px-3 py-1 rounded-full text-xs font-bold">Chambre</div>
                 </div>
                 <div class="p-5">
@@ -233,8 +237,8 @@
 
             <!-- Minimalist Home -->
             <div class="product-card bg-gray-50 rounded-2xl overflow-hidden shadow-lg border border-gray-200">
-                <div class="relative h-64 bg-gradient-to-br from-stone-100 to-stone-300 flex items-center justify-center">
-                    <span class="text-gray-400 text-sm">minimalist-home.jpg</span>
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=600&h=400&fit=crop" alt="Minimalist Shelf" class="product-image">
                     <div class="absolute top-3 left-3 bg-stone-500 text-white px-3 py-1 rounded-full text-xs font-bold">Minimaliste</div>
                 </div>
                 <div class="p-5">
@@ -246,8 +250,8 @@
 
             <!-- Small Space -->
             <div class="product-card bg-gray-50 rounded-2xl overflow-hidden shadow-lg border border-gray-200">
-                <div class="relative h-64 bg-gradient-to-br from-emerald-50 to-teal-100 flex items-center justify-center">
-                    <span class="text-gray-400 text-sm">small-space-home.jpg</span>
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=600&h=400&fit=crop" alt="Space-saving Chair" class="product-image">
                     <div class="absolute top-3 left-3 bg-emerald-500 text-white px-3 py-1 rounded-full text-xs font-bold">Petit Espace</div>
                 </div>
                 <div class="p-5">
@@ -259,8 +263,8 @@
 
             <!-- Luxury Home -->
             <div class="product-card bg-gray-50 rounded-2xl overflow-hidden shadow-lg border border-gray-200">
-                <div class="relative h-64 bg-gradient-to-br from-amber-100 to-yellow-200 flex items-center justify-center">
-                    <span class="text-gray-400 text-sm">luxury-home.jpg</span>
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1578500494198-246f612d3b3d?w=600&h=400&fit=crop" alt="Luxury Vase" class="product-image">
                     <div class="absolute top-3 left-3 bg-amber-600 text-white px-3 py-1 rounded-full text-xs font-bold">Luxe</div>
                 </div>
                 <div class="p-5">
@@ -272,8 +276,8 @@
 
             <!-- Indoor Plants -->
             <div class="product-card bg-gray-50 rounded-2xl overflow-hidden shadow-lg border border-gray-200">
-                <div class="relative h-64 bg-gradient-to-br from-green-100 to-emerald-200 flex items-center justify-center">
-                    <span class="text-gray-400 text-sm">indoor-plants.jpg</span>
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1485955900006-10f4d324d411?w=600&h=400&fit=crop" alt="Vertical Plant Stand" class="product-image">
                     <div class="absolute top-3 left-3 bg-green-600 text-white px-3 py-1 rounded-full text-xs font-bold">Plantes</div>
                 </div>
                 <div class="p-5">
@@ -285,8 +289,8 @@
 
             <!-- Wall Decoration -->
             <div class="product-card bg-gray-50 rounded-2xl overflow-hidden shadow-lg border border-gray-200">
-                <div class="relative h-64 bg-gradient-to-br from-pink-100 to-rose-200 flex items-center justify-center">
-                    <span class="text-gray-400 text-sm">wall-decoration.jpg</span>
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&h=400&fit=crop" alt="Wall-mounted Shelf" class="product-image">
                     <div class="absolute top-3 left-3 bg-pink-500 text-white px-3 py-1 rounded-full text-xs font-bold">Murs</div>
                 </div>
                 <div class="p-5">
@@ -311,8 +315,8 @@
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             <!-- Must-have -->
             <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100">
-                <div class="relative h-64 bg-gradient-to-br from-blue-100 to-cyan-200 flex items-center justify-center">
-                    <span class="text-gray-400 text-sm">student-gadgets.jpg</span>
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=600&h=400&fit=crop" alt="Laptop Cooling Pad" class="product-image">
                     <div class="absolute top-3 left-3 bg-blue-600 text-white px-3 py-1 rounded-full text-xs font-bold">Indispensable</div>
                 </div>
                 <div class="p-5">
@@ -324,8 +328,8 @@
 
             <!-- Productivity -->
             <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100">
-                <div class="relative h-64 bg-gradient-to-br from-green-100 to-emerald-200 flex items-center justify-center">
-                    <span class="text-gray-400 text-sm">productivity-gadgets.jpg</span>
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1544816155-12df9643f363?w=600&h=400&fit=crop" alt="Desk Organizer" class="product-image">
                     <div class="absolute top-3 left-3 bg-green-600 text-white px-3 py-1 rounded-full text-xs font-bold">Productivité</div>
                 </div>
                 <div class="p-5">
@@ -337,8 +341,8 @@
 
             <!-- University Tech -->
             <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100">
-                <div class="relative h-64 bg-gradient-to-br from-purple-100 to-violet-200 flex items-center justify-center">
-                    <span class="text-gray-400 text-sm">university-tech.jpg</span>
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=600&h=400&fit=crop" alt="Wireless Mouse" class="product-image">
                     <div class="absolute top-3 left-3 bg-purple-600 text-white px-3 py-1 rounded-full text-xs font-bold">Tech</div>
                 </div>
                 <div class="p-5">
@@ -350,8 +354,8 @@
 
             <!-- Affordable -->
             <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100">
-                <div class="relative h-64 bg-gradient-to-br from-yellow-100 to-orange-200 flex items-center justify-center">
-                    <span class="text-gray-400 text-sm">affordable-gadgets.jpg</span>
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1544816155-12df9643f363?w=600&h=400&fit=crop" alt="Notebook Set" class="product-image">
                     <div class="absolute top-3 left-3 bg-yellow-600 text-white px-3 py-1 rounded-full text-xs font-bold">Pas Cher</div>
                 </div>
                 <div class="p-5">
@@ -363,8 +367,8 @@
 
             <!-- Useful Tech -->
             <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100">
-                <div class="relative h-64 bg-gradient-to-br from-red-100 to-rose-200 flex items-center justify-center">
-                    <span class="text-gray-400 text-sm">useful-tech.jpg</span>
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1534073828943-f801091a7d58?w=600&h=400&fit=crop" alt="LED Desk Lamp" class="product-image">
                     <div class="absolute top-3 left-3 bg-red-600 text-white px-3 py-1 rounded-full text-xs font-bold">Utile</div>
                 </div>
                 <div class="p-5">
@@ -389,8 +393,8 @@
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             <!-- Minimalist Desk -->
             <div class="product-card bg-gray-50 rounded-2xl overflow-hidden shadow-lg border border-gray-200">
-                <div class="relative h-64 bg-gradient-to-br from-gray-100 to-slate-200 flex items-center justify-center">
-                    <span class="text-gray-400 text-sm">minimalist-desk.jpg</span>
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=600&h=400&fit=crop" alt="Desk Mat" class="product-image">
                     <div class="absolute top-3 left-3 bg-slate-600 text-white px-3 py-1 rounded-full text-xs font-bold">Minimaliste</div>
                 </div>
                 <div class="p-5">
@@ -402,8 +406,8 @@
 
             <!-- Student Desk -->
             <div class="product-card bg-gray-50 rounded-2xl overflow-hidden shadow-lg border border-gray-200">
-                <div class="relative h-64 bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center">
-                    <span class="text-gray-400 text-sm">student-desk.jpg</span>
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=600&h=400&fit=crop" alt="Laptop Stand" class="product-image">
                     <div class="absolute top-3 left-3 bg-blue-500 text-white px-3 py-1 rounded-full text-xs font-bold">Étudiant</div>
                 </div>
                 <div class="p-5">
@@ -415,8 +419,8 @@
 
             <!-- MacBook Desk -->
             <div class="product-card bg-gray-50 rounded-2xl overflow-hidden shadow-lg border border-gray-200">
-                <div class="relative h-64 bg-gradient-to-br from-slate-200 to-gray-300 flex items-center justify-center">
-                    <span class="text-gray-400 text-sm">macbook-desk.jpg</span>
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=600&h=400&fit=crop" alt="MacBook Sleeve" class="product-image">
                     <div class="absolute top-3 left-3 bg-gray-600 text-white px-3 py-1 rounded-full text-xs font-bold">MacBook</div>
                 </div>
                 <div class="p-5">
@@ -428,8 +432,8 @@
 
             <!-- Aesthetic Workspace -->
             <div class="product-card bg-gray-50 rounded-2xl overflow-hidden shadow-lg border border-gray-200">
-                <div class="relative h-64 bg-gradient-to-br from-pink-100 to-purple-200 flex items-center justify-center">
-                    <span class="text-gray-400 text-sm">aesthetic-desk.jpg</span>
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=600&h=400&fit=crop" alt="LED Strip Light" class="product-image">
                     <div class="absolute top-3 left-3 bg-pink-600 text-white px-3 py-1 rounded-full text-xs font-bold">Aesthetic</div>
                 </div>
                 <div class="p-5">
@@ -441,8 +445,8 @@
 
             <!-- Gaming / Tech -->
             <div class="product-card bg-gray-50 rounded-2xl overflow-hidden shadow-lg border border-gray-200">
-                <div class="relative h-64 bg-gradient-to-br from-red-100 to-orange-200 flex items-center justify-center">
-                    <span class="text-gray-400 text-sm">gaming-desk.jpg</span>
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?w=600&h=400&fit=crop" alt="Gaming Mouse Pad" class="product-image">
                     <div class="absolute top-3 left-3 bg-red-600 text-white px-3 py-1 rounded-full text-xs font-bold">Gaming</div>
                 </div>
                 <div class="p-5">
@@ -454,8 +458,8 @@
 
             <!-- Productivity Accessories -->
             <div class="product-card bg-gray-50 rounded-2xl overflow-hidden shadow-lg border border-gray-200">
-                <div class="relative h-64 bg-gradient-to-br from-teal-100 to-cyan-200 flex items-center justify-center">
-                    <span class="text-gray-400 text-sm">desk-accessories.jpg</span>
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop" alt="Cable Management Kit" class="product-image">
                     <div class="absolute top-3 left-3 bg-teal-600 text-white px-3 py-1 rounded-full text-xs font-bold">Productivité</div>
                 </div>
                 <div class="p-5">
@@ -480,8 +484,8 @@
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             <!-- Small Budget Decor -->
             <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100">
-                <div class="relative h-64 bg-gradient-to-br from-yellow-100 to-amber-200 flex items-center justify-center">
-                    <span class="text-gray-400 text-sm">small-budget-decor.jpg</span>
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?w=600&h=400&fit=crop" alt="Decorative Cushions" class="product-image">
                     <div class="absolute top-3 left-3 bg-amber-600 text-white px-3 py-1 rounded-full text-xs font-bold">Petit Budget</div>
                 </div>
                 <div class="p-5">
@@ -493,8 +497,8 @@
 
             <!-- DIY Decor -->
             <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100">
-                <div class="relative h-64 bg-gradient-to-br from-purple-100 to-pink-200 flex items-center justify-center">
-                    <span class="text-gray-400 text-sm">diy-decor.jpg</span>
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1513519245088-0e12902e35a6?w=600&h=400&fit=crop" alt="Sticker Wall Decals" class="product-image">
                     <div class="absolute top-3 left-3 bg-purple-600 text-white px-3 py-1 rounded-full text-xs font-bold">DIY</div>
                 </div>
                 <div class="p-5">
@@ -506,8 +510,8 @@
 
             <!-- Organization Hacks -->
             <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100">
-                <div class="relative h-64 bg-gradient-to-br from-blue-100 to-indigo-200 flex items-center justify-center">
-                    <span class="text-gray-400 text-sm">organization-hacks.jpg</span>
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=600&h=400&fit=crop" alt="Storage Bins" class="product-image">
                     <div class="absolute top-3 left-3 bg-blue-600 text-white px-3 py-1 rounded-full text-xs font-bold">Astuces</div>
                 </div>
                 <div class="p-5">
@@ -519,8 +523,8 @@
 
             <!-- Small Apartment -->
             <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100">
-                <div class="relative h-64 bg-gradient-to-br from-orange-100 to-red-200 flex items-center justify-center">
-                    <span class="text-gray-400 text-sm">small-apartment.jpg</span>
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?w=600&h=400&fit=crop" alt="Foldable Table" class="product-image">
                     <div class="absolute top-3 left-3 bg-orange-600 text-white px-3 py-1 rounded-full text-xs font-bold">Petit Appart</div>
                 </div>
                 <div class="p-5">
@@ -532,8 +536,8 @@
 
             <!-- Before & After -->
             <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100">
-                <div class="relative h-64 bg-gradient-to-br from-teal-100 to-green-200 flex items-center justify-center">
-                    <span class="text-gray-400 text-sm">before-after.jpg</span>
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&h=400&fit=crop" alt="Removable Wallpaper" class="product-image">
                     <div class="absolute top-3 left-3 bg-teal-600 text-white px-3 py-1 rounded-full text-xs font-bold">Avant/Après</div>
                 </div>
                 <div class="p-5">
@@ -558,8 +562,8 @@
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             <!-- Home Decor -->
             <div class="product-card bg-gray-50 rounded-2xl overflow-hidden shadow-lg border border-gray-200">
-                <div class="relative h-64 bg-gradient-to-br from-rose-100 to-pink-200 flex items-center justify-center">
-                    <span class="text-gray-400 text-sm">amazon-home-decor.jpg</span>
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=400&fit=crop" alt="LED Candle Set" class="product-image">
                     <div class="absolute top-3 left-3 bg-rose-600 text-white px-3 py-1 rounded-full text-xs font-bold">Déco</div>
                 </div>
                 <div class="p-5">
@@ -571,8 +575,8 @@
 
             <!-- Useful Gadgets -->
             <div class="product-card bg-gray-50 rounded-2xl overflow-hidden shadow-lg border border-gray-200">
-                <div class="relative h-64 bg-gradient-to-br from-cyan-100 to-blue-200 flex items-center justify-center">
-                    <span class="text-gray-400 text-sm">amazon-gadgets.jpg</span>
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=600&h=400&fit=crop" alt="Smart Plug" class="product-image">
                     <div class="absolute top-3 left-3 bg-cyan-600 text-white px-3 py-1 rounded-full text-xs font-bold">Gadgets</div>
                 </div>
                 <div class="p-5">
@@ -584,8 +588,8 @@
 
             <!-- Must-haves -->
             <div class="product-card bg-gray-50 rounded-2xl overflow-hidden shadow-lg border border-gray-200">
-                <div class="relative h-64 bg-gradient-to-br from-amber-100 to-yellow-200 flex items-center justify-center">
-                    <span class="text-gray-400 text-sm">amazon-musthave.jpg</span>
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7c3136?w=600&h=400&fit=crop" alt="Multifunction Kitchen Tool" class="product-image">
                     <div class="absolute top-3 left-3 bg-amber-600 text-white px-3 py-1 rounded-full text-xs font-bold">Must-Have</div>
                 </div>
                 <div class="p-5">
@@ -597,8 +601,8 @@
 
             <!-- Student -->
             <div class="product-card bg-gray-50 rounded-2xl overflow-hidden shadow-lg border border-gray-200">
-                <div class="relative h-64 bg-gradient-to-br from-indigo-100 to-purple-200 flex items-center justify-center">
-                    <span class="text-gray-400 text-sm">amazon-student.jpg</span>
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600&h=400&fit=crop" alt="Noise-Cancelling Headphones" class="product-image">
                     <div class="absolute top-3 left-3 bg-indigo-600 text-white px-3 py-1 rounded-full text-xs font-bold">Étudiant</div>
                 </div>
                 <div class="p-5">
@@ -610,8 +614,8 @@
 
             <!-- Viral -->
             <div class="product-card bg-gray-50 rounded-2xl overflow-hidden shadow-lg border border-gray-200">
-                <div class="relative h-64 bg-gradient-to-br from-red-100 to-pink-200 flex items-center justify-center">
-                    <span class="text-gray-400 text-sm">viral-amazon.jpg</span>
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=600&h=400&fit=crop" alt="Trending Desk Gadget" class="product-image">
                     <div class="absolute top-3 left-3 bg-red-600 text-white px-3 py-1 rounded-full text-xs font-bold">Viral 🔥</div>
                 </div>
                 <div class="p-5">
