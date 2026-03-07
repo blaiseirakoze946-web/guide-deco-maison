@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trouvailles Amazon 2024 | Bureau, Déco, Rangement & Lifestyle</title>
-    <meta name="description" content="Sélection Amazon des meilleurs accessoires bureau, déco maison, rangement malin et gadgets lifestyle. Livraison Prime, prix vérifiés quotidiennement.">
+    <title>Mon Univers Amazon | Déco, Gadgets Étudiants & Astuces Petit Budget</title>
+    <meta name="description" content="Découvrez mes sélections Amazon : déco moderne, gadgets étudiants, setups bureau et astuces petit budget. Prix vérifiés quotidiennement.">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
@@ -16,60 +16,29 @@
         }
         .product-card { 
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            break-inside: avoid;
-            margin-bottom: 1.5rem;
         }
         .product-card:hover { 
-            transform: translateY(-8px) scale(1.02);
+            transform: translateY(-8px);
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
         }
         .amazon-btn { 
             background: linear-gradient(135deg, #FF9900 0%, #FF6600 100%);
             transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
         }
         .amazon-btn:hover { 
             transform: scale(1.05);
             box-shadow: 0 10px 30px rgba(255, 153, 0, 0.4);
         }
-        .amazon-btn::after {
-            content: '';
-            position: absolute;
-            top: 0; left: -100%;
-            width: 100%; height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-            transition: 0.5s;
-        }
-        .amazon-btn:hover::after {
-            left: 100%;
-        }
-        .masonry-grid {
-            column-count: 1;
-            column-gap: 1.5rem;
-        }
-        @media (min-width: 640px) { .masonry-grid { column-count: 2; } }
-        @media (min-width: 1024px) { .masonry-grid { column-count: 3; } }
-        @media (min-width: 1280px) { .masonry-grid { column-count: 4; } }
-        
         .category-badge {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         }
-        .price-tag {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-        }
-        .sticky-filter {
+        .sticky-nav {
             position: sticky;
-            top: 80px;
-            z-index: 30;
+            top: 0;
+            z-index: 40;
         }
-        .filter-btn.active {
-            background: #FF9900;
-            color: white;
-        }
-        .savings-badge {
-            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+        .hero-gradient {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
         }
     </style>
 </head>
@@ -77,683 +46,595 @@
 
     <div class="grain"></div>
 
-    <!-- Header -->
-    <header class="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-40 border-b border-gray-200">
-        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-            <div class="flex items-center gap-3">
-                <div class="w-12 h-12 bg-gradient-to-br from-orange-400 to-orange-600 rounded-xl flex items-center justify-center text-white font-bold text-xl shadow-lg">
-                    A
+    <!-- Navigation -->
+    <nav class="sticky-nav bg-white/90 backdrop-blur-md border-b border-gray-200 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-gradient-to-br from-orange-400 to-orange-600 rounded-xl flex items-center justify-center text-white font-bold text-xl">A</div>
+                    <div>
+                        <h1 class="font-bold text-lg">Mon Univers Amazon</h1>
+                        <p class="text-xs text-gray-500">Déco • Gadgets • Astuces Budget</p>
+                    </div>
                 </div>
-                <div>
-                    <h1 class="font-bold text-xl leading-tight tracking-tight">Amazon Sélections</h1>
-                    <p class="text-xs text-gray-500 font-medium">Testé & Approuvé • Livraison Prime</p>
+                <div class="hidden md:flex gap-6 text-sm font-medium">
+                    <a href="#living" class="hover:text-orange-600 transition">Salon</a>
+                    <a href="#home" class="hover:text-orange-600 transition">Maison</a>
+                    <a href="#student" class="hover:text-orange-600 transition">Étudiants</a>
+                    <a href="#desk" class="hover:text-orange-600 transition">Bureau</a>
+                    <a href="#budget" class="hover:text-orange-600 transition">Petit Budget</a>
+                    <a href="#finds" class="hover:text-orange-600 transition">Amazon Finds</a>
                 </div>
+                <button class="md:hidden text-gray-600" onclick="toggleMenu()">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                </button>
             </div>
-            <div class="hidden md:flex items-center gap-4 text-sm">
-                <span class="text-gray-600">🇧🇪 🇫🇷 Livraison Belgique & France</span>
-                <span class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-xs font-semibold">Prix vérifiés aujourd'hui</span>
+            <!-- Mobile Menu -->
+            <div id="mobileMenu" class="hidden md:hidden mt-4 pb-4 space-y-2">
+                <a href="#living" class="block py-2 text-gray-700">Salon</a>
+                <a href="#home" class="block py-2 text-gray-700">Maison</a>
+                <a href="#student" class="block py-2 text-gray-700">Étudiants</a>
+                <a href="#desk" class="block py-2 text-gray-700">Bureau</a>
+                <a href="#budget" class="block py-2 text-gray-700">Petit Budget</a>
+                <a href="#finds" class="block py-2 text-gray-700">Amazon Finds</a>
             </div>
         </div>
-    </header>
+    </nav>
 
-    <!-- Hero Section -->
-    <section class="bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-500 text-white py-16 px-4 relative overflow-hidden">
-        <div class="absolute inset-0 bg-black/20"></div>
-        <div class="max-w-4xl mx-auto text-center relative z-10">
-            <span class="inline-block px-4 py-2 bg-white/20 backdrop-blur rounded-full text-sm font-semibold mb-6 border border-white/30">
-                🔥 Mise à jour quotidienne des meilleures ventes
+    <!-- Hero -->
+    <section class="hero-gradient text-white py-16 px-4">
+        <div class="max-w-4xl mx-auto text-center">
+            <span class="inline-block px-4 py-2 bg-white/20 backdrop-blur rounded-full text-sm font-semibold mb-6">
+                🔥 Nouvelles sélections chaque semaine
             </span>
             <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-                15 Trouvailles Amazon<br>
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-orange-300">
-                    Qui Changent la Vie
-                </span>
+                Transformez Votre Espace<br>
+                <span class="text-yellow-300">Sans Vous Ruiner</span>
             </h1>
-            <p class="text-xl text-white/90 mb-8 max-w-2xl mx-auto leading-relaxed">
-                Bureau ergonomique, déco tendance, rangement malin & gadgets lifestyle. 
-                Sélectionnés parmi 10 000+ avis clients ⭐
+            <p class="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+                Mes tableaux Pinterest deviennent réalité. Découvrez les produits Amazon 
+                qui ont changé mon appartement étudiant en havre de paix stylé.
             </p>
-            
-            <!-- Stats -->
-            <div class="flex flex-wrap justify-center gap-8 mt-8 text-center">
-                <div>
-                    <div class="text-3xl font-bold">4.7★</div>
-                    <div class="text-sm text-white/80">Moyenne avis</div>
+            <div class="flex flex-wrap justify-center gap-4 text-sm">
+                <span class="px-4 py-2 bg-white/20 rounded-full">🇧🇪 Belgique</span>
+                <span class="px-4 py-2 bg-white/20 rounded-full">🇫🇷 France</span>
+                <span class="px-4 py-2 bg-white/20 rounded-full">Livraison Prime 24h</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- LIVING ROOM DECOR -->
+    <section id="living" class="py-12 px-4 max-w-7xl mx-auto">
+        <div class="flex items-center gap-3 mb-8">
+            <div class="w-12 h-12 bg-gradient-to-br from-rose-400 to-pink-600 rounded-xl flex items-center justify-center text-white text-2xl">🛋️</div>
+            <div>
+                <h2 class="text-3xl font-bold">Living Room Decor</h2>
+                <p class="text-gray-600">Votre salon, votre carte de visite</p>
+            </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Modern Living Room -->
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100">
+                <div class="relative h-64 bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
+                    <span class="text-gray-400 text-sm">modern-living-room.jpg</span>
+                    <div class="absolute top-3 left-3 bg-blue-500 text-white px-3 py-1 rounded-full text-xs font-bold">Moderne</div>
                 </div>
-                <div>
-                    <div class="text-3xl font-bold">-35%</div>
-                    <div class="text-sm text-white/80">Économie moyenne</div>
+                <div class="p-5">
+                    <h3 class="text-lg font-bold mb-2">Modern Beige Sofa</h3>
+                    <p class="text-gray-600 text-sm mb-4">Canapé beige élégant pour salons modernes. Design épuré, confort optimal.</p>
+                    <a href="https://www.amazon.fr/s?k=canape+beige+moderne+salon&ref=nb_sb_noss&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Shop Now →</a>
                 </div>
-                <div>
-                    <div class="text-3xl font-bold">24h</div>
-                    <div class="text-sm text-white/80">Livraison Prime</div>
+            </div>
+
+            <!-- Beige / Neutral -->
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100">
+                <div class="relative h-64 bg-gradient-to-br from-amber-50 to-orange-100 flex items-center justify-center">
+                    <span class="text-gray-400 text-sm">neutral-living-room.jpg</span>
+                    <div class="absolute top-3 left-3 bg-amber-500 text-white px-3 py-1 rounded-full text-xs font-bold">Neutre</div>
+                </div>
+                <div class="p-5">
+                    <h3 class="text-lg font-bold mb-2">Neutral Coffee Table</h3>
+                    <p class="text-gray-600 text-sm mb-4">Table basse minimaliste aux tons neutres. S'harmonise avec toutes les décorations.</p>
+                    <a href="https://www.amazon.fr/s?k=table+basse+minimaliste+neutre&ref=nb_sb_noss&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Shop Now →</a>
+                </div>
+            </div>
+
+            <!-- Luxury / Chic -->
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100">
+                <div class="relative h-64 bg-gradient-to-br from-yellow-100 to-yellow-200 flex items-center justify-center">
+                    <span class="text-gray-400 text-sm">luxury-living-room.jpg</span>
+                    <div class="absolute top-3 left-3 bg-yellow-600 text-white px-3 py-1 rounded-full text-xs font-bold">Luxe</div>
+                </div>
+                <div class="p-5">
+                    <h3 class="text-lg font-bold mb-2">Gold Wall Mirror</h3>
+                    <p class="text-gray-600 text-sm mb-4">Miroir mural chic avec cadre doré. Ajoute une touche de luxe instantanée.</p>
+                    <a href="https://www.amazon.fr/s?k=miroir+mural+dore+luxe&ref=nb_sb_noss&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Shop Now →</a>
+                </div>
+            </div>
+
+            <!-- Small Space -->
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100">
+                <div class="relative h-64 bg-gradient-to-br from-green-50 to-emerald-100 flex items-center justify-center">
+                    <span class="text-gray-400 text-sm">small-space-living.jpg</span>
+                    <div class="absolute top-3 left-3 bg-green-500 text-white px-3 py-1 rounded-full text-xs font-bold">Petit Espace</div>
+                </div>
+                <div class="p-5">
+                    <h3 class="text-lg font-bold mb-2">Foldable Side Table</h3>
+                    <p class="text-gray-600 text-sm mb-4">Table d'appoint pliable gain de place. Idéale pour les petits salons.</p>
+                    <a href="https://www.amazon.fr/s?k=table+appoint+pliable+gain+place&ref=nb_sb_noss&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Shop Now →</a>
+                </div>
+            </div>
+
+            <!-- Wall Decor -->
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100">
+                <div class="relative h-64 bg-gradient-to-br from-purple-50 to-pink-100 flex items-center justify-center">
+                    <span class="text-gray-400 text-sm">wall-decor-living.jpg</span>
+                    <div class="absolute top-3 left-3 bg-purple-500 text-white px-3 py-1 rounded-full text-xs font-bold">Mur</div>
+                </div>
+                <div class="p-5">
+                    <h3 class="text-lg font-bold mb-2">Decorative Wall Art</h3>
+                    <p class="text-gray-600 text-sm mb-4">Art mural stylé pour sublimer votre salon. Créez votre galerie personnelle.</p>
+                    <a href="https://www.amazon.fr/s?k=art+mural+deco+salon&ref=nb_sb_noss&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Shop Now →</a>
+                </div>
+            </div>
+
+            <!-- Minimalist -->
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100">
+                <div class="relative h-64 bg-gradient-to-br from-slate-100 to-gray-200 flex items-center justify-center">
+                    <span class="text-gray-400 text-sm">minimalist-living.jpg</span>
+                    <div class="absolute top-3 left-3 bg-slate-500 text-white px-3 py-1 rounded-full text-xs font-bold">Minimaliste</div>
+                </div>
+                <div class="p-5">
+                    <h3 class="text-lg font-bold mb-2">Minimalist Rug</h3>
+                    <p class="text-gray-600 text-sm mb-4">Tapis simple et élégant pour espaces modernes minimalistes. Pureté des lignes.</p>
+                    <a href="https://www.amazon.fr/s?k=tapis+minimaliste+moderne&ref=nb_sb_noss&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Shop Now →</a>
+                </div>
+            </div>
+
+            <!-- Cozy -->
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100">
+                <div class="relative h-64 bg-gradient-to-br from-orange-50 to-red-100 flex items-center justify-center">
+                    <span class="text-gray-400 text-sm">cozy-living.jpg</span>
+                    <div class="absolute top-3 left-3 bg-orange-500 text-white px-3 py-1 rounded-full text-xs font-bold">Cozy</div>
+                </div>
+                <div class="p-5">
+                    <h3 class="text-lg font-bold mb-2">Soft Throw Blanket</h3>
+                    <p class="text-gray-600 text-sm mb-4">Plaid doux et moelleux pour un salon chaleureux et accueillant. Hygge garanti.</p>
+                    <a href="https://www.amazon.fr/s?k=plaid+doux+moelleux+salon&ref=nb_sb_noss&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Shop Now →</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Filtres par catégorie -->
-    <section class="sticky-filter bg-white border-b border-gray-200 py-4 px-4 shadow-sm">
-        <div class="max-w-7xl mx-auto flex flex-wrap gap-3 justify-center">
-            <button onclick="filterProducts('all')" class="filter-btn active px-6 py-2 rounded-full bg-gray-100 text-gray-700 font-medium text-sm hover:bg-gray-200 transition">
-                Tout voir
-            </button>
-            <button onclick="filterProducts('bureau')" class="filter-btn px-6 py-2 rounded-full bg-gray-100 text-gray-700 font-medium text-sm hover:bg-gray-200 transition">
-                💼 Bureau & Télétravail
-            </button>
-            <button onclick="filterProducts('deco')" class="filter-btn px-6 py-2 rounded-full bg-gray-100 text-gray-700 font-medium text-sm hover:bg-gray-200 transition">
-                🏠 Déco Maison
-            </button>
-            <button onclick="filterProducts('rangement')" class="filter-btn px-6 py-2 rounded-full bg-gray-100 text-gray-700 font-medium text-sm hover:bg-gray-200 transition">
-                📦 Rangement Malin
-            </button>
-            <button onclick="filterProducts('lifestyle')" class="filter-btn px-6 py-2 rounded-full bg-gray-100 text-gray-700 font-medium text-sm hover:bg-gray-200 transition">
-                ⚡ Lifestyle & Tech
-            </button>
+    <!-- HOME DECOR IDEAS -->
+    <section id="home" class="py-12 px-4 max-w-7xl mx-auto bg-white">
+        <div class="flex items-center gap-3 mb-8">
+            <div class="w-12 h-12 bg-gradient-to-br from-teal-400 to-cyan-600 rounded-xl flex items-center justify-center text-white text-2xl">🏠</div>
+            <div>
+                <h2 class="text-3xl font-bold">Home Decor Ideas</h2>
+                <p class="text-gray-600">Toute la maison, toute l'année</p>
+            </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Modern Bedroom -->
+            <div class="product-card bg-gray-50 rounded-2xl overflow-hidden shadow-lg border border-gray-200">
+                <div class="relative h-64 bg-gradient-to-br from-indigo-100 to-purple-200 flex items-center justify-center">
+                    <span class="text-gray-400 text-sm">modern-bedroom.jpg</span>
+                    <div class="absolute top-3 left-3 bg-indigo-500 text-white px-3 py-1 rounded-full text-xs font-bold">Chambre</div>
+                </div>
+                <div class="p-5">
+                    <h3 class="text-lg font-bold mb-2">Bedside Lamp</h3>
+                    <p class="text-gray-600 text-sm mb-4">Lampe de chevet élégante pour chambre moderne. Lumière douce et design.</p>
+                    <a href="https://www.amazon.fr/s?k=lampe+chevet+moderne+elegante&ref=nb_sb_noss&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Shop Now →</a>
+                </div>
+            </div>
+
+            <!-- Minimalist Home -->
+            <div class="product-card bg-gray-50 rounded-2xl overflow-hidden shadow-lg border border-gray-200">
+                <div class="relative h-64 bg-gradient-to-br from-stone-100 to-stone-300 flex items-center justify-center">
+                    <span class="text-gray-400 text-sm">minimalist-home.jpg</span>
+                    <div class="absolute top-3 left-3 bg-stone-500 text-white px-3 py-1 rounded-full text-xs font-bold">Minimaliste</div>
+                </div>
+                <div class="p-5">
+                    <h3 class="text-lg font-bold mb-2">Minimalist Shelf</h3>
+                    <p class="text-gray-600 text-sm mb-4">Étagère lignes épurées pour style minimaliste. Fonctionnalité discrète.</p>
+                    <a href="https://www.amazon.fr/s?k=etagere+minimaliste+lignes+epurees&ref=nb_sb_noss&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Shop Now →</a>
+                </div>
+            </div>
+
+            <!-- Small Space -->
+            <div class="product-card bg-gray-50 rounded-2xl overflow-hidden shadow-lg border border-gray-200">
+                <div class="relative h-64 bg-gradient-to-br from-emerald-50 to-teal-100 flex items-center justify-center">
+                    <span class="text-gray-400 text-sm">small-space-home.jpg</span>
+                    <div class="absolute top-3 left-3 bg-emerald-500 text-white px-3 py-1 rounded-full text-xs font-bold">Petit Espace</div>
+                </div>
+                <div class="p-5">
+                    <h3 class="text-lg font-bold mb-2">Space-saving Chair</h3>
+                    <p class="text-gray-600 text-sm mb-4">Chaise compacte idéale pour petits appartements. Confort sans encombrement.</p>
+                    <a href="https://www.amazon.fr/s?k=chaise+compacte+petit+appartement&ref=nb_sb_noss&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Shop Now →</a>
+                </div>
+            </div>
+
+            <!-- Luxury Home -->
+            <div class="product-card bg-gray-50 rounded-2xl overflow-hidden shadow-lg border border-gray-200">
+                <div class="relative h-64 bg-gradient-to-br from-amber-100 to-yellow-200 flex items-center justify-center">
+                    <span class="text-gray-400 text-sm">luxury-home.jpg</span>
+                    <div class="absolute top-3 left-3 bg-amber-600 text-white px-3 py-1 rounded-full text-xs font-bold">Luxe</div>
+                </div>
+                <div class="p-5">
+                    <h3 class="text-lg font-bold mb-2">Luxury Vase</h3>
+                    <p class="text-gray-600 text-sm mb-4">Vase élégant pour touche sophistiquée. L'accessoire qui change tout.</p>
+                    <a href="https://www.amazon.fr/s?k=vase+elegant+luxe+sophistique&ref=nb_sb_noss&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Shop Now →</a>
+                </div>
+            </div>
+
+            <!-- Indoor Plants -->
+            <div class="product-card bg-gray-50 rounded-2xl overflow-hidden shadow-lg border border-gray-200">
+                <div class="relative h-64 bg-gradient-to-br from-green-100 to-emerald-200 flex items-center justify-center">
+                    <span class="text-gray-400 text-sm">indoor-plants.jpg</span>
+                    <div class="absolute top-3 left-3 bg-green-600 text-white px-3 py-1 rounded-full text-xs font-bold">Plantes</div>
+                </div>
+                <div class="p-5">
+                    <h3 class="text-lg font-bold mb-2">Vertical Plant Stand</h3>
+                    <p class="text-gray-600 text-sm mb-4">Support vertical moderne pour plantes d'intérieur. Jungle urbaine optimisée.</p>
+                    <a href="https://www.amazon.fr/s?k=support+vertical+plantes+interieur&ref=nb_sb_noss&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Shop Now →</a>
+                </div>
+            </div>
+
+            <!-- Wall Decoration -->
+            <div class="product-card bg-gray-50 rounded-2xl overflow-hidden shadow-lg border border-gray-200">
+                <div class="relative h-64 bg-gradient-to-br from-pink-100 to-rose-200 flex items-center justify-center">
+                    <span class="text-gray-400 text-sm">wall-decoration.jpg</span>
+                    <div class="absolute top-3 left-3 bg-pink-500 text-white px-3 py-1 rounded-full text-xs font-bold">Murs</div>
+                </div>
+                <div class="p-5">
+                    <h3 class="text-lg font-bold mb-2">Wall-mounted Shelf</h3>
+                    <p class="text-gray-600 text-sm mb-4">Étagère murale stylée pour décorer efficacement. Verticalité intelligente.</p>
+                    <a href="https://www.amazon.fr/s?k=etagere+murale+stylee+deco&ref=nb_sb_noss&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Shop Now →</a>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Grille de produits Masonry -->
-    <section class="py-12 px-4 max-w-7xl mx-auto">
-        <div class="masonry-grid" id="productGrid">
+    <!-- STUDENT GADGETS -->
+    <section id="student" class="py-12 px-4 max-w-7xl mx-auto bg-gradient-to-br from-blue-50 to-indigo-100">
+        <div class="flex items-center gap-3 mb-8">
+            <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center text-white text-2xl">🎓</div>
+            <div>
+                <h2 class="text-3xl font-bold">Student Gadgets</h2>
+                <p class="text-gray-600">Réussir ses études avec style</p>
+            </div>
+        </div>
 
-            <!-- PRODUIT 1: Support ordinateur portable -->
-            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100" data-category="bureau">
-                <div class="relative">
-                    <img src="https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=600&h=900&fit=crop" 
-                         alt="Support ordinateur réglable aluminium" 
-                         class="w-full h-auto object-cover">
-                    <div class="absolute top-3 left-3 category-badge text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg">
-                        💼 Bureau
-                    </div>
-                    <div class="absolute top-3 right-3 savings-badge text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg">
-                        -40%
-                    </div>
-                    <div class="absolute bottom-3 right-3 price-tag px-3 py-2 rounded-xl shadow-lg">
-                        <span class="text-2xl font-bold text-gray-900">29,99€</span>
-                        <span class="text-sm text-gray-500 line-through ml-1">49,99€</span>
-                    </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Must-have -->
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100">
+                <div class="relative h-64 bg-gradient-to-br from-blue-100 to-cyan-200 flex items-center justify-center">
+                    <span class="text-gray-400 text-sm">student-gadgets.jpg</span>
+                    <div class="absolute top-3 left-3 bg-blue-600 text-white px-3 py-1 rounded-full text-xs font-bold">Indispensable</div>
                 </div>
                 <div class="p-5">
-                    <div class="flex items-center gap-1 mb-2">
-                        <span class="text-yellow-400">★★★★★</span>
-                        <span class="text-sm text-gray-600">(4.8 · 12,847 avis)</span>
-                    </div>
-                    <h3 class="text-lg font-bold mb-2 leading-tight">Support PC Portable Ergonomique : Fini le Mal de Dos</h3>
-                    <p class="text-gray-600 text-sm mb-4 leading-relaxed">
-                        Aluminium ajustable 7 niveaux. Ventilation optimale, compatible MacBook & PC 10-17". 
-                        Télétravail confortable garanti.
-                    </p>
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="px-2 py-1 bg-gray-100 text-xs rounded-md text-gray-600">#ergonomie</span>
-                        <span class="px-2 py-1 bg-gray-100 text-xs rounded-md text-gray-600">#teletravail</span>
-                        <span class="px-2 py-1 bg-gray-100 text-xs rounded-md text-gray-600">#bureau</span>
-                    </div>
-                    <a href="https://www.amazon.fr/s?k=support+ordinateur+portable+ergonomique+aluminium&ref=nb_sb_noss&tag=breezy01-21" 
-                       class="amazon-btn block w-full text-center text-white font-bold py-3.5 rounded-xl shadow-lg text-sm uppercase tracking-wide">
-                        Voir sur Amazon →
-                    </a>
+                    <h3 class="text-lg font-bold mb-2">Laptop Cooling Pad</h3>
+                    <p class="text-gray-600 text-sm mb-4">Refroidisseur PC portable pour longues sessions d'étude. Performance optimale.</p>
+                    <a href="https://www.amazon.fr/s?k=refroidisseur+pc+portable+etudiant&ref=nb_sb_noss&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Shop Now →</a>
                 </div>
             </div>
 
-            <!-- PRODUIT 2: Lampe de bureau LED -->
-            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100" data-category="bureau">
-                <div class="relative">
-                    <img src="https://images.unsplash.com/photo-1534073828943-f801091a7d58?w=600&h=900&fit=crop" 
-                         alt="Lampe de bureau LED moderne avec chargeur" 
-                         class="w-full h-auto object-cover">
-                    <div class="absolute top-3 left-3 category-badge text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg">
-                        💼 Bureau
-                    </div>
-                    <div class="absolute top-3 right-3 bg-blue-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg">
-                        BEST SELLER
-                    </div>
-                    <div class="absolute bottom-3 right-3 price-tag px-3 py-2 rounded-xl shadow-lg">
-                        <span class="text-2xl font-bold text-gray-900">34,90€</span>
-                    </div>
+            <!-- Productivity -->
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100">
+                <div class="relative h-64 bg-gradient-to-br from-green-100 to-emerald-200 flex items-center justify-center">
+                    <span class="text-gray-400 text-sm">productivity-gadgets.jpg</span>
+                    <div class="absolute top-3 left-3 bg-green-600 text-white px-3 py-1 rounded-full text-xs font-bold">Productivité</div>
                 </div>
                 <div class="p-5">
-                    <div class="flex items-center gap-1 mb-2">
-                        <span class="text-yellow-400">★★★★★</span>
-                        <span class="text-sm text-gray-600">(4.9 · 8,234 avis)</span>
-                    </div>
-                    <h3 class="text-lg font-bold mb-2 leading-tight">Lampe Bureau LED 5 Couleurs + Chargeur Sans Fil Intégré</h3>
-                    <p class="text-gray-600 text-sm mb-4 leading-relaxed">
-                        Lumière du jour réglable protège vos yeux. Bras articulé 360°. 
-                        Charge votre smartphone pendant le travail. Design moderne scandinave.
-                    </p>
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="px-2 py-1 bg-gray-100 text-xs rounded-md text-gray-600">#lampeLED</span>
-                        <span class="px-2 py-1 bg-gray-100 text-xs rounded-md text-gray-600">#chargeur</span>
-                        <span class="px-2 py-1 bg-gray-100 text-xs rounded-md text-gray-600">#bureau</span>
-                    </div>
-                    <a href="https://www.amazon.fr/s?k=lampe+bureau+led+chargeur+sans+fil&ref=nb_sb_noss&tag=breezy01-21" 
-                       class="amazon-btn block w-full text-center text-white font-bold py-3.5 rounded-xl shadow-lg text-sm uppercase tracking-wide">
-                        Voir sur Amazon →
-                    </a>
+                    <h3 class="text-lg font-bold mb-2">Desk Organizer</h3>
+                    <p class="text-gray-600 text-sm mb-4">Organiseur bureau pour productivité maximale. Chaque stylo a sa place.</p>
+                    <a href="https://www.amazon.fr/s?k=organiseur+bureau+productivite&ref=nb_sb_noss&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Shop Now →</a>
                 </div>
             </div>
 
-            <!-- PRODUIT 3: Organisateur de bureau -->
-            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100" data-category="bureau">
-                <div class="relative">
-                    <img src="https://images.unsplash.com/photo-1544816155-12df9643f363?w=600&h=800&fit=crop" 
-                         alt="Organisateur bureau bois bambou tiroirs" 
-                         class="w-full h-auto object-cover">
-                    <div class="absolute top-3 left-3 category-badge text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg">
-                        💼 Bureau
-                    </div>
-                    <div class="absolute bottom-3 right-3 price-tag px-3 py-2 rounded-xl shadow-lg">
-                        <span class="text-2xl font-bold text-gray-900">24,99€</span>
-                        <span class="text-sm text-gray-500 line-through ml-1">39,99€</span>
-                    </div>
+            <!-- University Tech -->
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100">
+                <div class="relative h-64 bg-gradient-to-br from-purple-100 to-violet-200 flex items-center justify-center">
+                    <span class="text-gray-400 text-sm">university-tech.jpg</span>
+                    <div class="absolute top-3 left-3 bg-purple-600 text-white px-3 py-1 rounded-full text-xs font-bold">Tech</div>
                 </div>
                 <div class="p-5">
-                    <div class="flex items-center gap-1 mb-2">
-                        <span class="text-yellow-400">★★★★☆</span>
-                        <span class="text-sm text-gray-600">(4.6 · 5,123 avis)</span>
-                    </div>
-                    <h3 class="text-lg font-bold mb-2 leading-tight">Organisateur Bureau Bambou : Fini le Fouillis</h3>
-                    <p class="text-gray-600 text-sm mb-4 leading-relaxed">
-                        4 tiroirs + compartiments stylos. Bois durable éco-responsable. 
-                        Montage 2 minutes. Transforme votre bureau en espace zen.
-                    </p>
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="px-2 py-1 bg-gray-100 text-xs rounded-md text-gray-600">#rangement</span>
-                        <span class="px-2 py-1 bg-gray-100 text-xs rounded-md text-gray-600">#bambou</span>
-                        <span class="px-2 py-1 bg-gray-100 text-xs rounded-md text-gray-600">#organisation</span>
-                    </div>
-                    <a href="https://www.amazon.fr/s?k=organisateur+bureau+bambou+tiroirs&ref=nb_sb_noss&tag=breezy01-21" 
-                       class="amazon-btn block w-full text-center text-white font-bold py-3.5 rounded-xl shadow-lg text-sm uppercase tracking-wide">
-                        Voir sur Amazon →
-                    </a>
+                    <h3 class="text-lg font-bold mb-2">Wireless Mouse</h3>
+                    <p class="text-gray-600 text-sm mb-4">Souris sans fil précise et fluide pour étudiants. Liberté de mouvement.</p>
+                    <a href="https://www.amazon.fr/s?k=souris+sans+fil+etudiant+precise&ref=nb_sb_noss&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Shop Now →</a>
                 </div>
             </div>
 
-            <!-- PRODUIT 4: Plante artificielle moderne -->
-            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100" data-category="deco">
-                <div class="relative">
-                    <img src="https://images.unsplash.com/photo-1485955900006-10f4d324d411?w=600&h=900&fit=crop" 
-                         alt="Plante artificielle monstera pot ciment moderne" 
-                         class="w-full h-auto object-cover">
-                    <div class="absolute top-3 left-3 bg-gradient-to-r from-pink-500 to-rose-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg">
-                        🏠 Déco
-                    </div>
-                    <div class="absolute top-3 right-3 bg-purple-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg">
-                        TENDANCE 2024
-                    </div>
-                    <div class="absolute bottom-3 right-3 price-tag px-3 py-2 rounded-xl shadow-lg">
-                        <span class="text-2xl font-bold text-gray-900">19,99€</span>
-                    </div>
+            <!-- Affordable -->
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100">
+                <div class="relative h-64 bg-gradient-to-br from-yellow-100 to-orange-200 flex items-center justify-center">
+                    <span class="text-gray-400 text-sm">affordable-gadgets.jpg</span>
+                    <div class="absolute top-3 left-3 bg-yellow-600 text-white px-3 py-1 rounded-full text-xs font-bold">Pas Cher</div>
                 </div>
                 <div class="p-5">
-                    <div class="flex items-center gap-1 mb-2">
-                        <span class="text-yellow-400">★★★★★</span>
-                        <span class="text-sm text-gray-600">(4.7 · 15,432 avis)</span>
-                    </div>
-                    <h3 class="text-lg font-bold mb-2 leading-tight">Plante Artificielle Monstera Réaliste + Pot Ciment</h3>
-                    <p class="text-gray-600 text-sm mb-4 leading-relaxed">
-                        Aspect naturel garanti, feuilles texturées. 60cm de haut. 
-                        Zero entretien, zero arrosage. Style jungle urbaine très tendance.
-                    </p>
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="px-2 py-1 bg-gray-100 text-xs rounded-md text-gray-600">#plante</span>
-                        <span class="px-2 py-1 bg-gray-100 text-xs rounded-md text-gray-600">#deco</span>
-                        <span class="px-2 py-1 bg-gray-100 text-xs rounded-md text-gray-600">#monstera</span>
-                    </div>
-                    <a href="https://www.amazon.fr/s?k=plante+artificielle+monstera+pot+ciment&ref=nb_sb_noss&tag=breezy01-21" 
-                       class="amazon-btn block w-full text-center text-white font-bold py-3.5 rounded-xl shadow-lg text-sm uppercase tracking-wide">
-                        Voir sur Amazon →
-                    </a>
+                    <h3 class="text-lg font-bold mb-2">Notebook Set</h3>
+                    <p class="text-gray-600 text-sm mb-4">Lot de carnets prise de notes et étude. Qualité prix imbattable.</p>
+                    <a href="https://www.amazon.fr/s?k=lot+carnets+etude+prise+notes&ref=nb_sb_noss&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Shop Now →</a>
                 </div>
             </div>
 
-            <!-- PRODUIT 5: Étagère murale modulable -->
-            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100" data-category="rangement">
-                <div class="relative">
-                    <img src="https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=600&h=800&fit=crop" 
-                         alt="Étagère murale hexagonale modulable bois" 
-                         class="w-full h-auto object-cover">
-                    <div class="absolute top-3 left-3 bg-gradient-to-r from-teal-500 to-cyan-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg">
-                        📦 Rangement
-                    </div>
-                    <div class="absolute top-3 right-3 savings-badge text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg">
-                        -30%
-                    </div>
-                    <div class="absolute bottom-3 right-3 price-tag px-3 py-2 rounded-xl shadow-lg">
-                        <span class="text-2xl font-bold text-gray-900">32,90€</span>
-                        <span class="text-sm text-gray-500 line-through ml-1">46,99€</span>
-                    </div>
+            <!-- Useful Tech -->
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100">
+                <div class="relative h-64 bg-gradient-to-br from-red-100 to-rose-200 flex items-center justify-center">
+                    <span class="text-gray-400 text-sm">useful-tech.jpg</span>
+                    <div class="absolute top-3 left-3 bg-red-600 text-white px-3 py-1 rounded-full text-xs font-bold">Utile</div>
                 </div>
                 <div class="p-5">
-                    <div class="flex items-center gap-1 mb-2">
-                        <span class="text-yellow-400">★★★★★</span>
-                        <span class="text-sm text-gray-600">(4.8 · 9,876 avis)</span>
-                    </div>
-                    <h3 class="text-lg font-bold mb-2 leading-tight">Étagères Hexagonales Modulables : Gain de Place Design</h3>
-                    <p class="text-gray-600 text-sm mb-4 leading-relaxed">
-                        Lot de 6 hexagones bois massif. Configuration infinie selon votre mur. 
-                        Parfait pour petits appartements, livres, plantes, déco.
-                    </p>
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="px-2 py-1 bg-gray-100 text-xs rounded-md text-gray-600">#etagere</span>
-                        <span class="px-2 py-1 bg-gray-100 text-xs rounded-md text-gray-600">#modulable</span>
-                        <span class="px-2 py-1 bg-gray-100 text-xs rounded-md text-gray-600">#petitappart</span>
-                    </div>
-                    <a href="https://www.amazon.fr/s?k=etagere+hexagonale+modulable+bois&ref=nb_sb_noss&tag=breezy01-21" 
-                       class="amazon-btn block w-full text-center text-white font-bold py-3.5 rounded-xl shadow-lg text-sm uppercase tracking-wide">
-                        Voir sur Amazon →
-                    </a>
+                    <h3 class="text-lg font-bold mb-2">LED Desk Lamp</h3>
+                    <p class="text-gray-600 text-sm mb-4">Lampe bureau LED ajustable pour sessions concentrées. Lumière protectrice.</p>
+                    <a href="https://www.amazon.fr/s?k=lampe+bureau+led+ajustable+etude&ref=nb_sb_noss&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Shop Now →</a>
                 </div>
             </div>
-
-            <!-- PRODUIT 6: Écouteurs sans fil étudiants -->
-            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100" data-category="lifestyle">
-                <div class="relative">
-                    <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600&h=800&fit=crop" 
-                         alt="Écouteurs sans fil bluetooth qualité prix étudiants" 
-                         class="w-full h-auto object-cover">
-                    <div class="absolute top-3 left-3 bg-gradient-to-r from-yellow-500 to-orange-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg">
-                        ⚡ Lifestyle
-                    </div>
-                    <div class="absolute top-3 right-3 bg-red-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg">
-                        TOP ÉTUDIANTS
-                    </div>
-                    <div class="absolute bottom-3 right-3 price-tag px-3 py-2 rounded-xl shadow-lg">
-                        <span class="text-2xl font-bold text-gray-900">27,99€</span>
-                    </div>
-                </div>
-                <div class="p-5">
-                    <div class="flex items-center gap-1 mb-2">
-                        <span class="text-yellow-400">★★★★☆</span>
-                        <span class="text-sm text-gray-600">(4.5 · 22,567 avis)</span>
-                    </div>
-                    <h3 class="text-lg font-bold mb-2 leading-tight">Écouteurs Sans Fil 40h d'Autonomie • Son Premium Pas Cher</h3>
-                    <p class="text-gray-600 text-sm mb-4 leading-relaxed">
-                        Réduction bruit active, basses puissantes. Parfait pour cours en ligne, 
-                        sport, déplacements. Qualité Apple/Samsung à 1/4 du prix.
-                    </p>
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="px-2 py-1 bg-gray-100 text-xs rounded-md text-gray-600">#ecouteurs</span>
-                        <span class="px-2 py-1 bg-gray-100 text-xs rounded-md text-gray-600">#bluetooth</span>
-                        <span class="px-2 py-1 bg-gray-100 text-xs rounded-md text-gray-600">#etudiant</span>
-                    </div>
-                    <a href="https://www.amazon.fr/s?k=ecouteurs+sans+fil+bluetooth+autonomie+40h&ref=nb_sb_noss&tag=breezy01-21" 
-                       class="amazon-btn block w-full text-center text-white font-bold py-3.5 rounded-xl shadow-lg text-sm uppercase tracking-wide">
-                        Voir sur Amazon →
-                    </a>
-                </div>
-            </div>
-
-            <!-- PRODUIT 7: Boîtes de rangement tissu -->
-            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100" data-category="rangement">
-                <div class="relative">
-                    <img src="https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=600&h=800&fit=crop" 
-                         alt="Boîtes rangement tissu pliables lot dressing" 
-                         class="w-full h-auto object-cover">
-                    <div class="absolute top-3 left-3 bg-gradient-to-r from-teal-500 to-cyan-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg">
-                        📦 Rangement
-                    </div>
-                    <div class="absolute bottom-3 right-3 price-tag px-3 py-2 rounded-xl shadow-lg">
-                        <span class="text-2xl font-bold text-gray-900">18,99€</span>
-                        <span class="text-sm text-gray-500 line-through ml-1">29,99€</span>
-                    </div>
-                </div>
-                <div class="p-5">
-                    <div class="flex items-center gap-1 mb-2">
-                        <span class="text-yellow-400">★★★★★</span>
-                        <span class="text-sm text-gray-600">(4.7 · 18,234 avis)</span>
-                    </div>
-                    <h3 class="text-lg font-bold mb-2 leading-tight">Lot 6 Boîtes Rangement Tissu : Doublez Votre Espace Dressing</h3>
-                    <p class="text-gray-600 text-sm mb-4 leading-relaxed">
-                        Pliables, poignées renforcées, fenêtre transparente. 
-                        Transforme n'importe quelle étagère en rangement optimisé. 
-                        Gain de place immédiat.
-                    </p>
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="px-2 py-1 bg-gray-100 text-xs rounded-md text-gray-600">#boites</span>
-                        <span class="px-2 py-1 bg-gray-100 text-xs rounded-md text-gray-600">#dressing</span>
-                        <span class="px-2 py-1 bg-gray-100 text-xs rounded-md text-gray-600">#organisation</span>
-                    </div>
-                    <a href="https://www.amazon.fr/s?k=boites+rangement+tissu+pliables+lot+6&ref=nb_sb_noss&tag=breezy01-21" 
-                       class="amazon-btn block w-full text-center text-white font-bold py-3.5 rounded-xl shadow-lg text-sm uppercase tracking-wide">
-                        Voir sur Amazon →
-                    </a>
-                </div>
-            </div>
-
-            <!-- PRODUIT 8: Coussins décoratifs velours -->
-            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100" data-category="deco">
-                <div class="relative">
-                    <img src="https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?w=600&h=900&fit=crop" 
-                         alt="Coussins velours lot couleurs tendance déco canapé" 
-                         class="w-full h-auto object-cover">
-                    <div class="absolute top-3 left-3 bg-gradient-to-r from-pink-500 to-rose-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg">
-                        🏠 Déco
-                    </div>
-                    <div class="absolute top-3 right-3 bg-orange-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg">
-                        LOT DE 4
-                    </div>
-                    <div class="absolute bottom-3 right-3 price-tag px-3 py-2 rounded-xl shadow-lg">
-                        <span class="text-2xl font-bold text-gray-900">22,90€</span>
-                    </div>
-                </div>
-                <div class="p-5">
-                    <div class="flex items-center gap-1 mb-2">
-                        <span class="text-yellow-400">★★★★★</span>
-                        <span class="text-sm text-gray-600">(4.9 · 11,345 avis)</span>
-                    </div>
-                    <h3 class="text-lg font-bold mb-2 leading-tight">Lot 4 Coussins Velours : Transforme Votre Canapé en 2 Minutes</h3>
-                    <p class="text-gray-600 text-sm mb-4 leading-relaxed">
-                        45x45cm, velours doux luxe, couleurs tendance 2024 (sauge, terracotta, beige). 
-                        Housse lavable, rembourrage inclus. Effet hôtel 5 étoiles.
-                    </p>
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="px-2 py-1 bg-gray-100 text-xs rounded-md text-gray-600">#coussins</span>
-                        <span class="px-2 py-1 bg-gray-100 text-xs rounded-md text-gray-600">#velours</span>
-                        <span class="px-2 py-1 bg-gray-100 text-xs rounded-md text-gray-600">#canape</span>
-                    </div>
-                    <a href="https://www.amazon.fr/s?k=coussins+velours+lot+4+45x45&ref=nb_sb_noss&tag=breezy01-21" 
-                       class="amazon-btn block w-full text-center text-white font-bold py-3.5 rounded-xl shadow-lg text-sm uppercase tracking-wide">
-                        Voir sur Amazon →
-                    </a>
-                </div>
-            </div>
-
-            <!-- PRODUIT 9: Chargeur multi-USB -->
-            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100" data-category="lifestyle">
-                <div class="relative">
-                    <img src="https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=600&h=800&fit=crop" 
-                         alt="Chargeur multi USB rapide 6 ports bureau" 
-                         class="w-full h-auto object-cover">
-                    <div class="absolute top-3 left-3 bg-gradient-to-r from-yellow-500 to-orange-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg">
-                        ⚡ Lifestyle
-                    </div>
-                    <div class="absolute top-3 right-3 bg-blue-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg">
-                        INDISPENSABLE
-                    </div>
-                    <div class="absolute bottom-3 right-3 price-tag px-3 py-2 rounded-xl shadow-lg">
-                        <span class="text-2xl font-bold text-gray-900">19,99€</span>
-                    </div>
-                </div>
-                <div class="p-5">
-                    <div class="flex items-center gap-1 mb-2">
-                        <span class="text-yellow-400">★★★★☆</span>
-                        <span class="text-sm text-gray-600">(4.6 · 7,892 avis)</span>
-                    </div>
-                    <h3 class="text-lg font-bold mb-2 leading-tight">Station Charge Rapide 6 Ports : Fini les Prises en Comédie</h3>
-                    <p class="text-gray-600 text-sm mb-4 leading-relaxed">
-                        Charge iPhone, Android, tablette, écouteurs simultanément. 
-                        Technologie Quick Charge 3.0. Design compact pour bureau ou table de nuit.
-                    </p>
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="px-2 py-1 bg-gray-100 text-xs rounded-md text-gray-600">#chargeur</span>
-                        <span class="px-2 py-1 bg-gray-100 text-xs rounded-md text-gray-600">#USB</span>
-                        <span class="px-2 py-1 bg-gray-100 text-xs rounded-md text-gray-600">#multiprise</span>
-                    </div>
-                    <a href="https://www.amazon.fr/s?k=station+charge+rapide+6+ports+usb&ref=nb_sb_noss&tag=breezy01-21" 
-                       class="amazon-btn block w-full text-center text-white font-bold py-3.5 rounded-xl shadow-lg text-sm uppercase tracking-wide">
-                        Voir sur Amazon →
-                    </a>
-                </div>
-            </div>
-
-            <!-- PRODUIT 10: Miroir LED maquillage -->
-            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100" data-category="lifestyle">
-                <div class="relative">
-                    <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=600&h=900&fit=crop" 
-                         alt="Miroir LED maquillage grossissant tactile salle de bain" 
-                         class="w-full h-auto object-cover">
-                    <div class="absolute top-3 left-3 bg-gradient-to-r from-yellow-500 to-orange-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg">
-                        ⚡ Lifestyle
-                    </div>
-                    <div class="absolute top-3 right-3 bg-pink-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg">
-                        CADEAU TOP
-                    </div>
-                    <div class="absolute bottom-3 right-3 price-tag px-3 py-2 rounded-xl shadow-lg">
-                        <span class="text-2xl font-bold text-gray-900">26,90€</span>
-                        <span class="text-sm text-gray-500 line-through ml-1">39,99€</span>
-                    </div>
-                </div>
-                <div class="p-5">
-                    <div class="flex items-center gap-1 mb-2">
-                        <span class="text-yellow-400">★★★★★</span>
-                        <span class="text-sm text-gray-600">(4.8 · 14,567 avis)</span>
-                    </div>
-                    <h3 class="text-lg font-bold mb-2 leading-tight">Miroir Maquillage LED Tactile : Lumière Pro dans Votre Salle de Bain</h3>
-                    <p class="text-gray-600 text-sm mb-4 leading-relaxed">
-                        3 modes lumière (jour/soir/bureau), grossissant 10x aimanté. 
-                        Rotation 180°, base anti-dérapante. Maquillage parfait garanti.
-                    </p>
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="px-2 py-1 bg-gray-100 text-xs rounded-md text-gray-600">#miroir</span>
-                        <span class="px-2 py-1 bg-gray-100 text-xs rounded-md text-gray-600">#LED</span>
-                        <span class="px-2 py-1 bg-gray-100 text-xs rounded-md text-gray-600">#maquillage</span>
-                    </div>
-                    <a href="https://www.amazon.fr/s?k=miroir+maquillage+led+tactile+grossissant&ref=nb_sb_noss&tag=breezy01-21" 
-                       class="amazon-btn block w-full text-center text-white font-bold py-3.5 rounded-xl shadow-lg text-sm uppercase tracking-wide">
-                        Voir sur Amazon →
-                    </a>
-                </div>
-            </div>
-
-            <!-- PRODUIT 11: Repose-pieds bureau -->
-            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100" data-category="bureau">
-                <div class="relative">
-                    <img src="https://images.unsplash.com/photo-1505843490538-5133c6c7d0e1?w=600&h=800&fit=crop" 
-                         alt="Repose pieds bureau ergonomique réglable mousse mémoire" 
-                         class="w-full h-auto object-cover">
-                    <div class="absolute top-3 left-3 category-badge text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg">
-                        💼 Bureau
-                    </div>
-                    <div class="absolute top-3 right-3 savings-badge text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg">
-                        -25%
-                    </div>
-                    <div class="absolute bottom-3 right-3 price-tag px-3 py-2 rounded-xl shadow-lg">
-                        <span class="text-2xl font-bold text-gray-900">21,99€</span>
-                        <span class="text-sm text-gray-500 line-through ml-1">28,99€</span>
-                    </div>
-                </div>
-                <div class="p-5">
-                    <div class="flex items-center gap-1 mb-2">
-                        <span class="text-yellow-400">★★★★★</span>
-                        <span class="text-sm text-gray-600">(4.7 · 6,543 avis)</span>
-                    </div>
-                    <h3 class="text-lg font-bold mb-2 leading-tight">Repose-Pieds Bureau Ergonomique : Adieu Jambes Lourdes</h3>
-                    <p class="text-gray-600 text-sm mb-4 leading-relaxed">
-                        Hauteur réglable 3 positions, mousse mémoire de forme. 
-                        Améliore circulation sanguine, posture parfaite. Indispensable télétravail.
-                    </p>
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="px-2 py-1 bg-gray-100 text-xs rounded-md text-gray-600">#ergonomie</span>
-                        <span class="px-2 py-1 bg-gray-100 text-xs rounded-md text-gray-600">#confort</span>
-                        <span class="px-2 py-1 bg-gray-100 text-xs rounded-md text-gray-600">#bureau</span>
-                    </div>
-                    <a href="https://www.amazon.fr/s?k=repose+pieds+bureau+ergonomique+reglable&ref=nb_sb_noss&tag=breezy01-21" 
-                       class="amazon-btn block w-full text-center text-white font-bold py-3.5 rounded-xl shadow-lg text-sm uppercase tracking-wide">
-                        Voir sur Amazon →
-                    </a>
-                </div>
-            </div>
-
-            <!-- PRODUIT 12: Cadre photo collage -->
-            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100" data-category="deco">
-                <div class="relative">
-                    <img src="https://images.unsplash.com/photo-1513519245088-0e12902e35a6?w=600&h=800&fit=crop" 
-                         alt="Cadre photo collage mural multiple photos déco" 
-                         class="w-full h-auto object-cover">
-                    <div class="absolute top-3 left-3 bg-gradient-to-r from-pink-500 to-rose-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg">
-                        🏠 Déco
-                    </div>
-                    <div class="absolute top-3 right-3 bg-green-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg">
-                        12 PHOTOS
-                    </div>
-                    <div class="absolute bottom-3 right-3 price-tag px-3 py-2 rounded-xl shadow-lg">
-                        <span class="text-2xl font-bold text-gray-900">16,99€</span>
-                    </div>
-                </div>
-                <div class="p-5">
-                    <div class="flex items-center gap-1 mb-2">
-                        <span class="text-yellow-400">★★★★☆</span>
-                        <span class="text-sm text-gray-600">(4.5 · 8,901 avis)</span>
-                    </div>
-                    <h3 class="text-lg font-bold mb-2 leading-tight">Cadre Photo Collage Mural : Vos Souvenirs en Galerie Personnelle</h3>
-                    <p class="text-gray-600 text-sm mb-4 leading-relaxed">
-                        12 ouvertures formats mixtes, noir mat élégant. 
-                        Transforme n'importe quel mur en expo photo Instagram-worthy. 
-                        Idéal salon, couloir, chambre.
-                    </p>
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="px-2 py-1 bg-gray-100 text-xs rounded-md text-gray-600">#cadre</span>
-                        <span class="px-2 py-1 bg-gray-100 text-xs rounded-md text-gray-600">#photo</span>
-                        <span class="px-2 py-1 bg-gray-100 text-xs rounded-md text-gray-600">#decomurale</span>
-                    </div>
-                    <a href="https://www.amazon.fr/s?k=cadre+photo+collage+mural+12+photos&ref=nb_sb_noss&tag=breezy01-21" 
-                       class="amazon-btn block w-full text-center text-white font-bold py-3.5 rounded-xl shadow-lg text-sm uppercase tracking-wide">
-                        Voir sur Amazon →
-                    </a>
-                </div>
-            </div>
-
-            <!-- PRODUIT 13: Couteau cuisine multifonction -->
-            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100" data-category="lifestyle">
-                <div class="relative">
-                    <img src="https://images.unsplash.com/photo-1593618998160-cf42684bc65d?w=600&h=800&fit=crop" 
-                         alt="Couteau cuisine multifonction 7 en 1 gadget cuisine" 
-                         class="w-full h-auto object-cover">
-                    <div class="absolute top-3 left-3 bg-gradient-to-r from-yellow-500 to-orange-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg">
-                        ⚡ Lifestyle
-                    </div>
-                    <div class="absolute top-3 right-3 bg-red-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg">
-                        7 EN 1
-                    </div>
-                    <div class="absolute bottom-3 right-3 price-tag px-3 py-2 rounded-xl shadow-lg">
-                        <span class="text-2xl font-bold text-gray-900">14,99€</span>
-                        <span class="text-sm text-gray-500 line-through ml-1">24,99€</span>
-                    </div>
-                </div>
-                <div class="p-5">
-                    <div class="flex items-center gap-1 mb-2">
-                        <span class="text-yellow-400">★★★★★</span>
-                        <span class="text-sm text-gray-600">(4.8 · 19,234 avis)</span>
-                    </div>
-                    <h3 class="text-lg font-bold mb-2 leading-tight">Couteau Cuisine Multifonction 7 en 1 : Le Seul Ustensile Nécessaire</h3>
-                    <p class="text-gray-600 text-sm mb-4 leading-relaxed">
-                        Coupe, épluche, râpe, ouvre-boîte, dénoyauteur, sépare-œuf, écrase-ail. 
-                        Gain de place maximal dans les petites cuisines. Inox premium.
-                    </p>
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="px-2 py-1 bg-gray-100 text-xs rounded-md text-gray-600">#cuisine</span>
-                        <span class="px-2 py-1 bg-gray-100 text-xs rounded-md text-gray-600">#gadget</span>
-                        <span class="px-2 py-1 bg-gray-100 text-xs rounded-md text-gray-600">#multifonction</span>
-                    </div>
-                    <a href="https://www.amazon.fr/s?k=couteau+cuisine+multifonction+7+en+1&ref=nb_sb_noss&tag=breezy01-21" 
-                       class="amazon-btn block w-full text-center text-white font-bold py-3.5 rounded-xl shadow-lg text-sm uppercase tracking-wide">
-                        Voir sur Amazon →
-                    </a>
-                </div>
-            </div>
-
-            <!-- PRODUIT 14: Tapis de souris ergonomique -->
-            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100" data-category="bureau">
-                <div class="relative">
-                    <img src="https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?w=600&h=800&fit=crop" 
-                         alt="Tapis souris ergonomique repose poignet gel bureau" 
-                         class="w-full h-auto object-cover">
-                    <div class="absolute top-3 left-3 category-badge text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg">
-                        💼 Bureau
-                    </div>
-                    <div class="absolute top-3 right-3 bg-blue-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg">
-                        ANTI-TUNNEL
-                    </div>
-                    <div class="absolute bottom-3 right-3 price-tag px-3 py-2 rounded-xl shadow-lg">
-                        <span class="text-2xl font-bold text-gray-900">12,99€</span>
-                    </div>
-                </div>
-                <div class="p-5">
-                    <div class="flex items-center gap-1 mb-2">
-                        <span class="text-yellow-400">★★★★★</span>
-                        <span class="text-sm text-gray-600">(4.7 · 15,678 avis)</span>
-                    </div>
-                    <h3 class="text-lg font-bold mb-2 leading-tight">Ensemble Tapis Souris + Repose-Poignet Gel : Protection Anti-Tunnel</h3>
-                    <p class="text-gray-600 text-sm mb-4 leading-relaxed">
-                        Mousse mémoire ergonomique, base antidérapante. 
-                        Prévient douleurs poignet et syndrome du canal carpien. 
-                        Indispensable bureautique intensive.
-                    </p>
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="px-2 py-1 bg-gray-100 text-xs rounded-md text-gray-600">#ergonomie</span>
-                        <span class="px-2 py-1 bg-gray-100 text-xs rounded-md text-gray-600">#sante</span>
-                        <span class="px-2 py-1 bg-gray-100 text-xs rounded-md text-gray-600">#bureau</span>
-                    </div>
-                    <a href="https://www.amazon.fr/s?k=tapis+souris+ergonomique+repose+poignet+gel&ref=nb_sb_noss&tag=breezy01-21" 
-                       class="amazon-btn block w-full text-center text-white font-bold py-3.5 rounded-xl shadow-lg text-sm uppercase tracking-wide">
-                        Voir sur Amazon →
-                    </a>
-                </div>
-            </div>
-
-            <!-- PRODUIT 15: Étagère d'angle cuisine -->
-            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100" data-category="rangement">
-                <div class="relative">
-                    <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&h=800&fit=crop" 
-                         alt="Étagère angle cuisine rotative epices rangement vertical" 
-                         class="w-full h-auto object-cover">
-                    <div class="absolute top-3 left-3 bg-gradient-to-r from-teal-500 to-cyan-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg">
-                        📦 Rangement
-                    </div>
-                    <div class="absolute top-3 right-3 bg-purple-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg">
-                        ROTATIVE 360°
-                    </div>
-                    <div class="absolute bottom-3 right-3 price-tag px-3 py-2 rounded-xl shadow-lg">
-                        <span class="text-2xl font-bold text-gray-900">23,99€</span>
-                    </div>
-                </div>
-                <div class="p-5">
-                    <div class="flex items-center gap-1 mb-2">
-                        <span class="text-yellow-400">★★★★☆</span>
-                        <span class="text-sm text-gray-600">(4.6 · 9,123 avis)</span>
-                    </div>
-                    <h3 class="text-lg font-bold mb-2 leading-tight">Étagère d'Angle Rotative 360° : Doublez l'Espace Plan de Travail</h3>
-                    <p class="text-gray-600 text-sm mb-4 leading-relaxed">
-                        2 niveaux pour épices, huiles, condiments. Rotation fluide, 
-                        base antidérapante. Transforme les coins perdus en rangement optimisé. 
-                        Inox élégant.
-                    </p>
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="px-2 py-1 bg-gray-100 text-xs rounded-md text-gray-600">#cuisine</span>
-                        <span class="px-2 py-1 bg-gray-100 text-xs rounded-md text-gray-600">#rangement</span>
-                        <span class="px-2 py-1 bg-gray-100 text-xs rounded-md text-gray-600">#gaindeplace</span>
-                    </div>
-                    <a href="https://www.amazon.fr/s?k=etagere+angle+cuisine+rotative+360+epices&ref=nb_sb_noss&tag=breezy01-21" 
-                       class="amazon-btn block w-full text-center text-white font-bold py-3.5 rounded-xl shadow-lg text-sm uppercase tracking-wide">
-                        Voir sur Amazon →
-                    </a>
-                </div>
-            </div>
-
         </div>
     </section>
 
-    <!-- Section Newsletter -->
+    <!-- DESK / LAPTOP SETUP -->
+    <section id="desk" class="py-12 px-4 max-w-7xl mx-auto bg-white">
+        <div class="flex items-center gap-3 mb-8">
+            <div class="w-12 h-12 bg-gradient-to-br from-slate-500 to-gray-700 rounded-xl flex items-center justify-center text-white text-2xl">💻</div>
+            <div>
+                <h2 class="text-3xl font-bold">Desk / Laptop Setup</h2>
+                <p class="text-gray-600">Votre bureau, votre cockpit</p>
+            </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Minimalist Desk -->
+            <div class="product-card bg-gray-50 rounded-2xl overflow-hidden shadow-lg border border-gray-200">
+                <div class="relative h-64 bg-gradient-to-br from-gray-100 to-slate-200 flex items-center justify-center">
+                    <span class="text-gray-400 text-sm">minimalist-desk.jpg</span>
+                    <div class="absolute top-3 left-3 bg-slate-600 text-white px-3 py-1 rounded-full text-xs font-bold">Minimaliste</div>
+                </div>
+                <div class="p-5">
+                    <h3 class="text-lg font-bold mb-2">Desk Mat</h3>
+                    <p class="text-gray-600 text-sm mb-4">Tapis bureau élégant pour espace soigné et stylé. Base parfaite.</p>
+                    <a href="https://www.amazon.fr/s?k=tapis+bureau+elegant+soigne&ref=nb_sb_noss&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Shop Now →</a>
+                </div>
+            </div>
+
+            <!-- Student Desk -->
+            <div class="product-card bg-gray-50 rounded-2xl overflow-hidden shadow-lg border border-gray-200">
+                <div class="relative h-64 bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center">
+                    <span class="text-gray-400 text-sm">student-desk.jpg</span>
+                    <div class="absolute top-3 left-3 bg-blue-500 text-white px-3 py-1 rounded-full text-xs font-bold">Étudiant</div>
+                </div>
+                <div class="p-5">
+                    <h3 class="text-lg font-bold mb-2">Laptop Stand</h3>
+                    <p class="text-gray-600 text-sm mb-4">Support PC portable ajustable pour setup ergonomique. Posture parfaite.</p>
+                    <a href="https://www.amazon.fr/s?k=support+pc+portable+ajustable+ergonomique&ref=nb_sb_noss&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Shop Now →</a>
+                </div>
+            </div>
+
+            <!-- MacBook Desk -->
+            <div class="product-card bg-gray-50 rounded-2xl overflow-hidden shadow-lg border border-gray-200">
+                <div class="relative h-64 bg-gradient-to-br from-slate-200 to-gray-300 flex items-center justify-center">
+                    <span class="text-gray-400 text-sm">macbook-desk.jpg</span>
+                    <div class="absolute top-3 left-3 bg-gray-600 text-white px-3 py-1 rounded-full text-xs font-bold">MacBook</div>
+                </div>
+                <div class="p-5">
+                    <h3 class="text-lg font-bold mb-2">MacBook Sleeve</h3>
+                    <p class="text-gray-600 text-sm mb-4">Housse MacBook protectrice et stylée. Transport sécurisé avec élégance.</p>
+                    <a href="https://www.amazon.fr/s?k=housse+macbook+protectrice+stylee&ref=nb_sb_noss&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Shop Now →</a>
+                </div>
+            </div>
+
+            <!-- Aesthetic Workspace -->
+            <div class="product-card bg-gray-50 rounded-2xl overflow-hidden shadow-lg border border-gray-200">
+                <div class="relative h-64 bg-gradient-to-br from-pink-100 to-purple-200 flex items-center justify-center">
+                    <span class="text-gray-400 text-sm">aesthetic-desk.jpg</span>
+                    <div class="absolute top-3 left-3 bg-pink-600 text-white px-3 py-1 rounded-full text-xs font-bold">Aesthetic</div>
+                </div>
+                <div class="p-5">
+                    <h3 class="text-lg font-bold mb-2">LED Strip Light</h3>
+                    <p class="text-gray-600 text-sm mb-4">Lumières LED décoratives pour workspace tendance. Ambiance Instagrammable.</p>
+                    <a href="https://www.amazon.fr/s?k=lumieres+led+decoratives+workspace&ref=nb_sb_noss&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Shop Now →</a>
+                </div>
+            </div>
+
+            <!-- Gaming / Tech -->
+            <div class="product-card bg-gray-50 rounded-2xl overflow-hidden shadow-lg border border-gray-200">
+                <div class="relative h-64 bg-gradient-to-br from-red-100 to-orange-200 flex items-center justify-center">
+                    <span class="text-gray-400 text-sm">gaming-desk.jpg</span>
+                    <div class="absolute top-3 left-3 bg-red-600 text-white px-3 py-1 rounded-full text-xs font-bold">Gaming</div>
+                </div>
+                <div class="p-5">
+                    <h3 class="text-lg font-bold mb-2">Gaming Mouse Pad</h3>
+                    <p class="text-gray-600 text-sm mb-4">Grand tapis souris pour gaming et travail fluide. Précision optimale.</p>
+                    <a href="https://www.amazon.fr/s?k=grand+tapis+souris+gaming+travail&ref=nb_sb_noss&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Shop Now →</a>
+                </div>
+            </div>
+
+            <!-- Productivity Accessories -->
+            <div class="product-card bg-gray-50 rounded-2xl overflow-hidden shadow-lg border border-gray-200">
+                <div class="relative h-64 bg-gradient-to-br from-teal-100 to-cyan-200 flex items-center justify-center">
+                    <span class="text-gray-400 text-sm">desk-accessories.jpg</span>
+                    <div class="absolute top-3 left-3 bg-teal-600 text-white px-3 py-1 rounded-full text-xs font-bold">Productivité</div>
+                </div>
+                <div class="p-5">
+                    <h3 class="text-lg font-bold mb-2">Cable Management Kit</h3>
+                    <p class="text-gray-600 text-sm mb-4">Kit gestion câbles pour bureau impeccable. Fini le bazar sous le desk.</p>
+                    <a href="https://www.amazon.fr/s?k=kit+gestion+cables+bureau+impeccable&ref=nb_sb_noss&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Shop Now →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BUDGET-FRIENDLY TIPS -->
+    <section id="budget" class="py-12 px-4 max-w-7xl mx-auto bg-gradient-to-br from-green-50 to-emerald-100">
+        <div class="flex items-center gap-3 mb-8">
+            <div class="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-600 rounded-xl flex items-center justify-center text-white text-2xl">💰</div>
+            <div>
+                <h2 class="text-3xl font-bold">Budget-Friendly Tips</h2>
+                <p class="text-gray-600">Moins dépenser, plus profiter</p>
+            </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Small Budget Decor -->
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100">
+                <div class="relative h-64 bg-gradient-to-br from-yellow-100 to-amber-200 flex items-center justify-center">
+                    <span class="text-gray-400 text-sm">small-budget-decor.jpg</span>
+                    <div class="absolute top-3 left-3 bg-amber-600 text-white px-3 py-1 rounded-full text-xs font-bold">Petit Budget</div>
+                </div>
+                <div class="p-5">
+                    <h3 class="text-lg font-bold mb-2">Decorative Cushions</h3>
+                    <p class="text-gray-600 text-sm mb-4">Coussins décoratifs abordables pour rafraîchir toute pièce. Changement immédiat.</p>
+                    <a href="https://www.amazon.fr/s?k=coussins+decoratifs+abordables+rafraichir&ref=nb_sb_noss&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Shop Now →</a>
+                </div>
+            </div>
+
+            <!-- DIY Decor -->
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100">
+                <div class="relative h-64 bg-gradient-to-br from-purple-100 to-pink-200 flex items-center justify-center">
+                    <span class="text-gray-400 text-sm">diy-decor.jpg</span>
+                    <div class="absolute top-3 left-3 bg-purple-600 text-white px-3 py-1 rounded-full text-xs font-bold">DIY</div>
+                </div>
+                <div class="p-5">
+                    <h3 class="text-lg font-bold mb-2">Sticker Wall Decals</h3>
+                    <p class="text-gray-600 text-sm mb-4">Stickers muraux DIY pour personnaliser votre espace. Transformation facile.</p>
+                    <a href="https://www.amazon.fr/s?k=stickers+muraux+diy+personnaliser+espace&ref=nb_sb_noss&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Shop Now →</a>
+                </div>
+            </div>
+
+            <!-- Organization Hacks -->
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100">
+                <div class="relative h-64 bg-gradient-to-br from-blue-100 to-indigo-200 flex items-center justify-center">
+                    <span class="text-gray-400 text-sm">organization-hacks.jpg</span>
+                    <div class="absolute top-3 left-3 bg-blue-600 text-white px-3 py-1 rounded-full text-xs font-bold">Astuces</div>
+                </div>
+                <div class="p-5">
+                    <h3 class="text-lg font-bold mb-2">Storage Bins</h3>
+                    <p class="text-gray-600 text-sm mb-4">Bacs de rangement fonctionnels pour maison ordonnée. Chaque chose à sa place.</p>
+                    <a href="https://www.amazon.fr/s?k=bacs+rangement+fonctionnels+maison+ordonnee&ref=nb_sb_noss&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Shop Now →</a>
+                </div>
+            </div>
+
+            <!-- Small Apartment -->
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100">
+                <div class="relative h-64 bg-gradient-to-br from-orange-100 to-red-200 flex items-center justify-center">
+                    <span class="text-gray-400 text-sm">small-apartment.jpg</span>
+                    <div class="absolute top-3 left-3 bg-orange-600 text-white px-3 py-1 rounded-full text-xs font-bold">Petit Appart</div>
+                </div>
+                <div class="p-5">
+                    <h3 class="text-lg font-bold mb-2">Foldable Table</h3>
+                    <p class="text-gray-600 text-sm mb-4">Table pliable compacte pour petits espaces. Multi-usage, zéro encombrement.</p>
+                    <a href="https://www.amazon.fr/s?k=table+pliable+compacte+petit+espace&ref=nb_sb_noss&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Shop Now →</a>
+                </div>
+            </div>
+
+            <!-- Before & After -->
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100">
+                <div class="relative h-64 bg-gradient-to-br from-teal-100 to-green-200 flex items-center justify-center">
+                    <span class="text-gray-400 text-sm">before-after.jpg</span>
+                    <div class="absolute top-3 left-3 bg-teal-600 text-white px-3 py-1 rounded-full text-xs font-bold">Avant/Après</div>
+                </div>
+                <div class="p-5">
+                    <h3 class="text-lg font-bold mb-2">Removable Wallpaper</h3>
+                    <p class="text-gray-600 text-sm mb-4">Papier peint amovible pour transformer murs facilement. Location friendly.</p>
+                    <a href="https://www.amazon.fr/s?k=papier+peint+amovible+transformer+murs&ref=nb_sb_noss&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Shop Now →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AMAZON FINDS -->
+    <section id="finds" class="py-12 px-4 max-w-7xl mx-auto bg-white">
+        <div class="flex items-center gap-3 mb-8">
+            <div class="w-12 h-12 bg-gradient-to-br from-orange-400 to-red-600 rounded-xl flex items-center justify-center text-white text-2xl">📦</div>
+            <div>
+                <h2 class="text-3xl font-bold">Amazon Finds</h2>
+                <p class="text-gray-600">Mes découvertes coup de cœur</p>
+            </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Home Decor -->
+            <div class="product-card bg-gray-50 rounded-2xl overflow-hidden shadow-lg border border-gray-200">
+                <div class="relative h-64 bg-gradient-to-br from-rose-100 to-pink-200 flex items-center justify-center">
+                    <span class="text-gray-400 text-sm">amazon-home-decor.jpg</span>
+                    <div class="absolute top-3 left-3 bg-rose-600 text-white px-3 py-1 rounded-full text-xs font-bold">Déco</div>
+                </div>
+                <div class="p-5">
+                    <h3 class="text-lg font-bold mb-2">LED Candle Set</h3>
+                    <p class="text-gray-600 text-sm mb-4">Lot bougies LED élégantes pour intérieurs cozy. Ambiance chaleureuse sans risque.</p>
+                    <a href="https://www.amazon.fr/s?k=lot+bougies+led+elegantes+interieur+cozy&ref=nb_sb_noss&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Shop Now →</a>
+                </div>
+            </div>
+
+            <!-- Useful Gadgets -->
+            <div class="product-card bg-gray-50 rounded-2xl overflow-hidden shadow-lg border border-gray-200">
+                <div class="relative h-64 bg-gradient-to-br from-cyan-100 to-blue-200 flex items-center justify-center">
+                    <span class="text-gray-400 text-sm">amazon-gadgets.jpg</span>
+                    <div class="absolute top-3 left-3 bg-cyan-600 text-white px-3 py-1 rounded-full text-xs font-bold">Gadgets</div>
+                </div>
+                <div class="p-5">
+                    <h3 class="text-lg font-bold mb-2">Smart Plug</h3>
+                    <p class="text-gray-600 text-sm mb-4">Prise connectée pour contrôler appareils facilement. Domotique accessible.</p>
+                    <a href="https://www.amazon.fr/s?k=prise+connectee+controler+appareils&ref=nb_sb_noss&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Shop Now →</a>
+                </div>
+            </div>
+
+            <!-- Must-haves -->
+            <div class="product-card bg-gray-50 rounded-2xl overflow-hidden shadow-lg border border-gray-200">
+                <div class="relative h-64 bg-gradient-to-br from-amber-100 to-yellow-200 flex items-center justify-center">
+                    <span class="text-gray-400 text-sm">amazon-musthave.jpg</span>
+                    <div class="absolute top-3 left-3 bg-amber-600 text-white px-3 py-1 rounded-full text-xs font-bold">Must-Have</div>
+                </div>
+                <div class="p-5">
+                    <h3 class="text-lg font-bold mb-2">Multifunction Kitchen Tool</h3>
+                    <p class="text-gray-600 text-sm mb-4">Outil cuisine multifonction pratique. 5 ustensiles en 1, gain de place maximal.</p>
+                    <a href="https://www.amazon.fr/s?k=outil+cuisine+multifonction+pratique&ref=nb_sb_noss&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Shop Now →</a>
+                </div>
+            </div>
+
+            <!-- Student -->
+            <div class="product-card bg-gray-50 rounded-2xl overflow-hidden shadow-lg border border-gray-200">
+                <div class="relative h-64 bg-gradient-to-br from-indigo-100 to-purple-200 flex items-center justify-center">
+                    <span class="text-gray-400 text-sm">amazon-student.jpg</span>
+                    <div class="absolute top-3 left-3 bg-indigo-600 text-white px-3 py-1 rounded-full text-xs font-bold">Étudiant</div>
+                </div>
+                <div class="p-5">
+                    <h3 class="text-lg font-bold mb-2">Noise-Cancelling Headphones</h3>
+                    <p class="text-gray-600 text-sm mb-4">Casque anti-bruit pour mieux se concentrer. Silence garanti, notes améliorées.</p>
+                    <a href="https://www.amazon.fr/s?k=casque+anti+bruit+concentration+etude&ref=nb_sb_noss&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Shop Now →</a>
+                </div>
+            </div>
+
+            <!-- Viral -->
+            <div class="product-card bg-gray-50 rounded-2xl overflow-hidden shadow-lg border border-gray-200">
+                <div class="relative h-64 bg-gradient-to-br from-red-100 to-pink-200 flex items-center justify-center">
+                    <span class="text-gray-400 text-sm">viral-amazon.jpg</span>
+                    <div class="absolute top-3 left-3 bg-red-600 text-white px-3 py-1 rounded-full text-xs font-bold">Viral 🔥</div>
+                </div>
+                <div class="p-5">
+                    <h3 class="text-lg font-bold mb-2">Trending Desk Gadget</h3>
+                    <p class="text-gray-600 text-sm mb-4">Gadget bureau tendance viral. Tout le monde en parle, vous allez comprendre pourquoi.</p>
+                    <a href="https://www.amazon.fr/s?k=gadget+bureau+tendance+viral&ref=nb_sb_noss&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Shop Now →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
     <section class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-16 px-4">
         <div class="max-w-3xl mx-auto text-center">
-            <h2 class="text-3xl md:text-4xl font-bold mb-4">Ne Manquez Plus les Bonnes Affaires</h2>
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">Ne Ratez Aucune Trouvaille</h2>
             <p class="text-lg text-white/90 mb-8">
-                1 email par semaine avec les nouvelles trouvailles Amazon à -30% minimum. 
-                Directement dans votre boîte mail.
+                1 email par semaine avec mes dernières découvertes Amazon. 
+                Unsubscribe en 1 clic.
             </p>
-            
-            <form class="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto" onsubmit="event.preventDefault(); alert('Merci ! Vous êtes inscrit.');">
-                <input type="email" placeholder="votre@email.com" required
-                       class="flex-1 px-6 py-4 rounded-full text-gray-900 focus:outline-none focus:ring-4 focus:ring-white/30 text-center sm:text-left">
-                <button type="submit" 
-                        class="px-8 py-4 bg-orange-500 text-white font-bold rounded-full hover:bg-orange-600 transition shadow-lg">
-                    S'inscrire ✓
-                </button>
+            <form class="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto" onsubmit="event.preventDefault(); alert('Inscription confirmée !');">
+                <input type="email" placeholder="votre@email.com" required class="flex-1 px-6 py-4 rounded-full text-gray-900 focus:outline-none focus:ring-4 focus:ring-white/30">
+                <button type="submit" class="px-8 py-4 bg-orange-500 text-white font-bold rounded-full hover:bg-orange-600 transition shadow-lg">S'inscrire ✓</button>
             </form>
-            
-            <p class="text-sm text-white/70 mt-4">🔒 Pas de spam. Désinscription instantanée.</p>
         </div>
     </section>
 
@@ -764,111 +645,47 @@
                 <div>
                     <div class="flex items-center gap-2 mb-4">
                         <div class="w-10 h-10 bg-gradient-to-br from-orange-400 to-orange-600 rounded-lg flex items-center justify-center text-white font-bold">A</div>
-                        <span class="text-white font-bold text-lg">Amazon Sélections</span>
+                        <span class="text-white font-bold text-lg">Mon Univers Amazon</span>
                     </div>
-                    <p class="text-sm">Les meilleures trouvailles Amazon, sélectionnées et vérifiées pour vous.</p>
+                    <p class="text-sm">Vos tableaux Pinterest deviennent réalité. Prix vérifiés, livraison rapide.</p>
                 </div>
-                
                 <div>
                     <h4 class="text-white font-semibold mb-4">Catégories</h4>
                     <ul class="space-y-2 text-sm">
-                        <li><a href="#" class="hover:text-orange-400 transition">💼 Bureau & Télétravail</a></li>
-                        <li><a href="#" class="hover:text-orange-400 transition">🏠 Déco Maison</a></li>
-                        <li><a href="#" class="hover:text-orange-400 transition">📦 Rangement</a></li>
-                        <li><a href="#" class="hover:text-orange-400 transition">⚡ Lifestyle & Tech</a></li>
+                        <li><a href="#living" class="hover:text-orange-400 transition">Salon</a></li>
+                        <li><a href="#home" class="hover:text-orange-400 transition">Maison</a></li>
+                        <li><a href="#student" class="hover:text-orange-400 transition">Étudiants</a></li>
+                        <li><a href="#desk" class="hover:text-orange-400 transition">Bureau</a></li>
+                        <li><a href="#budget" class="hover:text-orange-400 transition">Petit Budget</a></li>
                     </ul>
                 </div>
-                
                 <div>
-                    <h4 class="text-white font-semibold mb-4">Informations</h4>
+                    <h4 class="text-white font-semibold mb-4">Liens</h4>
                     <ul class="space-y-2 text-sm">
                         <li><a href="#" class="hover:text-orange-400 transition">À propos</a></li>
                         <li><a href="#" class="hover:text-orange-400 transition">Mentions légales</a></li>
-                        <li><a href="#" class="hover:text-orange-400 transition">Politique de confidentialité</a></li>
                         <li><a href="#" class="hover:text-orange-400 transition">Contact</a></li>
                     </ul>
                 </div>
-                
                 <div>
                     <h4 class="text-white font-semibold mb-4">Livraison</h4>
-                    <p class="text-sm mb-2">🇧🇪 Belgique : 1-2 jours (Prime)</p>
-                    <p class="text-sm mb-2">🇫🇷 France : 1-2 jours (Prime)</p>
+                    <p class="text-sm mb-2">🇧🇪 Belgique : 1-2 jours</p>
+                    <p class="text-sm mb-2">🇫🇷 France : 1-2 jours</p>
                     <p class="text-sm">Retour gratuit 30 jours</p>
                 </div>
             </div>
-            
             <div class="border-t border-gray-800 pt-8 text-center text-sm">
-                <p class="mb-4">
-                    © 2024 Amazon Sélections. Ce site participe au programme d'affiliation Amazon EU.<br>
-                    Nous recevons une commission sur les achats qualifiés effectués via nos liens.
-                </p>
-                <p class="text-gray-600">
-                    Les prix indiqués sont indicatifs et peuvent varier. Dernière mise à jour : <span id="footerDate"></span>
-                </p>
+                <p class="mb-4">© 2024 Mon Univers Amazon. Participe au programme d'affiliation Amazon EU.</p>
+                <p class="text-gray-600">Commission sur achats qualifiés via nos liens.</p>
             </div>
         </div>
     </footer>
 
-    <!-- JavaScript pour filtres et date -->
     <script>
-        // Date dynamique
-        const today = new Date();
-        const dateStr = today.toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });
-        document.getElementById('footerDate').textContent = dateStr;
-
-        // Filtres de catégories
-        function filterProducts(category) {
-            const cards = document.querySelectorAll('.product-card');
-            const buttons = document.querySelectorAll('.filter-btn');
-            
-            // Mise à jour des boutons actifs
-            buttons.forEach(btn => {
-                btn.classList.remove('active');
-                if (btn.textContent.toLowerCase().includes(category) || 
-                    (category === 'all' && btn.textContent.includes('Tout'))) {
-                    btn.classList.add('active');
-                }
-            });
-            
-            // Filtrage des cartes avec animation
-            cards.forEach((card, index) => {
-                if (category === 'all' || card.dataset.category === category) {
-                    card.style.display = 'block';
-                    setTimeout(() => {
-                        card.style.opacity = '1';
-                        card.style.transform = 'translateY(0)';
-                    }, index * 50);
-                } else {
-                    card.style.opacity = '0';
-                    card.style.transform = 'translateY(20px)';
-                    setTimeout(() => {
-                        card.style.display = 'none';
-                    }, 300);
-                }
-            });
+        function toggleMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
         }
-
-        // Animation au scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.product-card').forEach(card => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(20px)';
-            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(card);
-        });
     </script>
 </body>
 </html>
