@@ -695,386 +695,784 @@
     </script>
 </body>
 </html>
-/**
- * PRODUCT LOADER SCRIPT
- * Automatically displays products from products.js
- * Compatible with GitHub Pages - Vanilla JS only
- * Affiliate StoreID: breezy01-21
- */
+// ==========================================
+// PRODUCTS DATA FILE - 50 NEW AMAZON PRODUCTS
+// Affiliate StoreID: breezy01-21
+// ==========================================
 
-document.addEventListener('DOMContentLoaded', function() {
-    // Initialize product display
-    initProductLoader();
-});
+const newProducts = [
+    // 🏠 HOME DECOR
+    {
+        id: 1,
+        category: "home-decor",
+        title: "Lot de 3 Vases en Céramique Minimalistes",
+        description: "Vases modernes blancs mat pour salon, chambre ou entrée. Design scandinave élégant.",
+        image: "https://m.media-amazon.com/images/I/71XZ+xxxxxx._AC_SL1500_.jpg",
+        price: "29,99 €",
+        rating: 4.5,
+        link: "https://www.amazon.fr/dp/B08XXXXX?tag=breezy01-21"
+    },
+    {
+        id: 2,
+        category: "home-decor",
+        title: "Étagère Murale Flottante en Bois Naturel",
+        description: "Étagères murales lot de 4, chêne massif, fixation invisible. Parfait pour livres et déco.",
+        image: "https://m.media-amazon.com/images/I/81YY+xxxxxx._AC_SL1500_.jpg",
+        price: "34,90 €",
+        rating: 4.6,
+        link: "https://www.amazon.fr/dp/B09XXXXX?tag=breezy01-21"
+    },
+    {
+        id: 3,
+        category: "home-decor",
+        title: "Coussins Décoratifs Velours 45x45cm",
+        description: "Lot de 4 housses de coussin en velours doux avec fermeture éclair cachée. Couleurs tendance.",
+        image: "https://m.media-amazon.com/images/I/91AB+xxxxxx._AC_SL1500_.jpg",
+        price: "19,99 €",
+        rating: 4.4,
+        link: "https://www.amazon.fr/dp/B07XXXXX?tag=breezy01-21"
+    },
+    {
+        id: 4,
+        category: "home-decor",
+        title: "Bougeoirs Métal Doré Set de 3",
+        description: "Chandeliers modernes dorés pour table à manger ou console. Hauteurs variées 25/30/35cm.",
+        image: "https://m.media-amazon.com/images/I/71CD+xxxxxx._AC_SL1500_.jpg",
+        price: "24,50 €",
+        rating: 4.7,
+        link: "https://www.amazon.fr/dp/B0AXXXXX?tag=breezy01-21"
+    },
+    {
+        id: 5,
+        category: "home-decor",
+        title: "Plaid Tricoté Chunky Gris Anthracite",
+        description: "Couverture épaisse en maille torsadée 120x180cm. Ultra douce et chaude pour canapé.",
+        image: "https://m.media-amazon.com/images/I/81EF+xxxxxx._AC_SL1500_.jpg",
+        price: "39,90 €",
+        rating: 4.8,
+        link: "https://www.amazon.fr/dp/B08XXXXX?tag=breezy01-21"
+    },
+    {
+        id: 6,
+        category: "home-decor",
+        title: "Corbeille de Rangement Tressée Naturelle",
+        description: "Lot de 3 paniers en jonc de mer avec poignées. Organisateurs stylés pour salon ou salle de bain.",
+        image: "https://m.media-amazon.com/images/I/71GH+xxxxxx._AC_SL1500_.jpg",
+        price: "32,99 €",
+        rating: 4.5,
+        link: "https://www.amazon.fr/dp/B09XXXXX?tag=breezy01-21"
+    },
+    {
+        id: 7,
+        category: "home-decor",
+        title: "Horloge Murale Design Scandinave",
+        description: "Horloge silencieuse 30cm bois clair et aiguilles noires. Mouvement quartz sans tic-tac.",
+        image: "https://m.media-amazon.com/images/I/61IJ+xxxxxx._AC_SL1500_.jpg",
+        price: "22,99 €",
+        rating: 4.6,
+        link: "https://www.amazon.fr/dp/B07XXXXX?tag=breezy01-21"
+    },
+    {
+        id: 8,
+        category: "home-decor",
+        title: "Porte-Revues Design Métal Noir",
+        description: "Range-revues sur pied style industriel. Idéal pour salon, format A4, montage facile.",
+        image: "https://m.media-amazon.com/images/I/71KL+xxxxxx._AC_SL1500_.jpg",
+        price: "27,90 €",
+        rating: 4.3,
+        link: "https://www.amazon.fr/dp/B0BXXXXX?tag=breezy01-21"
+    },
+    {
+        id: 9,
+        category: "home-decor",
+        title: "Tapis Salon Poils Courts Géométrique",
+        description: "Tapis moderne 160x230cm motif triangles gris/blanc. Antidérapant et lavable.",
+        image: "https://m.media-amazon.com/images/I/81MN+xxxxxx._AC_SL1500_.jpg",
+        price: "59,99 €",
+        rating: 4.4,
+        link: "https://www.amazon.fr/dp/B08XXXXX?tag=breezy01-21"
+    },
+    {
+        id: 10,
+        category: "home-decor",
+        title: "Cadres Photo Muraux Lot de 10",
+        description: "Multi-cadres galerie murale noir et bois. 10 formats mixtes avec gabarit de pose inclus.",
+        image: "https://m.media-amazon.com/images/I/81OP+xxxxxx._AC_SL1500_.jpg",
+        price: "28,99 €",
+        rating: 4.5,
+        link: "https://www.amazon.fr/dp/B09XXXXX?tag=breezy01-21"
+    },
 
-function initProductLoader() {
-    // Check if newProducts data exists
-    if (typeof newProducts === 'undefined') {
-        console.error('Product data not found. Make sure products.js is loaded before product-loader.js');
-        return;
+    // 🛋️ LIVING ROOM DECOR
+    {
+        id: 11,
+        category: "living-room",
+        title: "Table Basse Scandinave Blanc/Chêne",
+        description: "Table basse ronde 80cm avec étagère inférieure. Design nordique élégant et fonctionnel.",
+        image: "https://m.media-amazon.com/images/I/71QR+xxxxxx._AC_SL1500_.jpg",
+        price: "89,99 €",
+        rating: 4.6,
+        link: "https://www.amazon.fr/dp/B0AXXXXX?tag=breezy01-21"
+    },
+    {
+        id: 12,
+        category: "living-room",
+        title: "Lampe de Salon sur Pied Arc LED",
+        description: "Lampadaire moderne 175cm lumière indirecte. Intensité réglable, parfait pour lecture.",
+        image: "https://m.media-amazon.com/images/I/71ST+xxxxxx._AC_SL1500_.jpg",
+        price: "79,90 €",
+        rating: 4.7,
+        link: "https://www.amazon.fr/dp/B08XXXXX?tag=breezy01-21"
+    },
+    {
+        id: 13,
+        category: "living-room",
+        title: "Étagère d'Angle 5 Niveaux Bois",
+        description: "Meuble d'angle gain de place pour salon. Bibliothèque verticale 30x30x170cm.",
+        image: "https://m.media-amazon.com/images/I/71UV+xxxxxx._AC_SL1500_.jpg",
+        price: "45,99 €",
+        rating: 4.4,
+        link: "https://www.amazon.fr/dp/B07XXXXX?tag=breezy01-21"
+    },
+    {
+        id: 14,
+        category: "living-room",
+        title: "Pouf Repose-Pieds Velours Vert",
+        description: "Ottoman rembourré 40x40cm, siège confortable et repose-pieds. Coloris émeraude tendance.",
+        image: "https://m.media-amazon.com/images/I/81WX+xxxxxx._AC_SL1500_.jpg",
+        price: "42,50 €",
+        rating: 4.5,
+        link: "https://www.amazon.fr/dp/B09XXXXX?tag=breezy01-21"
+    },
+    {
+        id: 15,
+        category: "living-room",
+        title: "Console Entrée Design Industriel",
+        description: "Table console 100cm métal et bois. Meuble étroit pour entrée ou derrière canapé.",
+        image: "https://m.media-amazon.com/images/I/71YZ+xxxxxx._AC_SL1500_.jpg",
+        price: "69,99 €",
+        rating: 4.3,
+        link: "https://www.amazon.fr/dp/B08XXXXX?tag=breezy01-21"
+    },
+    {
+        id: 16,
+        category: "living-room",
+        title: "Set de 2 Tables Gigognes Rondes",
+        description: "Tables d'appoint emboîtables marbre blanc et doré. Utilisables séparément ou ensemble.",
+        image: "https://m.media-amazon.com/images/I/81ZA+xxxxxx._AC_SL1500_.jpg",
+        price: "56,90 €",
+        rating: 4.6,
+        link: "https://www.amazon.fr/dp/B0AXXXXX?tag=breezy01-21"
+    },
+    {
+        id: 17,
+        category: "living-room",
+        title: "Porte-Plantes en Métal Noir 3 Niveaux",
+        description: "Étagère plantes verticale 60cm. Support décoratif pour pots de fleurs intérieur.",
+        image: "https://m.media-amazon.com/images/I/71BC+xxxxxx._AC_SL1500_.jpg",
+        price: "33,99 €",
+        rating: 4.5,
+        link: "https://www.amazon.fr/dp/B09XXXXX?tag=breezy01-21"
+    },
+    {
+        id: 18,
+        category: "living-room",
+        title: "Tapis Shaggy Doux Poils Longs Crème",
+        description: "Tapis moelleux 160x230cm salon ou chambre. Antidérapant, sensation luxueuse sous les pieds.",
+        image: "https://m.media-amazon.com/images/I/81DE+xxxxxx._AC_SL1500_.jpg",
+        price: "49,99 €",
+        rating: 4.7,
+        link: "https://www.amazon.fr/dp/B08XXXXX?tag=breezy01-21"
+    },
+    {
+        id: 19,
+        category: "living-room",
+        title: "Lampe à Poser Tactile Dimmable",
+        description: "Lampe chevet 3 intensités, contrôle tactile. Abat-jour tissé beige, base bois.",
+        image: "https://m.media-amazon.com/images/I/71FG+xxxxxx._AC_SL1500_.jpg",
+        price: "35,90 €",
+        rating: 4.4,
+        link: "https://www.amazon.fr/dp/B07XXXXX?tag=breezy01-21"
+    },
+    {
+        id: 20,
+        category: "living-room",
+        title: "Miroir de Salon Mural Rond 70cm",
+        description: "Grand miroir cercle avec cadre métal doré. Décoratif et agrandissant visuellement l'espace.",
+        image: "https://m.media-amazon.com/images/I/71HI+xxxxxx._AC_SL1500_.jpg",
+        price: "54,99 €",
+        rating: 4.6,
+        link: "https://www.amazon.fr/dp/B09XXXXX?tag=breezy01-21"
+    },
+
+    // 🖼️ WALL DECORATION
+    {
+        id: 21,
+        category: "wall-decor",
+        title: "Toiles Décoratives Murales Set de 3",
+        description: "Tableaux abstraits modernes 30x40cm chacun. Impressions sur toile tendue, prêts à accrocher.",
+        image: "https://m.media-amazon.com/images/I/81JK+xxxxxx._AC_SL1500_.jpg",
+        price: "23,99 €",
+        rating: 4.5,
+        link: "https://www.amazon.fr/dp/B08XXXXX?tag=breezy01-21"
+    },
+    {
+        id: 22,
+        category: "wall-decor",
+        title: "Miroir Soleil Doré Design Boho",
+        description: "Miroir mural rotin 50cm style bohème. Décoration murale élégante pour entrée ou salon.",
+        image: "https://m.media-amazon.com/images/I/71LM+xxxxxx._AC_SL1500_.jpg",
+        price: "38,90 €",
+        rating: 4.7,
+        link: "https://www.amazon.fr/dp/B0AXXXXX?tag=breezy01-21"
+    },
+    {
+        id: 23,
+        category: "wall-decor",
+        title: "Sticker Mural Géométrique 3D Noir",
+        description: "Déco murale adhésive moderne triangles. Couvre 2m², facile à poser et retirer sans trace.",
+        image: "https://m.media-amazon.com/images/I/71NO+xxxxxx._AC_SL1500_.jpg",
+        price: "15,99 €",
+        rating: 4.3,
+        link: "https://www.amazon.fr/dp/B07XXXXX?tag=breezy01-21"
+    },
+    {
+        id: 24,
+        category: "wall-decor",
+        title: "Étagère Murale Hexagonale Lot de 6",
+        description: "Étagères nid d'abeille bois et métal. Combinables librement, fixation invisible incluse.",
+        image: "https://m.media-amazon.com/images/I/81PQ+xxxxxx._AC_SL1500_.jpg",
+        price: "29,99 €",
+        rating: 4.4,
+        link: "https://www.amazon.fr/dp/B09XXXXX?tag=breezy01-21"
+    },
+    {
+        id: 25,
+        category: "wall-decor",
+        title: "Suspension Macramé Boho avec Étagère",
+        description: "Étagère murale suspendue en corde coton. Porte-plante ou objets déco style bohème chic.",
+        image: "https://m.media-amazon.com/images/I/81RS+xxxxxx._AC_SL1500_.jpg",
+        price: "19,90 €",
+        rating: 4.6,
+        link: "https://www.amazon.fr/dp/B08XXXXX?tag=breezy01-21"
+    },
+    {
+        id: 26,
+        category: "wall-decor",
+        title: "Horloge Murale Géante 60cm Industrielle",
+        description: "Grande horloge métal noir style loft. Chiffres romains, mécanisme silencieux.",
+        image: "https://m.media-amazon.com/images/I/71TU+xxxxxx._AC_SL1500_.jpg",
+        price: "44,99 €",
+        rating: 4.5,
+        link: "https://www.amazon.fr/dp/B0BXXXXX?tag=breezy01-21"
+    },
+    {
+        id: 27,
+        category: "wall-decor",
+        title: "Lettres Lumineuses LED Alphabet",
+        description: "Enseigne lumineuse personnalisable A-Z. Fonctionne piles, parfaite pour chambre ou salon.",
+        image: "https://m.media-amazon.com/images/I/71VW+xxxxxx._AC_SL1500_.jpg",
+        price: "12,99 €",
+        rating: 4.4,
+        link: "https://www.amazon.fr/dp/B07XXXXX?tag=breezy01-21"
+    },
+    {
+        id: 28,
+        category: "wall-decor",
+        title: "Panneau Mural Végétal Artificiel",
+        description: "Mur végétal synthétique 40x60cm. Feuillage réaliste, entretien zéro, effet jungle tendance.",
+        image: "https://m.media-amazon.com/images/I/81XY+xxxxxx._AC_SL1500_.jpg",
+        price: "26,99 €",
+        rating: 4.2,
+        link: "https://www.amazon.fr/dp/B09XXXXX?tag=breezy01-21"
+    },
+    {
+        id: 29,
+        category: "wall-decor",
+        title: "Cadre Photo Polaroid Mural Ficelle",
+        description: "Pêle-mêle photos avec pinces bois et cordes. Affiche 20 photos, style vintage charmant.",
+        image: "https://m.media-amazon.com/images/I/81ZA+xxxxxx._AC_SL1500_.jpg",
+        price: "16,50 €",
+        rating: 4.7,
+        link: "https://www.amazon.fr/dp/B08XXXXX?tag=breezy01-21"
+    },
+    {
+        id: 30,
+        category: "wall-decor",
+        title: "Appliques Murales Design Lot de 2",
+        description: "Lampes murales orientables métal noir doré. Éclairage décoratif chambre ou couloir.",
+        image: "https://m.media-amazon.com/images/I/71BC+xxxxxx._AC_SL1500_.jpg",
+        price: "41,99 €",
+        rating: 4.5,
+        link: "https://www.amazon.fr/dp/B0AXXXXX?tag=breezy01-21"
+    },
+
+    // 🌿 INDOOR PLANTS DECOR
+    {
+        id: 31,
+        category: "plants",
+        title: "Pots Céramique Blanc Texturé Lot de 3",
+        description: "Cache-pots design 12/15/18cm avec soucoupes. Pour plantes vertes et succulentes.",
+        image: "https://m.media-amazon.com/images/I/71DE+xxxxxx._AC_SL1500_.jpg",
+        price: "24,99 €",
+        rating: 4.6,
+        link: "https://www.amazon.fr/dp/B09XXXXX?tag=breezy01-21"
+    },
+    {
+        id: 32,
+        category: "plants",
+        title: "Plantes Artificielles Réalistes Set de 5",
+        description: "Fausse plante verte haute qualité avec pot. Sans entretien, aspect naturel garanti.",
+        image: "https://m.media-amazon.com/images/I/81FG+xxxxxx._AC_SL1500_.jpg",
+        price: "32,90 €",
+        rating: 4.5,
+        link: "https://www.amazon.fr/dp/B08XXXXX?tag=breezy01-21"
+    },
+    {
+        id: 33,
+        category: "plants",
+        title: "Support Plantes Métal Doré 4 Niveaux",
+        description: "Étagère plantes verticale 80cm style art déco. Support robuste pour pots variés.",
+        image: "https://m.media-amazon.com/images/I/71HI+xxxxxx._AC_SL1500_.jpg",
+        price: "47,99 €",
+        rating: 4.7,
+        link: "https://www.amazon.fr/dp/B0AXXXXX?tag=breezy01-21"
+    },
+    {
+        id: 34,
+        category: "plants",
+        title: "Jardinière Suspendue Macramé Lot de 4",
+        description: "Suspensions pour plantes en corde coton. 4 longueurs différentes, effet cascade végétale.",
+        image: "https://m.media-amazon.com/images/I/81JK+xxxxxx._AC_SL1500_.jpg",
+        price: "21,99 €",
+        rating: 4.6,
+        link: "https://www.amazon.fr/dp/B07XXXXX?tag=breezy01-21"
+    },
+    {
+        id: 35,
+        category: "plants",
+        title: "Terrarium Verre Géométrique DIY",
+        description: "Mini serre décorative 20cm pour succulentes. Ouverture facile, style scandinave.",
+        image: "https://m.media-amazon.com/images/I/71LM+xxxxxx._AC_SL1500_.jpg",
+        price: "18,50 €",
+        rating: 4.4,
+        link: "https://www.amazon.fr/dp/B09XXXXX?tag=breezy01-21"
+    },
+    {
+        id: 36,
+        category: "plants",
+        title: "Arrosage Automatique Goutte-à-Goutte 12pcs",
+        description: "Système irrigation plantes vacances. Cônes céramique pour bouteilles, autonomie 2 semaines.",
+        image: "https://m.media-amazon.com/images/I/71NO+xxxxxx._AC_SL1500_.jpg",
+        price: "14,99 €",
+        rating: 4.3,
+        link: "https://www.amazon.fr/dp/B08XXXXX?tag=breezy01-21"
+    },
+    {
+        id: 37,
+        category: "plants",
+        title: "Pot Suspendu Plafond Céramique",
+        description: "Cache-pot suspendu avec chaîne macramé. Pour plantes retombantes style bohème.",
+        image: "https://m.media-amazon.com/images/I/81PQ+xxxxxx._AC_SL1500_.jpg",
+        price: "27,90 €",
+        rating: 4.5,
+        link: "https://www.amazon.fr/dp/B0BXXXXX?tag=breezy01-21"
+    },
+    {
+        id: 38,
+        category: "plants",
+        title: "Lampe de Croissance LED pour Plantes",
+        description: "Éclairage horticole spectre complet. Pince flexible, timer intégré, 3 modes luminosité.",
+        image: "https://m.media-amazon.com/images/I/81RS+xxxxxx._AC_SL1500_.jpg",
+        price: "29,99 €",
+        rating: 4.4,
+        link: "https://www.amazon.fr/dp/B09XXXXX?tag=breezy01-21"
+    },
+    {
+        id: 39,
+        category: "plants",
+        title: "Porte-Plantes Échelle Bois 5 Niveaux",
+        description: "Étagère plantes style échelle 125cm. Pliable, gain de place, aspect rustique charmant.",
+        image: "https://m.media-amazon.com/images/I/71TU+xxxxxx._AC_SL1500_.jpg",
+        price: "39,90 €",
+        rating: 4.6,
+        link: "https://www.amazon.fr/dp/B08XXXXX?tag=breezy01-21"
+    },
+    {
+        id: 40,
+        category: "plants",
+        title: "Kit Terrarium Fermé Bocal Verre",
+        description: "Écosystème autonome 25cm avec outils et guide. Plante mousse vivante incluse.",
+        image: "https://m.media-amazon.com/images/I/71VW+xxxxxx._AC_SL1500_.jpg",
+        price: "36,99 €",
+        rating: 4.7,
+        link: "https://www.amazon.fr/dp/B0AXXXXX?tag=breezy01-21"
+    },
+
+    // 🪞 DECORATIVE MIRRORS
+    {
+        id: 41,
+        category: "mirrors",
+        title: "Miroir Mural Géométrique Doré 50cm",
+        description: "Miroir décoratif soleil art déco. Rayons métal doré, centre miroir biseauté.",
+        image: "https://m.media-amazon.com/images/I/81XY+xxxxxx._AC_SL1500_.jpg",
+        price: "42,99 €",
+        rating: 4.6,
+        link: "https://www.amazon.fr/dp/B09XXXXX?tag=breezy01-21"
+    },
+    {
+        id: 42,
+        category: "mirrors",
+        title: "Miroir sur Pied Psyché Blanc 160cm",
+        description: "Grand miroir inclinable cadre bois. Style scandinave, parfait pour chambre dressing.",
+        image: "https://m.media-amazon.com/images/I/81ZA+xxxxxx._AC_SL1500_.jpg",
+        price: "69,90 €",
+        rating: 4.5,
+        link: "https://www.amazon.fr/dp/B08XXXXX?tag=breezy01-21"
+    },
+    {
+        id: 43,
+        category: "mirrors",
+        title: "Miroir Salle de Bain LED Anti-Buée",
+        description: "Miroir lumineux 80x60cm avec éclairage intégré. Touch switch, intensité réglable.",
+        image: "https://m.media-amazon.com/images/I/71BC+xxxxxx._AC_SL1500_.jpg",
+        price: "89,99 €",
+        rating: 4.7,
+        link: "https://www.amazon.fr/dp/B0AXXXXX?tag=breezy01-21"
+    },
+    {
+        id: 44,
+        category: "mirrors",
+        title: "Set 3 Miroirs Hexagonaux Adhésifs",
+        description: "Miroirs muraux décoratifs 20cm chacun. Autocollants 3D, effet agrandissant.",
+        image: "https://m.media-amazon.com/images/I/71DE+xxxxxx._AC_SL1500_.jpg",
+        price: "19,99 €",
+        rating: 4.4,
+        link: "https://www.amazon.fr/dp/B07XXXXX?tag=breezy01-21"
+    },
+    {
+        id: 45,
+        category: "mirrors",
+        title: "Miroir Console Entrée Ovale 90cm",
+        description: "Grand miroir mural cadre métal noir. Style moderne minimaliste, accrochage facile.",
+        image: "https://m.media-amazon.com/images/I/81FG+xxxxxx._AC_SL1500_.jpg",
+        price: "54,90 €",
+        rating: 4.5,
+        link: "https://www.amazon.fr/dp/B09XXXXX?tag=breezy01-21"
+    },
+
+    // 📦 SMALL APARTMENT STORAGE
+    {
+        id: 46,
+        category: "storage",
+        title: "Étagère Modulable Cubes 6 Cases",
+        description: "Rangement bibliothèque plastique tissu. Montage facile, adapté petits espaces.",
+        image: "https://m.media-amazon.com/images/I/71HI+xxxxxx._AC_SL1500_.jpg",
+        price: "36,99 €",
+        rating: 4.3,
+        link: "https://www.amazon.fr/dp/B08XXXXX?tag=breezy01-21"
+    },
+    {
+        id: 47,
+        category: "storage",
+        title: "Panier Linge Sale Pliable Bambou",
+        description: "Corbeille double compartiment tri sélectif. Couvercle et poignées, 100L total.",
+        image: "https://m.media-amazon.com/images/I/71JK+xxxxxx._AC_SL1500_.jpg",
+        price: "31,90 €",
+        rating: 4.6,
+        link: "https://www.amazon.fr/dp/B0BXXXXX?tag=breezy01-21"
+    },
+    {
+        id: 48,
+        category: "storage",
+        title: "Organisateur Tiroir Réglable Bambou",
+        description: "Séparateurs tiroirs extensibles lot de 4. Cuisine, salle de bain, bureau.",
+        image: "https://m.media-amazon.com/images/I/71LM+xxxxxx._AC_SL1500_.jpg",
+        price: "22,99 €",
+        rating: 4.5,
+        link: "https://www.amazon.fr/dp/B09XXXXX?tag=breezy01-21"
+    },
+    {
+        id: 49,
+        category: "storage",
+        title: "Étagère Dessus Toilettes 3 Niveaux",
+        description: "Meuble gain de place WC métal bois. Rangement serviettes et accessoires.",
+        image: "https://m.media-amazon.com/images/I/71NO+xxxxxx._AC_SL1500_.jpg",
+        price: "28,50 €",
+        rating: 4.4,
+        link: "https://www.amazon.fr/dp/B07XXXXX?tag=breezy01-21"
+    },
+    {
+        id: 50,
+        category: "storage",
+        title: "Coffre Banc Rangement 80cm Gris",
+        description: "Banquette avec coffre intérieur velours. Siège + rangement pour entrée ou chambre.",
+        image: "https://m.media-amazon.com/images/I/81PQ+xxxxxx._AC_SL1500_.jpg",
+        price: "59,99 €",
+        rating: 4.5,
+        link: "https://www.amazon.fr/dp/B08XXXXX?tag=breezy01-21"
+    },
+
+    // 💡 LIGHTING DECOR
+    {
+        id: 51,
+        category: "lighting",
+        title: "Guirlande Lumineuse Photo Clip 5m",
+        description: "LED chaud avec 50 pinces photos. Déco chambre ou salon, fonctionne piles/USB.",
+        image: "https://m.media-amazon.com/images/I/81RS+xxxxxx._AC_SL1500_.jpg",
+        price: "13,99 €",
+        rating: 4.6,
+        link: "https://www.amazon.fr/dp/B07XXXXX?tag=breezy01-21"
+    },
+    {
+        id: 52,
+        category: "lighting",
+        title: "Lampe Projecteur Coucher de Soleil",
+        description: "Lumière ambiance arc-en-ciel rotative 180°. Effet sunset pour photos et déco.",
+        image: "https://m.media-amazon.com/images/I/71TU+xxxxxx._AC_SL1500_.jpg",
+        price: "16,90 €",
+        rating: 4.4,
+        link: "https://www.amazon.fr/dp/B09XXXXX?tag=breezy01-21"
+    },
+    {
+        id: 53,
+        category: "lighting",
+        title: "Suspension Luminaire 3 Spots Noir",
+        description: "Lustre industriel réglable. Éclairage cuisine ou îlot, câbles ajustables.",
+        image: "https://m.media-amazon.com/images/I/71VW+xxxxxx._AC_SL1500_.jpg",
+        price: "48,99 €",
+        rating: 4.5,
+        link: "https://www.amazon.fr/dp/B0AXXXXX?tag=breezy01-21"
+    },
+    {
+        id: 54,
+        category: "lighting",
+        title: "Lampe Néon LED Forme Nuage",
+        description: "Enseigne lumineuse décorative murale. USB ou piles, parfaite pour chambre cosy.",
+        image: "https://m.media-amazon.com/images/I/81XY+xxxxxx._AC_SL1500_.jpg",
+        price: "19,99 €",
+        rating: 4.3,
+        link: "https://www.amazon.fr/dp/B08XXXXX?tag=breezy01-21"
+    },
+    {
+        id: 55,
+        category: "lighting",
+        title: "Lampadaire Trépied Bois 150cm",
+        description: "Lampadaire salon style scandinave. Abat-jour lin beige, interrupteur pied.",
+        image: "https://m.media-amazon.com/images/I/81ZA+xxxxxx._AC_SL1500_.jpg",
+        price: "62,90 €",
+        rating: 4.6,
+        link: "https://www.amazon.fr/dp/B09XXXXX?tag=breezy01-21"
+    },
+
+    // ☕ COFFEE TABLE DECOR
+    {
+        id: 56,
+        category: "coffee-table",
+        title: "Plateau Décoratif Miroir Doré 40cm",
+        description: "Plateau servir rond style art déco. Pour bijoux, bougies, décoration table basse.",
+        image: "https://m.media-amazon.com/images/I/71BC+xxxxxx._AC_SL1500_.jpg",
+        price: "26,99 €",
+        rating: 4.5,
+        link: "https://www.amazon.fr/dp/B0BXXXXX?tag=breezy01-21"
+    },
+    {
+        id: 57,
+        category: "coffee-table",
+        title: "Set 4 Dessous de Verre Marbre",
+        description: "Sous-verres design dorés et marbre blanc. Protection élégante avec support rangement.",
+        image: "https://m.media-amazon.com/images/I/71DE+xxxxxx._AC_SL1500_.jpg",
+        price: "17,90 €",
+        rating: 4.7,
+        link: "https://www.amazon.fr/dp/B08XXXXX?tag=breezy01-21"
+    },
+    {
+        id: 58,
+        category: "coffee-table",
+        title: "Boîte Mouchoirs Design Bois Naturel",
+        description: "Distributeur mouchoirs élégant avec couvercle. Rectangulaire, s'intègre parfaitement.",
+        image: "https://m.media-amazon.com/images/I/81FG+xxxxxx._AC_SL1500_.jpg",
+        price: "14,99 €",
+        rating: 4.4,
+        link: "https://www.amazon.fr/dp/B07XXXXX?tag=breezy01-21"
+    },
+    {
+        id: 59,
+        category: "coffee-table",
+        title: "Livre Déco Chanel Fashion",
+        description: "Livre table basse mode luxe. Accessoire décoratif iconique, couverture rigide.",
+        image: "https://m.media-amazon.com/images/I/71HI+xxxxxx._AC_SL1500_.jpg",
+        price: "32,50 €",
+        rating: 4.8,
+        link: "https://www.amazon.fr/dp/B09XXXXX?tag=breezy01-21"
+    },
+    {
+        id: 60,
+        category: "coffee-table",
+        title: "Bougie Parfumée Céramique 200g",
+        description: "Bougie soja parfum vanille cèdre. Pot réutilisable, 45h combustion, cadeau idéal.",
+        image: "https://m.media-amazon.com/images/I/71JK+xxxxxx._AC_SL1500_.jpg",
+        price: "21,99 €",
+        rating: 4.6,
+        link: "https://www.amazon.fr/dp/B0AXXXXX?tag=breezy01-21"
+    },
+
+    // 💰 BUDGET HOME DECOR (Under 25€)
+    {
+        id: 61,
+        category: "budget",
+        title: "Housse Coussin Lin Naturel 40x40 Lot 2",
+        description: "Taies oreiller style campagne chic. Fermeture éclair, lavable, aspect vieilli.",
+        image: "https://m.media-amazon.com/images/I/71LM+xxxxxx._AC_SL1500_.jpg",
+        price: "11,99 €",
+        rating: 4.5,
+        link: "https://www.amazon.fr/dp/B08XXXXX?tag=breezy01-21"
+    },
+    {
+        id: 62,
+        category: "budget",
+        title: "Vase Verre Soufflé Ambre 25cm",
+        description: "Soliflore design rétro couleur miel. Pour fleurs séchées ou branches décoratives.",
+        image: "https://m.media-amazon.com/images/I/71NO+xxxxxx._AC_SL1500_.jpg",
+        price: "15,90 €",
+        rating: 4.4,
+        link: "https://www.amazon.fr/dp/B09XXXXX?tag=breezy01-21"
+    },
+    {
+        id: 63,
+        category: "budget",
+        title: "Dessous de Plat Design Béton Lot 4",
+        description: "Sous-plats industriels ronds 10cm. Aspect béton, protection table efficace.",
+        image: "https://m.media-amazon.com/images/I/81PQ+xxxxxx._AC_SL1500_.jpg",
+        price: "9,99 €",
+        rating: 4.3,
+        link: "https://www.amazon.fr/dp/B07XXXXX?tag=breezy01-21"
+    },
+    {
+        id: 64,
+        category: "budget",
+        title: "Porte-Savon Céramique Émaillé",
+        description: "Vide-poche salle de bain artisanal. Glacure réactive, chaque pièce unique.",
+        image: "https://m.media-amazon.com/images/I/81RS+xxxxxx._AC_SL1500_.jpg",
+        price: "8,50 €",
+        rating: 4.6,
+        link: "https://www.amazon.fr/dp/B0BXXXXX?tag=breezy01-21"
+    },
+    {
+        id: 65,
+        category: "budget",
+        title: "Patère Murale Bois Lot de 4",
+        description: "Crochets muraux design scandinave. Fixation invisible, pour entrée ou chambre.",
+        image: "https://m.media-amazon.com/images/I/71TU+xxxxxx._AC_SL1500_.jpg",
+        price: "12,99 €",
+        rating: 4.5,
+        link: "https://www.amazon.fr/dp/B08XXXXX?tag=breezy01-21"
+    },
+
+    // 🔧 USEFUL AMAZON HOME GADGETS
+    {
+        id: 66,
+        category: "gadgets",
+        title: "Distributeur Savon Automatique USB",
+        description: "Pompe savon sans contact capteur infrarouge. Rechargeable, 400ml, design minimaliste.",
+        image: "https://m.media-amazon.com/images/I/71VW+xxxxxx._AC_SL1500_.jpg",
+        price: "24,99 €",
+        rating: 4.4,
+        link: "https://www.amazon.fr/dp/B09XXXXX?tag=breezy01-21"
+    },
+    {
+        id: 67,
+        category: "gadgets",
+        title: "Mini Aspirateur Table Sans Fil",
+        description: "Aspirateur bureau puissant pour miettes. Design cochon mignon, batterie longue durée.",
+        image: "https://m.media-amazon.com/images/I/81XY+xxxxxx._AC_SL1500_.jpg",
+        price: "18,90 €",
+        rating: 4.6,
+        link: "https://www.amazon.fr/dp/B0AXXXXX?tag=breezy01-21"
+    },
+    {
+        id: 68,
+        category: "gadgets",
+        title: "Support Tablette Cuisine Réglable",
+        description: "Porte-iPad mural ou à poser. Parfait pour recettes, angle réglable, antidérapant.",
+        image: "https://m.media-amazon.com/images/I/81ZA+xxxxxx._AC_SL1500_.jpg",
+        price: "16,99 €",
+        rating: 4.5,
+        link: "https://www.amazon.fr/dp/B08XXXXX?tag=breezy01-21"
+    },
+    {
+        id: 69,
+        category: "gadgets",
+        title: "Déshumidificateur Mini 500ml",
+        description: "Absorbeur humidité électrique chambre. Arrêt auto, lumière LED 7 couleurs optionnelle.",
+        image: "https://m.media-amazon.com/images/I/71BC+xxxxxx._AC_SL1500_.jpg",
+        price: "29,99 €",
+        rating: 4.3,
+        link: "https://www.amazon.fr/dp/B07XXXXX?tag=breezy01-21"
+    },
+    {
+        id: 70,
+        category: "gadgets",
+        title: "Organisateur Câbles Magnétique 3pcs",
+        description: "Clips bureau adhésifs gestion fils. Maintient chargeurs et câbles en place.",
+        image: "https://m.media-amazon.com/images/I/71DE+xxxxxx._AC_SL1500_.jpg",
+        price: "7,99 €",
+        rating: 4.7,
+        link: "https://www.amazon.fr/dp/B09XXXXX?tag=breezy01-21"
+    },
+    {
+        id: 71,
+        category: "gadgets",
+        title: "Thermomètre Hygromètre Digital Design",
+        description: "Station météo intérieur écran e-ink. Mesure température humidité, design minimaliste.",
+        image: "https://m.media-amazon.com/images/I/81FG+xxxxxx._AC_SL1500_.jpg",
+        price: "19,99 €",
+        rating: 4.5,
+        link: "https://www.amazon.fr/dp/B0BXXXXX?tag=breezy01-21"
+    },
+    {
+        id: 72,
+        category: "gadgets",
+        title: "Lampe UV Désinfectante Smartphone",
+        description: "Stérilisateur UV-C téléphone et objets. Boîte fermée, charge sans fil intégrée.",
+        image: "https://m.media-amazon.com/images/I/71HI+xxxxxx._AC_SL1500_.jpg",
+        price: "34,90 €",
+        rating: 4.4,
+        link: "https://www.amazon.fr/dp/B08XXXXX?tag=breezy01-21"
+    },
+    {
+        id: 73,
+        category: "gadgets",
+        title: "Rouleau Anti-Poils Réutilisable",
+        description: "Brosse vêtements lavable écologique. Enlève poils animaux efficacement, sans recharge.",
+        image: "https://m.media-amazon.com/images/I/71JK+xxxxxx._AC_SL1500_.jpg",
+        price: "13,99 €",
+        rating: 4.6,
+        link: "https://www.amazon.fr/dp/B09XXXXX?tag=breezy01-21"
+    },
+    {
+        id: 74,
+        category: "gadgets",
+        title: "Ouvre-Boîte Électrique One-Touch",
+        description: "Ouvre-boîte automatique sans effort. Coupe sécurisée, fonctionne piles, design compact.",
+        image: "https://m.media-amazon.com/images/I/71LM+xxxxxx._AC_SL1500_.jpg",
+        price: "22,50 €",
+        rating: 4.5,
+        link: "https://www.amazon.fr/dp/B0AXXXXX?tag=breezy01-21"
+    },
+    {
+        id: 75,
+        category: "gadgets",
+        title: "Diffuseur Huiles Essentielles 300ml",
+        description: "Humidificateur ultrasonique silencieux. Lumière LED, timer auto, design céramique bois.",
+        image: "https://m.media-amazon.com/images/I/71NO+xxxxxx._AC_SL1500_.jpg",
+        price: "27,99 €",
+        rating: 4.7,
+        link: "https://www.amazon.fr/dp/B07XXXXX?tag=breezy01-21"
     }
+];
 
-    // Find or create product containers on the page
-    loadProductsIntoSections();
-    
-    // Add CSS if not already present
-    injectProductStyles();
+// Make available globally
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = newProducts;
 }
-
-/**
- * Loads products into appropriate sections based on category
- */
-function loadProductsIntoSections() {
-    // Map categories to section IDs or classes (adjust based on your HTML)
-    const categoryMap = {
-        'home-decor': 'home-decor-products',
-        'living-room': 'living-room-products', 
-        'wall-decor': 'wall-decor-products',
-        'plants': 'plants-products',
-        'mirrors': 'mirrors-products',
-        'storage': 'storage-products',
-        'lighting': 'lighting-products',
-        'coffee-table': 'coffee-table-products',
-        'budget': 'budget-products',
-        'gadgets': 'gadgets-products'
-    };
-
-    // Try to find existing product grids, or create a new section
-    const existingGrids = document.querySelectorAll('.product-grid, .products-grid, .grid-products, [class*="product"]');
-    
-    if (existingGrids.length > 0) {
-        // Add products to existing grids
-        existingGrids.forEach(grid => {
-            // Clear existing or append based on your preference
-            // Uncomment next line to replace existing products:
-            // grid.innerHTML = '';
-            
-            // Add all new products
-            newProducts.forEach(product => {
-                const card = createProductCard(product);
-                grid.appendChild(card);
-            });
-        });
-    } else {
-        // Create new product section if no grid found
-        createNewProductSection();
-    }
-}
-
-/**
- * Creates a product card HTML element
- */
-function createProductCard(product) {
-    const card = document.createElement('div');
-    card.className = 'product-card';
-    card.setAttribute('data-category', product.category);
-    card.setAttribute('data-id', product.id);
-    
-    // Generate star rating HTML
-    const starsHtml = generateStarRating(product.rating);
-    
-    // Ensure affiliate tag is present
-    const affiliateLink = ensureAffiliateTag(product.link);
-    
-    card.innerHTML = `
-        <div class="product-image">
-            <img src="${product.image}" alt="${escapeHtml(product.title)}" loading="lazy">
-        </div>
-        <div class="product-info">
-            <h3 class="product-title">${escapeHtml(product.title)}</h3>
-            <p class="product-description">${escapeHtml(product.description)}</p>
-            <div class="product-meta">
-                <span class="product-price">${product.price}</span>
-                <div class="product-rating">${starsHtml} <span>${product.rating}</span></div>
-            </div>
-            <a href="${affiliateLink}" 
-               target="_blank" 
-               rel="noopener noreferrer sponsored" 
-               class="amazon-button">
-                Voir sur Amazon
-            </a>
-        </div>
-    `;
-    
-    return card;
-}
-
-/**
- * Generates star rating HTML
- */
-function generateStarRating(rating) {
-    const fullStars = Math.floor(rating);
-    const hasHalfStar = rating % 1 >= 0.5;
-    let starsHtml = '';
-    
-    for (let i = 0; i < fullStars; i++) {
-        starsHtml += '★';
-    }
-    if (hasHalfStar) {
-        starsHtml += '½';
-    }
-    
-    return `<span class="stars">${starsHtml}</span>`;
-}
-
-/**
- * Ensures affiliate tag is in URL
- */
-function ensureAffiliateTag(url) {
-    if (!url) return '#';
-    
-    // Check if tag already exists
-    if (url.includes('tag=breezy01-21')) {
-        return url;
-    }
-    
-    // Add tag if missing
-    const separator = url.includes('?') ? '&' : '?';
-    return `${url}${separator}tag=breezy01-21`;
-}
-
-/**
- * Escapes HTML to prevent XSS
- */
-function escapeHtml(text) {
-    const div = document.createElement('div');
-    div.textContent = text;
-    return div.innerHTML;
-}
-
-/**
- * Creates a new product section if none exists
- */
-function createNewProductSection() {
-    const main = document.querySelector('main') || document.body;
-    
-    const section = document.createElement('section');
-    section.id = 'new-products';
-    section.className = 'products-section';
-    section.innerHTML = `
-        <h2>Nouvelles Découvertes Amazon</h2>
-        <div class="product-grid" id="dynamic-product-grid"></div>
-    `;
-    
-    main.appendChild(section);
-    
-    const grid = section.querySelector('#dynamic-product-grid');
-    newProducts.forEach(product => {
-        grid.appendChild(createProductCard(product));
-    });
-}
-
-/**
- * Injects necessary CSS styles
- */
-function injectProductStyles() {
-    // Check if styles already exist
-    if (document.getElementById('product-loader-styles')) return;
-    
-    const styles = document.createElement('style');
-    styles.id = 'product-loader-styles';
-    styles.textContent = `
-        /* Product Grid Layout */
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 2rem;
-            padding: 2rem;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-        
-        /* Product Card Styling */
-        .product-card {
-            background: #ffffff;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-        }
-        
-        .product-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 24px rgba(0,0,0,0.15);
-        }
-        
-        /* Product Image */
-        .product-image {
-            width: 100%;
-            height: 250px;
-            overflow: hidden;
-            background: #f8f8f8;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .product-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-        }
-        
-        .product-card:hover .product-image img {
-            transform: scale(1.05);
-        }
-        
-        /* Product Info */
-        .product-info {
-            padding: 1.5rem;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .product-title {
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin: 0 0 0.5rem 0;
-            color: #1a1a1a;
-            line-height: 1.4;
-        }
-        
-        .product-description {
-            font-size: 0.9rem;
-            color: #666;
-            line-height: 1.5;
-            margin-bottom: 1rem;
-            flex-grow: 1;
-        }
-        
-        /* Product Meta */
-        .product-meta {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid #eee;
-        }
-        
-        .product-price {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: #B12704; /* Amazon price color */
-        }
-        
-        .product-rating {
-            display: flex;
-            align-items: center;
-            gap: 0.25rem;
-            font-size: 0.9rem;
-            color: #ffa41c; /* Amazon star color */
-        }
-        
-        .product-rating .stars {
-            color: #ffa41c;
-            letter-spacing: 2px;
-        }
-        
-        .product-rating span:last-child {
-            color: #007185;
-            margin-left: 0.25rem;
-        }
-        
-        /* Amazon Button */
-        .amazon-button {
-            display: block;
-            width: 100%;
-            padding: 0.875rem 1.5rem;
-            background: linear-gradient(135deg, #ffd814 0%, #ffb700 100%);
-            color: #0F1111;
-            text-decoration: none;
-            text-align: center;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 0.95rem;
-            transition: all 0.2s ease;
-            border: 1px solid #fcd200;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        
-        .amazon-button:hover {
-            background: linear-gradient(135deg, #ffe31c 0%, #ffc107 100%);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(255, 183, 0, 0.3);
-        }
-        
-        .amazon-button:active {
-            transform: translateY(0);
-        }
-        
-        /* Section Title */
-        .products-section h2 {
-            text-align: center;
-            font-size: 2rem;
-            margin: 3rem 0 1rem;
-            color: #1a1a1a;
-        }
-        
-        /* Responsive */
-        @media (max-width: 768px) {
-            .product-grid {
-                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-                gap: 1rem;
-                padding: 1rem;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .product-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-        
-        /* Loading State */
-        .product-card.loading {
-            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-        }
-        
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: .5; }
-        }
-    `;
-    
-    document.head.appendChild(styles);
-}
-
-/**
- * Utility: Filter products by category
- */
-function filterProducts(category) {
-    const cards = document.querySelectorAll('.product-card');
-    cards.forEach(card => {
-        if (category === 'all' || card.getAttribute('data-category') === category) {
-            card.style.display = 'flex';
-        } else {
-            card.style.display = 'none';
-        }
-    });
-}
-
-/**
- * Utility: Sort products
- */
-function sortProducts(by) {
-    const grid = document.querySelector('.product-grid');
-    const cards = Array.from(grid.children);
-    
-    cards.sort((a, b) => {
-        const aVal = a.getAttribute(`data-${by}`);
-        const bVal = b.getAttribute(`data-${by}`);
-        return aVal.localeCompare(bVal);
-    });
-    
-    cards.forEach(card => grid.appendChild(card));
-}
-
-// Expose utilities globally for potential use
-window.filterProducts = filterProducts;
-window.sortProducts = sortProducts;
