@@ -1,1954 +1,250 @@
-// ==========================================
-// MON UNIVERS AMAZON - PRODUCTS DATABASE
-// StoreID: breezy01-21
-// Total: 200 produits (65 existants + 135 nouveaux)
-// ==========================================
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Univers Amazon | 200 Produits Déco, Gadgets & Astuces</title>
+    <meta name="description" content="Découvrez 200 produits Amazon soigneusement sélectionnés : déco moderne, gadgets étudiants, setups bureau et astuces petit budget.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { font-family: 'Inter', sans-serif; }
+        .grain {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none; z-index: 50; opacity: 0.015;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+        .product-card { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+        .product-card:hover { transform: translateY(-8px); box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); }
+        .amazon-btn { 
+            background: linear-gradient(135deg, #FF9900 0%, #FF6600 100%);
+            transition: all 0.3s ease;
+        }
+        .amazon-btn:hover { transform: scale(1.05); box-shadow: 0 10px 30px rgba(255, 153, 0, 0.4); }
+        .sticky-nav { position: sticky; top: 0; z-index: 40; }
+        .hero-gradient { background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%); }
+        .product-image { width: 100%; height: 250px; object-fit: cover; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900">
+    <div class="grain"></div>
 
-const STORE_ID = "breezy01-21";
+    <!-- Navigation -->
+    <nav class="sticky-nav bg-white/90 backdrop-blur-md border-b border-gray-200 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-gradient-to-br from-orange-400 to-orange-600 rounded-xl flex items-center justify-center text-white font-bold text-xl">A</div>
+                    <div>
+                        <h1 class="font-bold text-lg">Mon Univers Amazon</h1>
+                        <p class="text-xs text-gray-500">Déco • Gadgets • Astuces Budget</p>
+                    </div>
+                </div>
+                <div class="hidden md:flex gap-6 text-sm font-medium">
+                    <a href="#living" class="hover:text-orange-600 transition">Salon</a>
+                    <a href="#home" class="hover:text-orange-600 transition">Maison</a>
+                    <a href="#student" class="hover:text-orange-600 transition">Étudiants</a>
+                    <a href="#desk" class="hover:text-orange-600 transition">Bureau</a>
+                    <a href="#budget" class="hover:text-orange-600 transition">Petit Budget</a>
+                    <a href="#finds" class="hover:text-orange-600 transition">Amazon Finds</a>
+                </div>
+            </div>
+        </div>
+    </nav>
 
-// Helper pour générer les liens Amazon
-const amazonLink = (keywords) => `https://www.amazon.fr/s?k=${encodeURIComponent(keywords)}&tag=${STORE_ID}`;
+    <!-- Hero -->
+    <section class="hero-gradient text-white py-16 px-4">
+        <div class="max-w-4xl mx-auto text-center">
+            <span class="inline-block px-4 py-2 bg-white/20 backdrop-blur rounded-full text-sm font-semibold mb-6">🔥 200 Produits Sélectionnés</span>
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">Transform Your Space<br><span class="text-yellow-300">Sans Vous Ruiner</span></h1>
+            <p class="text-xl text-white/90 mb-8">Découvrez 200 produits Amazon soigneusement sélectionnés : déco moderne, gadgets étudiants, setups bureau et astuces petit budget.</p>
+        </div>
+    </section>
 
-// ==========================================
-// 1. LIVING ROOM DECOR (35 produits totaux)
-// ==========================================
+    <!-- LIVING ROOM DECOR - 35 PRODUITS -->
+    <section id="living" class="py-12 px-4 max-w-7xl mx-auto">
+        <div class="flex items-center gap-3 mb-8">
+            <div class="w-12 h-12 bg-gradient-to-br from-rose-400 to-pink-600 rounded-xl flex items-center justify-center text-white text-2xl">🛋️</div>
+            <div><h2 class="text-3xl font-bold">Living Room Decor</h2><p class="text-gray-600">35 produits pour sublimer votre salon</p></div>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- PRODUITS EXISTANTS -->
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100"><div class="relative"><img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-blue-500 text-white px-3 py-1 rounded-full text-xs font-bold">Moderne</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Modern Beige Sofa</h3><p class="text-gray-600 text-sm mb-4">Canapé beige élégant pour salons modernes. Design épuré, confort optimal.</p><a href="https://www.amazon.fr/s?k=canape+beige+moderne+salon&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100"><div class="relative"><img src="https://images.unsplash.com/photo-1533090481720-856c6e3c1fdc?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-amber-500 text-white px-3 py-1 rounded-full text-xs font-bold">Neutre</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Neutral Coffee Table</h3><p class="text-gray-600 text-sm mb-4">Table basse minimaliste aux tons neutres. S'harmonise avec toutes les décorations.</p><a href="https://www.amazon.fr/s?k=table+basse+minimaliste+neutre&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100"><div class="relative"><img src="https://images.unsplash.com/photo-1618220179428-22790b461013?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-yellow-600 text-white px-3 py-1 rounded-full text-xs font-bold">Luxe</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Gold Wall Mirror</h3><p class="text-gray-600 text-sm mb-4">Miroir mural chic avec cadre doré. Ajoute une touche de luxe instantanée.</p><a href="https://www.amazon.fr/s?k=miroir+mural+dore+luxe&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100"><div class="relative"><img src="https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-green-500 text-white px-3 py-1 rounded-full text-xs font-bold">Petit Espace</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Foldable Side Table</h3><p class="text-gray-600 text-sm mb-4">Table d'appoint pliable gain de place. Idéale pour les petits salons.</p><a href="https://www.amazon.fr/s?k=table+appoint+pliable+gain+place&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100"><div class="relative"><img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-purple-500 text-white px-3 py-1 rounded-full text-xs font-bold">Mur</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Decorative Wall Art</h3><p class="text-gray-600 text-sm mb-4">Art mural stylé pour sublimer votre salon. Créez votre galerie personnelle.</p><a href="https://www.amazon.fr/s?k=art+mural+deco+salon&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100"><div class="relative"><img src="https://images.unsplash.com/photo-1575414003591-ece8d0416c7a?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-slate-500 text-white px-3 py-1 rounded-full text-xs font-bold">Minimaliste</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Minimalist Rug</h3><p class="text-gray-600 text-sm mb-4">Tapis simple et élégant pour espaces modernes minimalistes. Pureté des lignes.</p><a href="https://www.amazon.fr/s?k=tapis+minimaliste+moderne&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100"><div class="relative"><img src="https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-orange-500 text-white px-3 py-1 rounded-full text-xs font-bold">Cozy</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Soft Throw Blanket</h3><p class="text-gray-600 text-sm mb-4">Plaid doux et moelleux pour un salon chaleureux et accueillant. Hygge garanti.</p><a href="https://www.amazon.fr/s?k=plaid+doux+moelleux+salon&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <!-- NOUVEAUX PRODUITS LIVING ROOM (28 de plus pour total 35) -->
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100"><div class="relative"><img src="https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-blue-600 text-white px-3 py-1 rounded-full text-xs font-bold">Moderne</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Fauteuil Scandinave Velours</h3><p class="text-gray-600 text-sm mb-4">Fauteuil confortable pieds bois hêtre. Velours bleu canard ou vert sapin.</p><a href="https://www.amazon.fr/s?k=fauteuil+scandinave+velours+pieds+bois&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100"><div class="relative"><img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-blue-500 text-white px-3 py-1 rounded-full text-xs font-bold">Moderne</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Canapé Modulable 3 Places</h3><p class="text-gray-600 text-sm mb-4">Canapé d'angle réversible avec méridienne. Structure bois massif.</p><a href="https://www.amazon.fr/s?k=canape+modulable+3+places+tissu+gris+reversible&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100"><div class="relative"><img src="https://images.unsplash.com/photo-1533090481720-856c6e3c1fdc?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-blue-600 text-white px-3 py-1 rounded-full text-xs font-bold">Design</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Table Basse Liftable Blanc</h3><p class="text-gray-600 text-sm mb-4">Table basse plateau relevable 120x60cm. Rangement intérieur pour télécommandes.</p><a href="https://www.amazon.fr/s?k=table+basse+liftable+plateau+relevable+blanc&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100"><div class="relative"><img src="https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-slate-600 text-white px-3 py-1 rounded-full text-xs font-bold">Pratique</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Bibliothèque Cube 16 Cases</h3><p class="text-gray-600 text-sm mb-4">Meuble rangement modulable blanc. Séparateurs réglables, fixation murale.</p><a href="https://www.amazon.fr/s?k=bibliotheque+etagere+cube+16+cases+modulable&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100"><div class="relative"><img src="https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-yellow-600 text-white px-3 py-1 rounded-full text-xs font-bold">Éclairage</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Lampe sur Pied Trépied Bois</h3><p class="text-gray-600 text-sm mb-4">Lampadaire design scandinave 160cm. Abat-jour lin beige, ampoule LED incluse.</p><a href="https://www.amazon.fr/s?k=lampe+pied+trepeid+bois+scandinave+160cm&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100"><div class="relative"><img src="https://images.unsplash.com/photo-1618220179428-22790b461013?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-amber-600 text-white px-3 py-1 rounded-full text-xs font-bold">Populaire</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Meuble TV Scandinave 180cm</h3><p class="text-gray-600 text-sm mb-4">Banc télé chêne et blanc avec tiroirs. Passage câbles arrière, style nordique.</p><a href="https://www.amazon.fr/s?k=meuble+tv+scandinave+180cm+chene+blanc+tiroirs&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100"><div class="relative"><img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-teal-600 text-white px-3 py-1 rounded-full text-xs font-bold">2-en-1</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Pouf Coffre Velours Vert</h3><p class="text-gray-600 text-sm mb-4">Ottoman 50x35cm avec rangement intérieur. Velours vert émeraude.</p><a href="https://www.amazon.fr/s?k=pouf+coffre+rangement+velours+50cm+vert&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100"><div class="relative"><img src="https://images.unsplash.com/photo-1563863788434-e58a36330cf0?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-slate-700 text-white px-3 py-1 rounded-full text-xs font-bold">Statement</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Horloge Design 60cm</h3><p class="text-gray-600 text-sm mb-4">Grande horloge métal noir mat silencieuse. Chiffres romains dorés.</p><a href="https://www.amazon.fr/s?k=horloge+murale+design+60cm+metal+noir+dore&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100"><div class="relative"><img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-amber-500 text-white px-3 py-1 rounded-full text-xs font-bold">Convertible</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Canapé Convertible Beige</h3><p class="text-gray-600 text-sm mb-4">Canapé lit 3 places clic-clac naturel. Matelas 10cm inclus.</p><a href="https://www.amazon.fr/s?k=canape+convertible+beige+lin+3+places+clic+clac&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100"><div class="relative"><img src="https://images.unsplash.com/photo-1575414003591-ece8d0416c7a?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-amber-400 text-white px-3 py-1 rounded-full text-xs font-bold">Artisanal</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Tapis Berbère Beige</h3><p class="text-gray-600 text-sm mb-4">Tapis style berbère 160x230cm coton et jute. Motifs losanges, franges tissées main.</p><a href="https://www.amazon.fr/s?k=tapis+berbere+beige+naturel+160x230+coton+jute&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100"><div class="relative"><img src="https://images.unsplash.com/photo-1507089947368-19c1da9775ae?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-yellow-700 text-white px-3 py-1 rounded-full text-xs font-bold">Naturel</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Rideaux Lin Beige</h3><p class="text-gray-600 text-sm mb-4">Lot 2 rideaux 140x260cm 100% lin. Œillets métal, filtration lumière douce.</p><a href="https://www.amazon.fr/s?k=rideaux+lin+beige+tamisant+140x260+oeillets&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100"><div class="relative"><img src="https://images.unsplash.com/photo-1578500494198-246f612d3b3d?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-amber-600 text-white px-3 py-1 rounded-full text-xs font-bold">Déco</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Vase Céramique Beige 40cm</h3><p class="text-gray-600 text-sm mb-4">Grand vase artisanal forme organique. Émail mat sable, parfait pour branches séchées.</p><a href="https://www.amazon.fr/s?k=vase+ceramique+beige+mat+40cm+organique&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100"><div class="relative"><img src="https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-stone-500 text-white px-3 py-1 rounded-full text-xs font-bold">Lot</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Coussins Lin Naturel Lot 4</h3><p class="text-gray-600 text-sm mb-4">Lot 4 housses coussin 45x45cm tons beige. Fermetures éclair, lavables machine.</p><a href="https://www.amazon.fr/s?k=coussins+lin+coton+naturel+45x45+lot+4+beige&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100"><div class="relative"><img src="https://images.unsplash.com/photo-1618220179428-22790b461013?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-amber-600 text-white px-3 py-1 rounded-full text-xs font-bold">Luxe</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Table d'Appoint Marbre</h3><p class="text-gray-600 text-sm mb-4">Guéridon 50cm plateau marbre blanc véritable. Pied métal doré, style art déco.</p><a href="https://www.amazon.fr/s?k=table+appoint+ronde+marbre+blanc+50cm+pied+dore&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100"><div class="relative"><img src="https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-orange-400 text-white px-3 py-1 rounded-full text-xs font-bold">Cozy</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Plaid Tricoté Coton Bio</h3><p class="text-gray-600 text-sm mb-4">Couverture 130x170cm maille torsadée épaisse. 100% coton bio, toucher cachemire.</p><a href="https://www.amazon.fr/s?k=plaid+tricote+coton+bio+ecru+130x170+maille&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100"><div class="relative"><img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-emerald-700 text-white px-3 py-1 rounded-full text-xs font-bold">Premium</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Canapé Chesterfield Velours</h3><p class="text-gray-600 text-sm mb-4">Canapé 3 places capitonné velours émeraude. Boutons cristal, pieds bois tourné.</p><a href="https://www.amazon.fr/s?k=canape+chesterfield+velours+vert+3+places+capitonne&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100"><div class="relative"><img src="https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-yellow-600 text-white px-3 py-1 rounded-full text-xs font-bold">Statement</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Lustre Moderne Doré 8 Bras</h3><p class="text-gray-600 text-sm mb-4">Suspension design art déco métal doré. Ampoules E14 LED, diamètre 80cm.</p><a href="https://www.amazon.fr/s?k=lustre+moderne+dore+8+bras+art+deco+suspension&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100"><div class="relative"><img src="https://images.unsplash.com/photo-1618220179428-22790b461013?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-amber-600 text-white px-3 py-1 rounded-full text-xs font-bold">Élégant</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Console Marbre et Laiton</h3><p class="text-gray-600 text-sm mb-4">Table console 120cm marbre blanc Calacatta. Structure laiton brossé.</p><a href="https://www.amazon.fr/s?k=console+marbre+laiton+120cm+calacatta+blanc&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100"><div class="relative"><img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-yellow-500 text-white px-3 py-1 rounded-full text-xs font-bold">Italie</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Miroir Vénitien Murano 100cm</h3><p class="text-gray-600 text-sm mb-4">Grand miroir mural verre Murano doré. Cadre artisanal italien, pièce unique.</p><a href="https://www.amazon.fr/s?k=miroir+venitien+murano+100cm+verre+dore+artisanal&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100"><div class="relative"><img src="https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-amber-700 text-white px-3 py-1 rounded-full text-xs font-bold">Cuir</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Fauteuil Club Cuir Cognac</h3><p class="text-gray-600 text-sm mb-4">Fauteuil vintage cuir véritable patiné. Structure acier, confort exceptionnel.</p><a href="https://www.amazon.fr/s?k=fauteuil+club+cuir+cognac+vintage+acier+confort&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100"><div class="relative"><img src="https://images.unsplash.com/photo-1575414003591-ece8d0416c7a?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-blue-800 text-white px-3 py-1 rounded-full text-xs font-bold">Heritage</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Tapis Persan Laine Noué Main</h3><p class="text-gray-600 text-sm mb-4">Tapis 200x290cm pure laine noué main. Motifs traditionnels bleu marine et or.</p><a href="https://www.amazon.fr/s?k=tapis+persan+laine+noue+main+200x290+bleu+or&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100"><div class="relative"><img src="https://images.unsplash.com/photo-1578500494198-246f612d3b3d?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-purple-600 text-white px-3 py-1 rounded-full text-xs font-bold">Art</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Sculpture Déco Bronze</h3><p class="text-gray-600 text-sm mb-4">Œuvre art contemporain bronze 45cm. Base marbre noir, certificat authenticité.</p><a href="https://www.amazon.fr/s?k=sculpture+deco+bronze+abstrait+45cm+marbre+art&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100"><div class="relative"><img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-green-500 text-white px-3 py-1 rounded-full text-xs font-bold">Gain Place</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Canapé Lit Convertible Express</h3><p class="text-gray-600 text-sm mb-4">Canapé 2 places convertible couchage 140cm. Ouverture express, matelas 16cm.</p><a href="https://www.amazon.fr/s?k=canape+lit+convertible+express+2+places+140cm&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100"><div class="relative"><img src="https://images.unsplash.com/photo-1533090481720-856c6e3c1fdc?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-emerald-600 text-white px-3 py-1 rounded-full text-xs font-bold">Extensible</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Table Console Extensible 300cm</h3><p class="text-gray-600 text-sm mb-4">Console 40cm qui s'étire à 300cm. 10 personnes, parfaite pour studio.</p><a href="https://www.amazon.fr/s?k=table+console+extensible+300cm+10+personnes+bois&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100"><div class="relative"><img src="https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-green-600 text-white px-3 py-1 rounded-full text-xs font-bold">Vertical</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Étagère Échelle 5 Niveaux</h3><p class="text-gray-600 text-sm mb-4">Bibliothèque inclinée 180cm gain place. Étagères graduées, fixation murale.</p><a href="https://www.amazon.fr/s?k=etagere+echelle+5+niveaux+180cm+inclinee+bois&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100"><div class="relative"><img src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-green-500 text-white px-3 py-1 rounded-full text-xs font-bold">Pratique</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Chaises Pliantes Design Lot 4</h3><p class="text-gray-600 text-sm mb-4">Chaises pliantes bois clair assise rembourrée. Rangement plat, style scandinave.</p><a href="https://www.amazon.fr/s?k=chaises+pliantes+design+bois+lot+4+rembourrees&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100"><div class="relative"><img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-lime-600 text-white px-3 py-1 rounded-full text-xs font-bold">Multifonction</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Pouf Pliable Rangement XXL</h3><p class="text-gray-600 text-sm mb-4">Cube 60cm coffre rangement 80L. Se plie à plat, repose-pieds ou table d'appoint.</p><a href="https://www.amazon.fr/s?k=pouf+pliable+rangement+xxl+60cm+coffre+80l&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100"><div class="relative"><img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-purple-600 text-white px-3 py-1 rounded-full text-xs font-bold">Illusion</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Miroir Mural Magnifiant 180cm</h3><p class="text-gray-600 text-sm mb-4">Miroir sur pied rotatif 360°. Agrandit visuellement, rangement bijoux arrière.</p><a href="https://www.amazon.fr/s?k=miroir+mural+magnifiant+180cm+rotatif+360+rangement&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100"><div class="relative"><img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-purple-500 text-white px-3 py-1 rounded-full text-xs font-bold">Triptyque</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Set 3 Tableaux Abstraits Beige</h3><p class="text-gray-600 text-sm mb-4">Triptyque 40x60cm impression sur toile. Encadrés bois, prêts à accrocher.</p><a href="https://www.amazon.fr/s?k=set+3+tableaux+abstraits+beige+40x60+toile+cadre&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100"><div class="relative"><img src="https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-indigo-600 text-white px-3 py-1 rounded-full text-xs font-bold">Géométrique</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Étagère Murale Design Géométrique</h3><p class="text-gray-600 text-sm mb-4">Étagère hexagonale métal noir lot 6. Modulable, fixation invisible incluse.</p><a href="https://www.amazon.fr/s?k=etagere+murale+geometrique+hexagonale+metal+lot+6&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100"><div class="relative"><img src="https://images.unsplash.com/photo-1563863788434-e58a36330cf0?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-slate-700 text-white px-3 py-1 rounded-full text-xs font-bold">XXL</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Horloge Murale Industrielle 80cm</h3><p class="text-gray-600 text-sm mb-4">Horloge 80cm métal style loft. Chiffres découpés au laser, mécanisme silencieux.</p><a href="https://www.amazon.fr/s?k=horloge+murale+design+industriel+80cm+metal+loft&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100"><div class="relative"><img src="https://images.unsplash.com/photo-1618220179428-22790b461013?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-yellow-600 text-white px-3 py-1 rounded-full text-xs font-bold">Art Déco</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Miroir Soleil Doré 90cm</h3><p class="text-gray-600 text-sm mb-4">Miroir mural rond style art déco. Rayons dorés martelés, centre miroir biseauté.</p><a href="https://www.amazon.fr/s?k=miroir+soleil+dore+90cm+art+deco+rond+biseaute&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100"><div class="relative"><img src="https://images.unsplash.com/photo-1578500494198-246f612d3b3d?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-orange-500 text-white px-3 py-1 rounded-full text-xs font-bold">Fait Main</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Tenture Macramé Bohème 100cm</h3><p class="text-gray-600 text-sm mb-4">Décoration murale tissée main coton naturel. Style boho chic, franges longues.</p><a href="https://www.amazon.fr/s?k=tenture+macrame+boheme+100cm+tisse+main+coton&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100"><div class="relative"><img src="https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-gray-600 text-white px-3 py-1 rounded-full text-xs font-bold">Éclairage</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Appliques Murales LED Lot 2</h3><p class="text-gray-600 text-sm mb-4">Lampes murales orientables noir mat. Lumière indirecte, parfaites pour lecture.</p><a href="https://www.amazon.fr/s?k=appliques+murales+led+lot+2+orientables+noir+mat&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100"><div class="relative"><img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-blue-700 text-white px-3 py-1 rounded-full text-xs font-bold">Voyage</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Carte du Monde Métal 150cm</h3><p class="text-gray-600 text-sm mb-4">Décoration murale carte monde découpe laser. Acier noir ou doré, relief 3D.</p><a href="https://www.amazon.fr/s?k=carte+monde+metal+150cm+decoupe+laser+relief+3d&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100"><div class="relative"><img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-gray-500 text-white px-3 py-1 rounded-full text-xs font-bold">Japandi</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Canapé Méridienne Lin Gris</h3><p class="text-gray-600 text-sm mb-4">Canapé 2 places asymétrique lin naturel. Design japandi, structure frêne massif.</p><a href="https://www.amazon.fr/s?k=canape+meridienne+lin+gris+2+places+asymetrique+japandi&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100"><div class="relative"><img src="https://images.unsplash.com/photo-1533090481720-856c6e3c1fdc?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-stone-500 text-white px-3 py-1 rounded-full text-xs font-bold">Naturel</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Table Basse Travertin 80cm</h3><p class="text-gray-600 text-sm mb-4">Table basse pierre travertin naturel. Forme organique, chaque pièce unique.</p><a href="https://www.amazon.fr/s?k=table+basse+travertin+80cm+pierre+naturelle+organique&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100"><div class="relative"><img src="https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-slate-400 text-white px-3 py-1 rounded-full text-xs font-bold">Pure</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Lampe à Poser Boule Verre</h3><p class="text-gray-600 text-sm mb-4">Lampe table sphère opale 25cm. Base laiton brossé, ampoule globe LED incluse.</p><a href="https://www.amazon.fr/s?k=lampe+poser+boule+verre+opale+25cm+laiton+base&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100"><div class="relative"><img src="https://images.unsplash.com/photo-1575414003591-ece8d0416c7a?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-amber-700 text-white px-3 py-1 rounded-full text-xs font-bold">Kilim</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Tapis Laine Tissé Plat Beige</h3><p class="text-gray-600 text-sm mb-4">Tapis kilim 140x200cm laine tissé main. Motifs géométriques discrets, réversible.</p><a href="https://www.amazon.fr/s?k=tapis+laine+tisse+plat+beige+kilim+140x200+main&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100"><div class="relative"><img src="https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-stone-500 text-white px-3 py-1 rounded-full text-xs font-bold">Invisible</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Étagère Murale Invisible</h3><p class="text-gray-600 text-sm mb-4">Étagère flottante 90cm fixation invisible. Chêne massif 4cm épaisseur, épurée.</p><a href="https://www.amazon.fr/s?k=etagere+murale+invisible+90cm+chene+fixation+flottante&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+        </div>
+    </section>
 
-const livingRoomProducts = [
-  // SOUS-CATÉGORIE: Modern living room (5 produits)
-  {
-    id: "lr-modern-001",
-    title: "Canapé d'Angle Convertible Velours",
-    description: "Canapé modulable 3 places avec méridienne réversible. Velours gris anthracite luxueux.",
-    image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&h=400&fit=crop",
-    badge: "Moderne",
-    badgeColor: "bg-blue-500",
-    keywords: "canape angle convertible velours gris moderne"
-  },
-  {
-    id: "lr-modern-002",
-    title: "Table Basse Verre Trempé Chrome",
-    description: "Table basse rectangulaire 100x50cm. Design contemporain avec étagère inférieure.",
-    image: "https://images.unsplash.com/photo-1533090481720-856c6e3c1fdc?w=600&h=400&fit=crop",
-    badge: "Design",
-    badgeColor: "bg-blue-600",
-    keywords: "table basse verre trempe chrome moderne"
-  },
-  {
-    id: "lr-modern-003",
-    title: "Fauteuil Scandinave Pieds Chêne",
-    description: "Fauteuil lounge tissu gris clair. Confort optimal avec coussin amovible.",
-    image: "https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?w=600&h=400&fit=crop",
-    badge: "Tendance",
-    badgeColor: "bg-indigo-500",
-    keywords: "fauteuil scandinave tissu gris pieds chene"
-  },
-  {
-    id: "lr-modern-004",
-    title: "Bibliothèque Étagère Ouverte",
-    description: "Meuble de rangement 5 niveaux bois et métal. Style industriel moderne.",
-    image: "https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=600&h=400&fit=crop",
-    badge: "Pratique",
-    badgeColor: "bg-slate-600",
-    keywords: "bibliotheque etagere ouverte bois metal industrielle"
-  },
-  {
-    id: "lr-modern-005",
-    title: "Suspension Luminaire Géométrique",
-    description: "Lustre design noir mat forme diamant. Éclairage LED inclus.",
-    image: "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?w=600&h=400&fit=crop",
-    badge: "Éclairage",
-    badgeColor: "bg-yellow-600",
-    keywords: "suspension luminaire geometrique noir led"
-  },
-   // SOUS-CATÉGORIE: Beige / neutral living room (5 produits)
-  {
-    id: "lr-beige-001",
-    title: "Canapé Beige Lin Naturel",
-    description: "Canapé 3 places lin beige écru. Déhoussable et lavable en machine.",
-    image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&h=400&fit=crop",
-    badge: "Neutre",
-    badgeColor: "bg-amber-500",
-    keywords: "canape beige lin naturel dehoussable"
-  },
-  {
-    id: "lr-beige-002",
-    title: "Tapis Poils Courts Beige Crème",
-    description: "Tapis salon 160x230cm anti-tache. Doux et facile d'entretien.",
-    image: "https://images.unsplash.com/photo-1575414003591-ece8d0416c7a?w=600&h=400&fit=crop",
-    badge: "Neutre",
-    badgeColor: "bg-amber-400",
-    keywords: "tapis poils courts beige creme antitache"
-  },
-  {
-    id: "lr-beige-003",
-    title: "Rideaux Occultants Beige Lin",
-    description: "Lot de 2 rideaux 140x260cm occultants. Œillets métalliques dorés.",
-    image: "https://images.unsplash.com/photo-1507089947368-19c1da9775ae?w=600&h=400&fit=crop",
-    badge: "Textile",
-    badgeColor: "bg-yellow-700",
-    keywords: "rideaux occultants beige lin oeillets dores"
-  },
-  {
-    id: "lr-beige-004",
-    title: "Pouf Repose-Pieds Beige",
-    description: "Ottoman 50x35cm tissu texturé beige. Rangement intérieur.",
-    image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&h=400&fit=crop",
-    badge: "Confort",
-    badgeColor: "bg-orange-400",
-    keywords: "pouf repose pieds beige rangement interieur"
-  },
-  {
-    id: "lr-beige-005",
-    title: "Coussins Décoratifs Neutres",
-    description: "Lot de 4 housses coussin 45x45cm tons beige et écru. Zippées.",
-    image: "https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?w=600&h=400&fit=crop",
-    badge: "Déco",
-    badgeColor: "bg-stone-500",
-    keywords: "coussins decoratifs neutres beige ecru 45x45"
-  },
- // SOUS-CATÉGORIE: Luxury / chic living room (5 produits)
-  {
-    id: "lr-luxe-001",
-    title: "Miroir Mural Baroque Doré",
-    description: "Grand miroir 90x120cm cadre sculpté doré. Style palace chic.",
-    image: "https://images.unsplash.com/photo-1618220179428-22790b461013?w=600&h=400&fit=crop",
-    badge: "Luxe",
-    badgeColor: "bg-yellow-600",
-    keywords: "miroir mural baroque dore 90x120 sculpte"
-  },
-  {
-    id: "lr-luxe-002",
-    title: "Table Basse Marbre Blanc",
-    description: "Table basse 80cm plateau marbre véritable. Pieds dorés laiton.",
-    image: "https://images.unsplash.com/photo-1533090481720-856c6e3c1fdc?w=600&h=400&fit=crop",
-    badge: "Premium",
-    badgeColor: "bg-amber-600",
-    keywords: "table basse marbre blanc veritable pieds dores"
-  },
-  {
-    id: "lr-luxe-003",
-    title: "Lampadaire Arc Laiton",
-    description: "Lampadaire 180cm arc design. Abat-jour velours vert sapin.",
-    image: "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=600&h=400&fit=crop",
-    badge: "Luxe",
-    badgeColor: "bg-emerald-600",
-    keywords: "lampadaire arc laiton velours vert design"
-  },
-  {
-    id: "lr-luxe-004",
-    title: "Vase Céramique Doré XL",
-    description: "Vase haut 50cm finition dorée mate. Design sculptural unique.",
-    image: "https://images.unsplash.com/photo-1578500494198-246f612d3b3d?w=600&h=400&fit=crop",
-    badge: "Art",
-    badgeColor: "bg-yellow-500",
-    keywords: "vase ceramique dore xl 50cm sculptural"
-  },
-  {
-  id: "lr-luxe-005",
-    title: "Plaid Cachemire Mérinos",
-    description: "Couverture luxe 140x180cm 100% laine mérinos. Beige naturel.",
-    image: "https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?w=600&h=400&fit=crop",
-    badge: "Luxe",
-    badgeColor: "bg-orange-600",
-    keywords: "plaid cachemire merinos laine beige luxe"
-  },
+    <!-- HOME DECOR IDEAS - 35 PRODUITS -->
+    <section id="home" class="py-12 px-4 max-w-7xl mx-auto bg-white">
+        <div class="flex items-center gap-3 mb-8">
+            <div class="w-12 h-12 bg-gradient-to-br from-teal-400 to-cyan-600 rounded-xl flex items-center justify-center text-white text-2xl">🏠</div>
+            <div><h2 class="text-3xl font-bold">Home Decor Ideas</h2><p class="text-gray-600">35 produits pour toute la maison</p></div>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- PRODUITS EXISTANTS -->
+            <div class="product-card bg-gray-50 rounded-2xl overflow-hidden shadow-lg border border-gray-200"><div class="relative"><img src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-indigo-500 text-white px-3 py-1 rounded-full text-xs font-bold">Chambre</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Bedside Lamp</h3><p class="text-gray-600 text-sm mb-4">Lampe de chevet élégante pour chambre moderne. Lumière douce et design.</p><a href="https://www.amazon.fr/s?k=lampe+chevet+moderne+elegante&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-gray-50 rounded-2xl overflow-hidden shadow-lg border border-gray-200"><div class="relative"><img src="https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-stone-500 text-white px-3 py-1 rounded-full text-xs font-bold">Minimaliste</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Minimalist Shelf</h3><p class="text-gray-600 text-sm mb-4">Étagère lignes épurées pour style minimaliste. Fonctionnalité discrète.</p><a href="https://www.amazon.fr/s?k=etagere+minimaliste+lignes+epurees&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-gray-50 rounded-2xl overflow-hidden shadow-lg border border-gray-200"><div class="relative"><img src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-emerald-500 text-white px-3 py-1 rounded-full text-xs font-bold">Petit Espace</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Space-saving Chair</h3><p class="text-gray-600 text-sm mb-4">Chaise compacte idéale pour petits appartements. Confort sans encombrement.</p><a href="https://www.amazon.fr/s?k=chaise+compacte+petit+appartement&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-gray-50 rounded-2xl overflow-hidden shadow-lg border border-gray-200"><div class="relative"><img src="https://images.unsplash.com/photo-1578500494198-246f612d3b3d?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-amber-600 text-white px-3 py-1 rounded-full text-xs font-bold">Luxe</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Luxury Vase</h3><p class="text-gray-600 text-sm mb-4">Vase élégant pour touche sophistiquée. L'accessoire qui change tout.</p><a href="https://www.amazon.fr/s?k=vase+elegant+luxe+sophistique&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-gray-50 rounded-2xl overflow-hidden shadow-lg border border-gray-200"><div class="relative"><img src="https://images.unsplash.com/photo-1485955900006-10f4d324d411?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-green-600 text-white px-3 py-1 rounded-full text-xs font-bold">Plantes</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Vertical Plant Stand</h3><p class="text-gray-600 text-sm mb-4">Support vertical moderne pour plantes d'intérieur. Jungle urbaine optimisée.</p><a href="https://www.amazon.fr/s?k=support+vertical+plantes+interieur&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-gray-50 rounded-2xl overflow-hidden shadow-lg border border-gray-200"><div class="relative"><img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-pink-500 text-white px-3 py-1 rounded-full text-xs font-bold">Murs</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Wall-mounted Shelf</h3><p class="text-gray-600 text-sm mb-4">Étagère murale stylée pour décorer efficacement. Verticalité intelligente.</p><a href="https://www.amazon.fr/s?k=etagere+murale+stylee+deco&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <!-- NOUVEAUX PRODUITS HOME DECOR (29 de plus pour total 35) -->
+            <div class="product-card bg-gray-50 rounded-2xl overflow-hidden shadow-lg border border-gray-200"><div class="relative"><img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-indigo-600 text-white px-3 py-1 rounded-full text-xs font-bold">Luxe</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Tête de Lit Capitonnée Velours</h3><p class="text-gray-600 text-sm mb-4">Tête lit 140cm velours bleu nuit. Boutons cristal, fixation murale, style hôtel.</p><a href="https://www.amazon.fr/s?k=tete+lit+capitonnee+velours+140cm+bleu+nuit+cristal&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-gray-50 rounded-2xl overflow-hidden shadow-lg border border-gray-200"><div class="relative"><img src="https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-blue-500 text-white px-3 py-1 rounded-full text-xs font-bold">Moderne</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Lampe de Chevet Tactile Dimmable</h3><p class="text-gray-600 text-sm mb-4">Lampe table 3 intensités contrôle tactile. Base bois, abat-jour lin beige.</p><a href="https://www.amazon.fr/s?k=lampe+chevet+tactile+dimmable+3+intensites+bois+lin&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-gray-50 rounded-2xl overflow-hidden shadow-lg border border-gray-200"><div class="relative"><img src="https://images.unsplash.com/photo-1522771753035-a0a1f66cd459?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-slate-600 text-white px-3 py-1 rounded-full text-xs font-bold">Premium</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Parure de Lit Satin de Coton</h3><p class="text-gray-600 text-sm mb-4">Housse couette 240x220cm + 2 taies. Satin 300 fils, blanc perle, finition hôtel.</p><a href="https://www.amazon.fr/s?k=parure+lit+satin+coton+240x220+300+fils+blanc+perle&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-gray-50 rounded-2xl overflow-hidden shadow-lg border border-gray-200"><div class="relative"><img src="https://images.unsplash.com/photo-1532372320572-cda25653a26d?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-emerald-500 text-white px-3 py-1 rounded-full text-xs font-bold">Gain Place</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Table de Nuit Suspendue</h3><p class="text-gray-600 text-sm mb-4">Chevet flottant 40cm tiroir caché. Fixation murale, gain de place, design épuré.</p><a href="https://www.amazon.fr/s?k=table+nuit+suspendue+flottante+40cm+tiroir+fixation&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-gray-50 rounded-2xl overflow-hidden shadow-lg border border-gray-200"><div class="relative"><img src="https://images.unsplash.com/photo-1618220179428-22790b461013?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-pink-500 text-white px-3 py-1 rounded-full text-xs font-bold">LED</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Miroir de Maquillage LED</h3><p class="text-gray-600 text-sm mb-4">Miroir grossissant x10 éclairage LED. Touchscreen, rotation 360°, base aspirante.</p><a href="https://www.amazon.fr/s?k=miroir+maquillage+led+grossissant+x10+tactile+360&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-gray-50 rounded-2xl overflow-hidden shadow-lg border border-gray-200"><div class="relative"><img src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-rose-400 text-white px-3 py-1 rounded-full text-xs font-bold">2-en-1</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Coffre Rangement Banquette</h3><p class="text-gray-600 text-sm mb-4">Banc coffre 100cm capitonné velours rose. Rangement literie, style romantique.</p><a href="https://www.amazon.fr/s?k=coffre+rangement+banquette+100cm+capitonne+velours+rose&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-gray-50 rounded-2xl overflow-hidden shadow-lg border border-gray-200"><div class="relative"><img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-indigo-600 text-white px-3 py-1 rounded-full text-xs font-bold">Rêve</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Veilleuse Projecteur Étoiles</h3><p class="text-gray-600 text-sm mb-4">Projecteur ciel étoilé rotatif 360°. 8 modes couleurs, télécommande, enfant/adulte.</p><a href="https://www.amazon.fr/s?k=veilleuse+projecteur+etoiles+rotatif+360+telecommande&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-gray-50 rounded-2xl overflow-hidden shadow-lg border border-gray-200"><div class="relative"><img src="https://images.unsplash.com/photo-1558997519-83ea9252edf8?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-gray-600 text-white px-3 py-1 rounded-full text-xs font-bold">Dressing</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Portant Vêtements Design</h3><p class="text-gray-600 text-sm mb-4">Penderie ouverte métal noir et bois. Style industriel, étagère chaussures intégrée.</p><a href="https://www.amazon.fr/s?k=portant+vetements+design+metal+noir+bois+industriel&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-gray-50 rounded-2xl overflow-hidden shadow-lg border border-gray-200"><div class="relative"><img src="https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-gray-400 text-white px-3 py-1 rounded-full text-xs font-bold">Modulable</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Étagère Cube 9 Cases Blanches</h3><p class="text-gray-600 text-sm mb-4">Meuble rangement modulable blanc mat. Fixation murale ou au sol, design épuré.</p><a href="https://www.amazon.fr/s?k=etagere+cube+9+cases+blanches+modulable+mat&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-gray-50 rounded-2xl overflow-hidden shadow-lg border border-gray-200"><div class="relative"><img src="https://images.unsplash.com/photo-1578500494198-246f612d3b3d?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-stone-500 text-white px-3 py-1 rounded-full text-xs font-bold">Artisanal</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Vase Céramique Artisanal Blanc</h3><p class="text-gray-600 text-sm mb-4">Vase 30cm porcelaine blanche mate. Forme organique irrégulière, fait main.</p><a href="https://www.amazon.fr/s?k=vase+ceramique+artisanal+blanc+30cm+organique+main&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-gray-50 rounded-2xl overflow-hidden shadow-lg border border-gray-200"><div class="relative"><img src="https://images.unsplash.com/photo-1563863788434-e58a36330cf0?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-stone-400 text-white px-3 py-1 rounded-full text-xs font-bold">Japonais</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Horloge Murale Sans Chiffres</h3><p class="text-gray-600 text-sm mb-4">Horloge 40cm bois clair index gravés. Design japonais, mécanisme silencieux.</p><a href="https://www.amazon.fr/s?k=horloge+murale+sans+chiffres+40cm+bois+index+japonais&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-gray-50 rounded-2xl overflow-hidden shadow-lg border border-gray-200"><div class="relative"><img src="https://images.unsplash.com/photo-1575414003591-ece8d0416c7a?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-amber-600 text-white px-3 py-1 rounded-full text-xs font-bold">Naturel</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Tapis Coton Tissé Main Écru</h3><p class="text-gray-600 text-sm mb-4">Tapis 120x180cm coton naturel tissé plat. Franges, réversible, lavable machine.</p><a href="https://www.amazon.fr/s?k=tapis+coton+tisse+main+ecru+120x180+plat+franges&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-gray-50 rounded-2xl overflow-hidden shadow-lg border border-gray-200"><div class="relative"><img src="https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-stone-400 text-white px-3 py-1 rounded-full text-xs font-bold">Pure</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Suspension Design Sphere Opale</h3><p class="text-gray-600 text-sm mb-4">Lampe plafond globe verre opaline 25cm. Câble tissu blanc, ampoule E27.</p><a href="https://www.amazon.fr/s?k=suspension+design+sphere+opale+25cm+verre+opaline&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-gray-50 rounded-2xl overflow-hidden shadow-lg border border-gray-200"><div class="relative"><img src="https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-stone-500 text-white px-3 py-1 rounded-full text-xs font-bold">Épuré</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Étagère Échelle Bois Naturel</h3><p class="text-gray-600 text-sm mb-4">Bibliothèque inclinée 5 niveaux frêne. Fixation murale, style scandinave épuré.</p><a href="https://www.amazon.fr/s?k=etagere+echelle+bois+naturel+5+niveaux+frene+scandinave&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-gray-50 rounded-2xl overflow-hidden shadow-lg border border-gray-200"><div class="relative"><img src="https://images.unsplash.com/photo-1592078615290-033ee584e267?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-amber-600 text-white px-3 py-1 rounded-full text-xs font-bold">Durable</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Boîtes Rangement Bambou Lot 3</h3><p class="text-gray-600 text-sm mb-4">Set boîtes empilables bambou avec couvercles. Organisation tiroirs, durable.</p><a href="https://www.amazon.fr/s?k=boites+rangement+bambou+lot+3+empilables+couvercles&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-gray-50 rounded-2xl overflow-hidden shadow-lg border border-gray-200"><div class="relative"><img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-green-600 text-white px-3 py-1 rounded-full text-xs font-bold">Gain Place</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Lit Mezzanine 140cm avec Bureau</h3><p class="text-gray-600 text-sm mb-4">Lit superposé adulte avec bureau intégré. Rangement étagères, gain place maximal.</p><a href="https://www.amazon.fr/s?k=lit+mezzanine+140cm+bureau+integre+superpose+adulte&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-gray-50 rounded-2xl overflow-hidden shadow-lg border border-gray-200"><div class="relative"><img src="https://images.unsplash.com/photo-1533090481720-856c6e3c1fdc?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-amber-600 text-white px-3 py-1 rounded-full text-xs font-bold">Rabattable</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Table Pliante Murale Rabattable</h3><p class="text-gray-600 text-sm mb-4">Table murale 80cm plateau rabattable. 2 positions, bureau ou console, fixation mur.</p><a href="https://www.amazon.fr/s?k=table+pliante+murale+rabattable+80cm+bureau+console&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-gray-50 rounded-2xl overflow-hidden shadow-lg border border-gray-200"><div class="relative"><img src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-blue-500 text-white px-3 py-1 rounded-full text-xs font-bold">Pratique</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Chaise Pliante Design Bois</h3><p class="text-gray-600 text-sm mb-4">Chaise pliante chêne assise rembourrée gris. Rangement plat, style scandinave.</p><a href="https://www.amazon.fr/s?k=chaise+pliante+design+bois+chene+rembourree+gris&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-gray-50 rounded-2xl overflow-hidden shadow-lg border border-gray-200"><div class="relative"><img src="https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-emerald-500 text-white px-3 py-1 rounded-full text-xs font-bold">Vertical</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Étagère d'Angle 5 Niveaux</h3><p class="text-gray-600 text-sm mb-4">Meuble d'angle 30x30x180cm gain place. Bibliothèque verticale, fixation murale.</p><a href="https://www.amazon.fr/s?k=etagere+angle+5+niveaux+30x30+180cm+gain+place&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-gray-50 rounded-2xl overflow-hidden shadow-lg border border-gray-200"><div class="relative"><img src="https://images.unsplash.com/photo-1618220179428-22790b461013?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-purple-600 text-white px-3 py-1 rounded-full text-xs font-bold">Illusion</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Miroir Mural Magnifiant 180cm</h3><p class="text-gray-600 text-sm mb-4">Miroir sur pied rotatif 360°. Agrandit visuellement, rangement bijoux arrière.</p><a href="https://www.amazon.fr/s?k=miroir+mural+magnifiant+180cm+rotatif+360+rangement+bijoux&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-gray-50 rounded-2xl overflow-hidden shadow-lg border border-gray-200"><div class="relative"><img src="https://images.unsplash.com/photo-1592078615290-033ee584e267?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-green-500 text-white px-3 py-1 rounded-full text-xs font-bold">Pliable</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Panier à Linge Pliable Bambou</h3><p class="text-gray-600 text-sm mb-4">Corbeille linge 60L bambou naturel. Pliable, couvercle, sac tissu amovible.</p><a href="https://www.amazon.fr/s?k=panier+linge+pliable+bambou+60l+couvercle+sac+tissu&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-gray-50 rounded-2xl overflow-hidden shadow-lg border border-gray-200"><div class="relative"><img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-red-600 text-white px-3 py-1 rounded-full text-xs font-bold">Convertible</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Couchage d'Appoint Chauffeuse</h3><p class="text-gray-600 text-sm mb-4">Fauteuil convertible lit 1 place. Matelas 10cm inclus, parfait studio invités.</p><a href="https://www.amazon.fr/s?k=chauffeuse+convertible+lit+1+place+matelas+10cm+studio&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-gray-50 rounded-2xl overflow-hidden shadow-lg border border-gray-200"><div class="relative"><img src="https://images.unsplash.com/photo-1565814329452-e1efa11c5b89?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-yellow-600 text-white px-3 py-1 rounded-full text-xs font-bold">Spectaculaire</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Lustre Cristal Moderne 12 Bras</h3><p class="text-gray-600 text-sm mb-4">Suspension cristal K9 design contemporain. Diamètre 100cm, LED incluses.</p><a href="https://www.amazon.fr/s?k=lustre+cristal+moderne+12+bras+k9+100cm+led+spectaculaire&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-gray-50 rounded-2xl overflow-hidden shadow-lg border border-gray-200"><div class="relative"><img src="https://images.unsplash.com/photo-1578500494198-246f612d3b3d?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-purple-600 text-white px-3 py-1 rounded-full text-xs font-bold">Italie</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Vase Murano Verre Soufflé</h3><p class="text-gray-600 text-sm mb-4">Vase 50cm artisanat italien verre multicolore. Pièce unique signée, certificat.</p><a href="https://www.amazon.fr/s?k=vase+murano+verre+souffle+50cm+italien+artisanal+unique&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-gray-50 rounded-2xl overflow-hidden shadow-lg border border-gray-200"><div class="relative"><img src="https://images.unsplash.com/photo-1578500494198-246f612d3b3d?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-amber-600 text-white px-3 py-1 rounded-full text-xs font-bold">Art</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Statue Déco Bronze Moderne</h3><p class="text-gray-600 text-sm mb-4">Sculpture couple abstrait bronze 60cm. Base marbre, art contemporain, certificat.</p><a href="https://www.amazon.fr/s?k=statue+deco+bronze+moderne+60cm+couple+abstrait+marbre&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-gray-50 rounded-2xl overflow-hidden shadow-lg border border-gray-200"><div class="relative"><img src="https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-rose-600 text-white px-3 py-1 rounded-full text-xs font-bold">Soie</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Coussins Soie Brodée Main</h3><p class="text-gray-600 text-sm mb-4">Lot 2 housses 50x50cm soie naturelle. Broderie florale main, fermeture éclair.</p><a href="https://www.amazon.fr/s?k=coussins+soie+brodee+main+lot+2+50x50+floral+fermeture&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-gray-50 rounded-2xl overflow-hidden shadow-lg border border-gray-200"><div class="relative"><img src="https://images.unsplash.com/photo-1533090481720-856c6e3c1fdc?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-amber-600 text-white px-3 py-1 rounded-full text-xs font-bold">Marbre</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Table Basse Marbre et Or</h3><p class="text-gray-600 text-sm mb-4">Table 100cm marbre Calacatta véritable. Pieds laiton doré, style art déco luxe.</p><a href="https://www.amazon.fr/s?k=table+basse+marbre+or+100cm+calacatta+laiton+art+deco&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-gray-50 rounded-2xl overflow-hidden shadow-lg border border-gray-200"><div class="relative"><img src="https://images.unsplash.com/photo-1618220179428-22790b461013?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-yellow-700 text-white px-3 py-1 rounded-full text-xs font-bold">Baroque</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Miroir Baroque Doré 150cm</h3><p class="text-gray-600 text-sm mb-4">Grand miroir mural style Louis XVI. Cadre bois sculpté doré feuille, spectaculaire.</p><a href="https://www.amazon.fr/s?k=miroir+baroque+dore+150cm+louis+xvi+bois+sculpte+feuille&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-gray-50 rounded-2xl overflow-hidden shadow-lg border border-gray-200"><div class="relative"><img src="https://images.unsplash.com/photo-1575414003591-ece8d0416c7a?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-blue-800 text-white px-3 py-1 rounded-full text-xs font-bold">Heritage</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Tapis Laine Noué Main Persan</h3><p class="text-gray-600 text-sm mb-4">Tapis 250x350cm laine pure noué main. Motifs classiques bleu/or, densité premium.</p><a href="https://www.amazon.fr/s?k=tapis+laine+noue+main+persan+250x350+bleu+or+premium&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-gray-50 rounded-2xl overflow-hidden shadow-lg border border-gray-200"><div class="relative"><img src="https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-amber-600 text-white px-3 py-1 rounded-full text-xs font-bold">Design</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Lampe à Poser Design Cuivre</h3><p class="text-gray-600 text-sm mb-4">Lampe table articulée cuivre brossé et marbre. Style années 70 revisited, chic.</p><a href="https://www.amazon.fr/s?k=lampe+poser+design+cuivre+brosse+marbre+articulee+70s&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-gray-50 rounded-2xl overflow-hidden shadow-lg border border-gray-200"><div class="relative"><img src="https://images.unsplash.com/photo-1485955900006-10f4d324d411?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-blue-600 text-white px-3 py-1 rounded-full text-xs font-bold">XXL</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Pot Céramique Émaillé Bleu</h3><p class="text-gray-600 text-sm mb-4">Grand pot 25cm terre cuite émaillée blanc. Drainage inclus, parfait monstera.</p><a href="https://www.amazon.fr/s?k=pot+fleurs+ceramique+xxl+40cm+terre+cuite+emaillee+blanc&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-gray-50 rounded-2xl overflow-hidden shadow-lg border border-gray-200"><div class="relative"><img src="https://images.unsplash.com/photo-1463320898484-cdee8141c787?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-gray-700 text-white px-3 py-1 rounded-full text-xs font-bold">Industriel</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Support Plantes Métal 5 Niveaux</h3><p class="text-gray-600 text-sm mb-4">Étagère plantes verticale 120cm noir. 5 plateaux, style industriel, stable.</p><a href="https://www.amazon.fr/s?k=support+plantes+metal+5+niveaux+120cm+noir+industriel&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-gray-50 rounded-2xl overflow-hidden shadow-lg border border-gray-200"><div class="relative"><img src="https://images.unsplash.com/photo-1485955900006-10f4d324d411?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-orange-400 text-white px-3 py-1 rounded-full text-xs font-bold">Suspendu</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Jardinière Suspendue Macramé</h3><p class="text-gray-600 text-sm mb-4">Lot 3 suspensions macramé coton naturel. Pour pots 15-20cm, style boho.</p><a href="https://www.amazon.fr/s?k=jardiniere+suspendue+macrame+lot+3+coton+naturel+boho&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-gray-50 rounded-2xl overflow-hidden shadow-lg border border-gray-200"><div class="relative"><img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-green-600 text-white px-3 py-1 rounded-full text-xs font-bold">Auto</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Arrosage Automatique Goutte-à-Goutte</h3><p class="text-gray-600 text-sm mb-4">Set 12 piquets arrosage automatique plantes. 2L réservoir, vacances 15 jours.</p><a href="https://www.amazon.fr/s?k=arrosage+automatique+goutte+goutte+12+piquets+reservoir+2l&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-gray-50 rounded-2xl overflow-hidden shadow-lg border border-gray-200"><div class="relative"><img src="https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-green-600 text-white px-3 py-1 rounded-full text-xs font-bold">LED</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Lampe de Croissance LED 20W</h3><p class="text-gray-600 text-sm mb-4">Lampe plantes spectre complet 20W. Réglable 3 modes, timer, pour intérieur.</p><a href="https://www.amazon.fr/s?k=lampe+croissance+led+20w+spectre+complet+timer+reglable&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-gray-50 rounded-2xl overflow-hidden shadow-lg border border-gray-200"><div class="relative"><img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-green-700 text-white px-3 py-1 rounded-full text-xs font-bold">Pro</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Terreau Universel Enrichi 20L</h3><p class="text-gray-600 text-sm mb-4">Sac terreau qualité pro avec perlite. Drainage optimal, nutrition 6 mois.</p><a href="https://www.amazon.fr/s?k=terreau+universel+enrichi+20l+perlite+drainage+nutrition&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-gray-50 rounded-2xl overflow-hidden shadow-lg border border-gray-200"><div class="relative"><img src="https://images.unsplash.com/photo-1513519245088-0e12902e35ca?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-amber-600 text-white px-3 py-1 rounded-full text-xs font-bold">Galerie</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Set 5 Cadres Photo Galerie Murale</h3><p class="text-gray-600 text-sm mb-4">Lot cadres bois formats variés A4/A3. Fixation incluses, style galerie d'art.</p><a href="https://www.amazon.fr/s?k=set+5+cadres+photo+galerie+murale+bois+a4+a3+fixation&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-gray-50 rounded-2xl overflow-hidden shadow-lg border border-gray-200"><div class="relative"><img src="https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-emerald-800 text-white px-3 py-1 rounded-full text-xs font-bold">Panoramique</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Papier Peint Panoramique Forêt</h3><p class="text-gray-600 text-sm mb-4">Papier peint intissé 350x250cm forêt brumeuse. Trompe l'œil nature, facile pose.</p><a href="https://www.amazon.fr/s?k=papier+peint+panoramique+foret+350x250+intisse+brumeux&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-gray-50 rounded-2xl overflow-hidden shadow-lg border border-gray-200"><div class="relative"><img src="https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-indigo-600 text-white px-3 py-1 rounded-full text-xs font-bold">Géométrique</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Étagères Hexagonales Lot 6</h3><p class="text-gray-600 text-sm mb-4">Étagères murales hexagones métal noir. Fixation invisible, style moderne géométrique.</p><a href="https://www.amazon.fr/s?k=etageres+hexagonales+lot+6+metal+noir+fixation+invisible&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-gray-50 rounded-2xl overflow-hidden shadow-lg border border-gray-200"><div class="relative"><img src="https://images.unsplash.com/photo-1502082553048-f009c37129b9?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-pink-600 text-white px-3 py-1 rounded-full text-xs font-bold">Personnel</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Sticker Mural Arbre Généalogique</h3><p class="text-gray-600 text-sm mb-4">Sticker géant 200x150cm arbre généalogique. Personnalisable noms, style vintage.</p><a href="https://www.amazon.fr/s?k=sticker+mural+arbre+genealogique+200x150+geant+personnalisable&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-gray-50 rounded-2xl overflow-hidden shadow-lg border border-gray-200"><div class="relative"><img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-purple-600 text-white px-3 py-1 rounded-full text-xs font-bold">XXL</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Toile Imprimée Abstrait XXL</h3><p class="text-gray-600 text-sm mb-4">Tableau 120x80cm impression HD sur toile. Encadré bois, art contemporain.</p><a href="https://www.amazon.fr/s?k=toile+imprimee+abstrait+xxl+120x80+hd+encadre+contemporain&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-gray-50 rounded-2xl overflow-hidden shadow-lg border border-gray-200"><div class="relative"><img src="https://images.unsplash.com/photo-1563863788434-e58a36330cf0?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-gray-700 text-white px-3 py-1 rounded-full text-xs font-bold">Industriel</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Horloge Murale Industrielle 60cm</h3><p class="text-gray-600 text-sm mb-4">Horloge métal style usine avec engrenages décoratifs. Chiffres métal rivetés.</p><a href="https://www.amazon.fr/s?k=horloge+murale+industrielle+60cm+engrenages+usine+rivets&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-gray-50 rounded-2xl overflow-hidden shadow-lg border border-gray-200"><div class="relative"><img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-orange-600 text-white px-3 py-1 rounded-full text-xs font-bold">Rotin</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Miroir Soleil Rotin 80cm</h3><p class="text-gray-600 text-sm mb-4">Miroir rond cadre rotin naturel tressé. Style boho chic, fait main.</p><a href="https://www.amazon.fr/s?k=miroir+soleil+rotin+80cm+rond+cadre+tresse+boho+main&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-gray-50 rounded-2xl overflow-hidden shadow-lg border border-gray-200"><div class="relative"><img src="https://images.unsplash.com/photo-1565814329452-e1efa11c5b89?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-pink-500 text-white px-3 py-1 rounded-full text-xs font-bold">Lumineux</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Lettres Lumineuses LED Alphabet</h3><p class="text-gray-600 text-sm mb-4">Lettres décoratives LED 30cm hauteur. Fonctionnent piles, personnalisable nom.</p><a href="https://www.amazon.fr/s?k=lettres+lumineuses+led+alphabet+30cm+piles+personnalisable&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+        </div>
+    </section>
 
-  // SOUS-CATÉGORIE: Small space living room (5 produits)
-  {
-    id: "lr-small-001",
-    title: "Canapé Convertible Express 2 Places",
-    description: "Canapé lit ouverture rapide 140cm. Matelas 12cm mémoire de forme.",
-    image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&h=400&fit=crop",
-    badge: "Gain Place",
-    badgeColor: "bg-green-500",
-    keywords: "canape convertible express 2 places matelas memoire forme"
-  },
-  {
-    id: "lr-small-002",
-    title: "Table Console Extensible",
-    description: "Console 40cm s'étendant à 160cm. 5 positions, idéal petit salon.",
-    image: "https://images.unsplash.com/photo-1533090481720-856c6e3c1fdc?w=600&h=400&fit=crop",
-    badge: "Intelligent",
-    badgeColor: "bg-emerald-600",
-    keywords: "table console extensible 40 a 160cm"
-  },
-  {
-    id: "lr-small-003",
-    title: "Meuble TV Angle Pivotant",
-    description: "Meuble télé d'angle avec plateau pivotant. Rangement fermé.",
-    image: "https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=600&h=400&fit=crop",
-    badge: "Angle",
-    badgeColor: "bg-teal-500",
-    keywords: "meuble tv angle pivotant rangement ferme"
-  },
-  {
-    id: "lr-small-004",
-    title: "Bibliothèque Échelle Murale",
-    description: "Étagère échelle 5 niveaux fixation murale. Profondeur 30cm.",
-    image: "https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=600&h=400&fit=crop",
-    badge: "Vertical",
-    badgeColor: "bg-green-600",
-    keywords: "bibliotheque echelle murale 5 niveaux"
-  },
-  {
-    id: "lr-small-005",
-    title: "Pouf Cube Pliable XXL",
-    description: "Ottoman 60x60x38cm se transformant en lit d'appoint. 3 en 1.",
-    image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&h=400&fit=crop",
-    badge: "Multifonction",
-    badgeColor: "bg-lime-600",
-    keywords: "pouf cube pliable xxl lit appoint"
-  },
+    <!-- STUDENT GADGETS - 35 PRODUITS -->
+    <section id="student" class="py-12 px-4 max-w-7xl mx-auto bg-gradient-to-br from-blue-50 to-indigo-100">
+        <div class="flex items-center gap-3 mb-8">
+            <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center text-white text-2xl">🎓</div>
+            <div><h2 class="text-3xl font-bold">Student Gadgets</h2><p class="text-gray-600">35 produits pour réussir ses études</p></div>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- PRODUITS EXISTANTS -->
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100"><div class="relative"><img src="https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-blue-600 text-white px-3 py-1 rounded-full text-xs font-bold">Indispensable</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Laptop Cooling Pad</h3><p class="text-gray-600 text-sm mb-4">Refroidisseur PC portable pour longues sessions d'étude. Performance optimale.</p><a href="https://www.amazon.fr/s?k=refroidisseur+pc+portable+etudiant&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100"><div class="relative"><img src="https://images.unsplash.com/photo-1544816155-12df9643f363?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-green-600 text-white px-3 py-1 rounded-full text-xs font-bold">Productivité</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Desk Organizer</h3><p class="text-gray-600 text-sm mb-4">Organiseur bureau pour productivité maximale. Chaque stylo a sa place.</p><a href="https://www.amazon.fr/s?k=organiseur+bureau+productivite&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100"><div class="relative"><img src="https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-purple-600 text-white px-3 py-1 rounded-full text-xs font-bold">Tech</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Wireless Mouse</h3><p class="text-gray-600 text-sm mb-4">Souris sans fil précise et fluide pour étudiants. Liberté de mouvement.</p><a href="https://www.amazon.fr/s?k=souris+sans+fil+etudiant+precise&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100"><div class="relative"><img src="https://images.unsplash.com/photo-1544816155-12df9643f363?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-yellow-600 text-white px-3 py-1 rounded-full text-xs font-bold">Pas Cher</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Notebook Set</h3><p class="text-gray-600 text-sm mb-4">Lot de carnets prise de notes et étude. Qualité prix imbattable.</p><a href="https://www.amazon.fr/s?k=lot+carnets+etude+prise+notes&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100"><div class="relative"><img src="https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-red-600 text-white px-3 py-1 rounded-full text-xs font-bold">Utile</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">LED Desk Lamp</h3><p class="text-gray-600 text-sm mb-4">Lampe bureau LED ajustable pour sessions concentrées. Lumière protectrice.</p><a href="https://www.amazon.fr/s?k=lampe+bureau+led+ajustable+etude&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <!-- NOUVEAUX PRODUITS STUDENT (30 de plus pour total 35) -->
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100"><div class="relative"><img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-indigo-600 text-white px-3 py-1 rounded-full text-xs font-bold">Concentration</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Casque Anti-Bruit Sans Fil</h3><p class="text-gray-600 text-sm mb-4">Réduction active du bruit pour étudier en paix. Autonomie 30h.</p><a href="https://www.amazon.fr/s?k=casque+anti+bruit+etudiant+reduction+active&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100"><div class="relative"><img src="https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-blue-500 text-white px-3 py-1 rounded-full text-xs font-bold">Ergonomie</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Support PC Portable Réglable</h3><p class="text-gray-600 text-sm mb-4">Rehausseur aluminium 6 niveaux. Ventilation et posture améliorée.</p><a href="https://www.amazon.fr/s?k=support+pc+portable+reglable+aluminium&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100"><div class="relative"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-cyan-600 text-white px-3 py-1 rounded-full text-xs font-bold">Connectique</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Hub USB-C 7 en 1</h3><p class="text-gray-600 text-sm mb-4">Adaptateur multiports HDMI, USB, SD, charge. Indispensable MacBook.</p><a href="https://www.amazon.fr/s?k=hub+usb+c+7+en+1+hdmi+adaptateur&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100"><div class="relative"><img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-yellow-500 text-white px-3 py-1 rounded-full text-xs font-bold">Lumière</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Lampe Bureau Architecte LED</h3><p class="text-gray-600 text-sm mb-4">Lampe articulée métal 3 intensités. Style industriel, protection yeux.</p><a href="https://www.amazon.fr/s?k=lampe+bureau+architecte+led+articulee&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100"><div class="relative"><img src="https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-pink-600 text-white px-3 py-1 rounded-full text-xs font-bold">Créatif</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Tablette Graphique Débutant</h3><p class="text-gray-600 text-sm mb-4">Tablette dessin 6 pouces avec stylet. Parfaite pour design études.</p><a href="https://www.amazon.fr/s?k=tablette+graphique+debutant+6+pouces+stylet&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100"><div class="relative"><img src="https://images.unsplash.com/photo-1617788138017-80ad40651399?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-green-600 text-white px-3 py-1 rounded-full text-xs font-bold">Essentiel</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Chargeur Solaire Portable 20000mAh</h3><p class="text-gray-600 text-sm mb-4">Batterie externe solaire 4 panneaux. 2 ports USB + LED.</p><a href="https://www.amazon.fr/s?k=chargeur+solaire+portable+20000mah+batterie+externe&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100"><div class="relative"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-blue-600 text-white px-3 py-1 rounded-full text-xs font-bold">Universel</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Câble Multi-Connecteurs 6 en 1</h3><p class="text-gray-600 text-sm mb-4">Câble charge universel Lightning, USB-C, Micro-USB. 1m.</p><a href="https://www.amazon.fr/s?k=cable+multi+connecteurs+6+en+1+lightning+usb-c&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100"><div class="relative"><img src="https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-cyan-600 text-white px-3 py-1 rounded-full text-xs font-bold">Santé</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Bouteille Infuseur à Fruits</h3><p class="text-gray-600 text-sm mb-4">Gourde 800ml avec infuseur. Tritan sans BPA.</p><a href="https://www.amazon.fr/s?k=bouteille+infuseur+fruits+800ml+tritan+sans+bpa&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100"><div class="relative"><img src="https://images.unsplash.com/photo-1563861826100-9cb868fdbe1c?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-sky-500 text-white px-3 py-1 rounded-full text-xs font-bold">Confort</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Mini Ventilateur USB Silencieux</h3><p class="text-gray-600 text-sm mb-4">Ventilateur bureau 4 pouces 3 vitesses. Rotation 360°.</p><a href="https://www.amazon.fr/s?k=mini+ventilateur+usb+silencieux+4+pouces+bureau&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100"><div class="relative"><img src="https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-indigo-500 text-white px-3 py-1 rounded-full text-xs font-bold">Lecture</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Lampe de Lecture Pince LED</h3><p class="text-gray-600 text-sm mb-4">Lampe livre rechargeable 3 modes lumière. Pince flexible.</p><a href="https://www.amazon.fr/s?k=lampe+lecture+pince+led+rechargeable+3+modes&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100"><div class="relative"><img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-teal-600 text-white px-3 py-1 rounded-full text-xs font-bold">Voyage</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Trousse de Toilette Suspendable</h3><p class="text-gray-600 text-sm mb-4">Trousse voyage 4 compartiments crochet suspension. Étanche.</p><a href="https://www.amazon.fr/s?k=trousse+de+toilette+suspendable+4+compartiments+etanche&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100"><div class="relative"><img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-red-600 text-white px-3 py-1 rounded-full text-xs font-bold">Sécurité</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Cadenas à Code TSA</h3><p class="text-gray-600 text-sm mb-4">Lot de 2 cadenas voyage code 4 chiffres. Approuvés TSA.</p><a href="https://www.amazon.fr/s?k=cadenas+code+tsa+lot+2+voyage+4+chiffres&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100"><div class="relative"><img src="https://images.unsplash.com/photo-1563863788434-e58a36330cf0?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-red-500 text-white px-3 py-1 rounded-full text-xs font-bold">Focus</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Minuteur Pomodoro Digital</h3><p class="text-gray-600 text-sm mb-4">Timer gestion du temps technique Pomodoro. Magnétique.</p><a href="https://www.amazon.fr/s?k=minuteur+pomodoro+digital+timer+magnetique&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100"><div class="relative"><img src="https://images.unsplash.com/photo-1544816155-12df9643f363?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-green-600 text-white px-3 py-1 rounded-full text-xs font-bold">Écolo</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Bloc-notes Effaçable Réutilisable</h3><p class="text-gray-600 text-sm mb-4">Cahier intelligent 32 pages. Efface avec chiffon humide.</p><a href="https://www.amazon.fr/s?k=bloc+notes+effacable+reutilisable+32+pages+intelligent&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100"><div class="relative"><img src="https://images.unsplash.com/photo-1544816155-12df9643f363?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-blue-500 text-white px-3 py-1 rounded-full text-xs font-bold">Organisation</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Marque-pages Électroniques</h3><p class="text-gray-600 text-sm mb-4">Lot de 3 signets digitaux avec minuterie de lecture.</p><a href="https://www.amazon.fr/s?k=marque+pages+electroniques+lot+3+minuterie+lecture&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100"><div class="relative"><img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-purple-600 text-white px-3 py-1 rounded-full text-xs font-bold">Productivité</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Presse-Papiers Numérique</h3><p class="text-gray-600 text-sm mb-4">Enregistre 1000 copies. Récupère tout ce que vous copiez.</p><a href="https://www.amazon.fr/s?k=presse+papiers+numerique+1000+copies+historique&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100"><div class="relative"><img src="https://images.unsplash.com/photo-1574258495973-f010dfbb5371?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-amber-600 text-white px-3 py-1 rounded-full text-xs font-bold">Santé</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Lunettes Anti-Lumière Bleue</h3><p class="text-gray-600 text-sm mb-4">Monture légère filtres lumière bleue écrans. Anti-fatigue.</p><a href="https://www.amazon.fr/s?k=lunettes+anti+lumiere+bleue+monture+legere+ecrans&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100"><div class="relative"><img src="https://images.unsplash.com/photo-1544816155-12df9643f363?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-indigo-600 text-white px-3 py-1 rounded-full text-xs font-bold">Organisation</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Sous-main Organisateur Bureau</h3><p class="text-gray-600 text-sm mb-4">Tapis bureau multifonction compartiments + planning semaine.</p><a href="https://www.amazon.fr/s?k=sous+main+organisateur+bureau+compartiments+planning&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100"><div class="relative"><img src="https://images.unsplash.com/photo-1585336261022-680e295ce3fe?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-cyan-600 text-white px-3 py-1 rounded-full text-xs font-bold">Tech</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Stylos Connectés Numérique</h3><p class="text-gray-600 text-sm mb-4">Stylo enregistre écriture sur papier. Transfert app mobile.</p><a href="https://www.amazon.fr/s?k=stylos+connectes+numerique+transfert+app+mobile&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100"><div class="relative"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-blue-600 text-white px-3 py-1 rounded-full text-xs font-bold">Stockage</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Clé USB 3.0 128Go Rapide</h3><p class="text-gray-600 text-sm mb-4">Flash drive 128Go haute vitesse 150Mo/s. Design métal.</p><a href="https://www.amazon.fr/s?k=cle+usb+3.0+128go+rapide+150mo/s+metal&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100"><div class="relative"><img src="https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-red-600 text-white px-3 py-1 rounded-full text-xs font-bold">Présentation</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Souris Présentateur Laser</h3><p class="text-gray-600 text-sm mb-4">Télécommande présentation PowerPoint pointeur laser rouge.</p><a href="https://www.amazon.fr/s?k=souris+presentateur+laser+telecommande+powerpoint&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100"><div class="relative"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-green-600 text-white px-3 py-1 rounded-full text-xs font-bold">Numérisation</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Scanner Portable Document</h3><p class="text-gray-600 text-sm mb-4">Scanner A4 portable USB. Numérise en PDF et JPG.</p><a href="https://www.amazon.fr/s?k=scanner+portable+document+a4+usb+pdf+jpg&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100"><div class="relative"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-purple-600 text-white px-3 py-1 rounded-full text-xs font-bold">Audio</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Dictaphone Enregistreur Vocal</h3><p class="text-gray-600 text-sm mb-4">Enregistreur 16Go 1160h audio. Réduction bruit intégrée.</p><a href="https://www.amazon.fr/s?k=dictaphone+enregistreur+vocal+16go+1160h+reduction+bruit&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100"><div class="relative"><img src="https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-pink-600 text-white px-3 py-1 rounded-full text-xs font-bold">Créatif</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Tablette Graphique A5</h3><p class="text-gray-600 text-sm mb-4">Tablette dessin 8x6 pouces 8192 niveaux pression. Stylet sans pile.</p><a href="https://www.amazon.fr/s?k=tablette+graphique+a5+8x6+pouces+8192+pression&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100"><div class="relative"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-orange-600 text-white px-3 py-1 rounded-full text-xs font-bold">Impression</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Imprimante Portable Thermique</h3><p class="text-gray-600 text-sm mb-4">Mini imprimante Bluetooth photos 57mm. Sans encre.</p><a href="https://www.amazon.fr/s?k=imprimante+portable+thermique+bluetooth+57mm+sans+encre&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100"><div class="relative"><img src="https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-indigo-600 text-white px-3 py-1 rounded-full text-xs font-bold">Projection</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Projecteur Mini LED Poche</h3><p class="text-gray-600 text-sm mb-4">Mini projecteur 1080p supporté. Connexion smartphone.</p><a href="https://www.amazon.fr/s?k=projecteur+mini+led+poche+1080p+smartphone&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100"><div class="relative"><img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-green-600 text-white px-3 py-1 rounded-full text-xs font-bold">Pas Cher</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Écouteurs Filaires Basiques</h3><p class="text-gray-600 text-sm mb-4">Intra-auriculaires avec micro. Son clair, câble renforcé.</p><a href="https://www.amazon.fr/s?k=ecouteurs+filaires+basiques+micro+intra+auriculaires&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100"><div class="relative"><img src="https://images.unsplash.com/photo-1586105251261-72a756497a11?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-blue-500 text-white px-3 py-1 rounded-full text-xs font-bold">Utile</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Support Téléphone Bureau</h3><p class="text-gray-600 text-sm mb-4">Support smartphone angle réglable aluminium. Pliable.</p><a href="https://www.amazon.fr/s?k=support+telephone+bureau+aluminium+reglable+pliable&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100"><div class="relative"><img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-teal-600 text-white px-3 py-1 rounded-full text-xs font-bold">Organisation</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Trousse Organisateur Câbles</h3><p class="text-gray-600 text-sm mb-4">Pochette rangement câbles élastiques + mailles. 3 compartiments.</p><a href="https://www.amazon.fr/s?k=trousse+organisateur+cables+elastiques+3+compartiments&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100"><div class="relative"><img src="https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-cyan-600 text-white px-3 py-1 rounded-full text-xs font-bold">Compact</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Bouteille Pliable Silicone</h3><p class="text-gray-600 text-sm mb-4">Gourde pliable 600ml silicone alimentaire. Clip ceinture.</p><a href="https://www.amazon.fr/s?k=bouteille+pliable+silicone+600ml+gourde+clip&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100"><div class="relative"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-purple-500 text-white px-3 py-1 rounded-full text-xs font-bold">Malin</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Clips Rangement Câbles Magnétiques</h3><p class="text-gray-600 text-sm mb-4">Lot de 6 clips aimantés gestion câbles bureau. Multicolore.</p><a href="https://www.amazon.fr/s?k=clips+rangement+cables+magnetiques+lot+6+aimantes&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100"><div class="relative"><img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-red-600 text-white px-3 py-1 rounded-full text-xs font-bold">Multi-Outils</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Mousqueton Porte-Clés Multifonction</h3><p class="text-gray-600 text-sm mb-4">Mousqueton 5 en 1 couteau, tournevis, ouvre-bouteille.</p><a href="https://www.amazon.fr/s?k=mousqueton+porte+cles+multifonction+5+en+1+outil&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100"><div class="relative"><img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-indigo-500 text-white px-3 py-1 rounded-full text-xs font-bold">Voyage</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Sachets Compression Voyage</h3><p class="text-gray-600 text-sm mb-4">Lot de 6 sacs compression gain place valise. Étanches.</p><a href="https://www.amazon.fr/s?k=sachets+compression+voyage+lot+6+gain+place+etanches&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100"><div class="relative"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-blue-600 text-white px-3 py-1 rounded-full text-xs font-bold">Connectique</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Adaptateur USB-C vers HDMI</h3><p class="text-gray-600 text-sm mb-4">Hub USB-C 4 en 1 HDMI 4K, USB 3.0, charge PD 100W.</p><a href="https://www.amazon.fr/s?k=adaptateur+usb-c+vers+hdmi+4+en+1+4k+pd+100w&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100"><div class="relative"><img src="https://images.unsplash.com/photo-1617788138017-80ad40651399?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-green-600 text-white px-3 py-1 rounded-full text-xs font-bold">Charge</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Station Charge Induction</h3><p class="text-gray-600 text-sm mb-4">Chargeur sans fil rapide 15W téléphone + écouteurs + montre.</p><a href="https://www.amazon.fr/s?k=station+charge+induction+sans+fil+rapide+15w+3+en+1&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100"><div class="relative"><img src="https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-purple-600 text-white px-3 py-1 rounded-full text-xs font-bold">Visio</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Webcam HD 1080p Micro Intégré</h3><p class="text-gray-600 text-sm mb-4">Caméra PC full HD autofocus. Cache confidentialité inclus.</p><a href="https://www.amazon.fr/s?k=webcam+hd+1080p+micro+integre+autofocus+cache&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100"><div class="relative"><img src="https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-cyan-600 text-white px-3 py-1 rounded-full text-xs font-bold">Audio</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Enceinte Bluetooth Étanche</h3><p class="text-gray-600 text-sm mb-4">Mini enceinte 5W IPX7 waterproof. 12h autonomie.</p><a href="https://www.amazon.fr/s?k=enceinte+bluetooth+etanche+ipx7+5w+12h+autonomie&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100"><div class="relative"><img src="https://images.unsplash.com/photo-1617788138017-80ad40651399?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-orange-600 text-white px-3 py-1 rounded-full text-xs font-bold">Autonomie</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Power Bank Solaire 30000mAh</h3><p class="text-gray-600 text-sm mb-4">Batterie externe grande capacité 4 ports. Torche LED.</p><a href="https://www.amazon.fr/s?k=power+bank+solaire+30000mah+4+ports+torche+led&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100"><div class="relative"><img src="https://images.unsplash.com/photo-1585336261022-680e295ce3fe?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-pink-600 text-white px-3 py-1 rounded-full text-xs font-bold">Précision</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Stylet Universel Écran Tactile</h3><p class="text-gray-600 text-sm mb-4">Stylet capacitif précision 1.5mm. Compatible tous écrans.</p><a href="https://www.amazon.fr/s?k=stylet+universel+ecran+tactile+capacitif+1.5mm&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100"><div class="relative"><img src="https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=600&h=400&fit=crop" class="product-image"><div class="absolute top-3 left-3 bg-blue-500 text-white px-3 py-1 rounded-full text-xs font-bold">Cooling</div></div><div class="p-5"><h3 class="text-lg font-bold mb-2">Refroidisseur PC Portable 6 Ventilateurs</h3><p class="text-gray-600 text-sm mb-4">Plateau refroidissant 6 fans silencieux. LED bleues.</p><a href="https://www.amazon.fr/s?k=refroidisseur+pc+portable+6+ventilateurs+silencieux+led&tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">Voir sur Amazon →</a></div></div>
+        </div>
+    </section>
 
-  // SOUS-CATÉGORIE: Living room wall decor (5 produits)
-  {
-    id: "lr-wall-001",
-    title: "Set 3 Tableaux Abstraits Beige",
-    description: "Triptyque 30x40cm chacun. Impressions sur toile tendue.",
-    image: "https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=600&h=400&fit=crop",
-    badge: "Mur",
-    badgeColor: "bg-purple-500",
-    keywords: "set 3 tableaux abstraits beige triptyque toile"
-  },
-  {
-    id: "lr-wall-002",
-    title: "Horloge Murale Design Géante",
-    description: "Horloge 60cm métal noir chiffres romains. Mouvement silencieux.",
-    image: "https://images.unsplash.com/photo-1563863788434-e58a36330cf0?w=600&h=400&fit=crop",
-    badge: "Statement",
-    badgeColor: "bg-slate-700",
-    keywords: "horloge murale design geante 60cm metal noir"
-  },
-  {
-    id: "lr-wall-003",
-    title: "Étagères Murales Cubes",
-    description: "Lot de 6 étagères cubes fixation invisible. Bois chêne massif.",
-    image: "https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=600&h=400&fit=crop",
-    badge: "Rangement",
-    badgeColor: "bg-amber-700",
-    keywords: "etageres murales cubes chene massif lot 6"
-  },
-  {
-    id: "lr-wall-004",
-    title: "Appliques Murales LED Dorées",
-    description: "Paire d'appliques design laiton. Lumière indirecte chaude.",
-    image: "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?w=600&h=400&fit=crop",
-    badge: "Éclairage",
-    badgeColor: "bg-yellow-600",
-    keywords: "appliques murales led dorees laiton design"
-  },
-  {
-    id: "lr-wall-005",
-    title: "Miroir Soleil Rotin Naturel",
-    description: "Miroir 80cm cadre rotin tressé main. Style bohème chic.",
-    image: "https://images.unsplash.com/photo-1618220179428-22790b461013?w=600&h=400&fit=crop",
-    badge: "Boho",
-    badgeColor: "bg-orange-500",
-    keywords: "miroir soleil rotin naturel 80cm tresse main"
-  },
-
-  // SOUS-CATÉGORIE: Minimalist living room (5 produits)
-  {
-    id: "lr-min-001",
-    title: "Canapé 2 Places Lin Gris Clair",
-    description: "Canapé compact 180cm lignes épurées. Pieds hauts métal noir.",
-    image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&h=400&fit=crop",
-    badge: "Minimaliste",
-    badgeColor: "bg-gray-500",
-    keywords: "canape 2 places lin gris clair lignes epurees"
-  },
-  {
-    id: "lr-min-002",
-    title: "Table Basse Ronde Blanc Mat",
-    description: "Table basse 70cm design scandinave. Plateau laqué blanc mat.",
-    image: "https://images.unsplash.com/photo-1533090481720-856c6e3c1fdc?w=600&h=400&fit=crop",
-    badge: "Pure",
-    badgeColor: "bg-slate-400",
-    keywords: "table basse ronde blanc mat scandinave 70cm"
-  },
-  {
-    id: "lr-min-003",
-    title: "Bibliothèque Colonne Blanche",
-    description: "Colonne rangement 5 cases blanc laqué. Fixation murale possible.",
-    image: "https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=600&h=400&fit=crop",
-    badge: "Épuré",
-    badgeColor: "bg-zinc-500",
-    keywords: "bibliotheque colonne blanche 5 cases laque"
-  },
-  {
-    id: "lr-min-004",
-    title: "Suspension Sphere Opale",
-    description: "Luminaire boule verre opale 30cm. Design intemporel.",
-    image: "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?w=600&h=400&fit=crop",
-    badge: "Lumière",
-    badgeColor: "bg-stone-400",
-    keywords: "suspension sphere opale verre 30cm"
-  },
-  {
-    id: "lr-min-005",
-    title: "Tapis Laine Tissé Main Gris",
-    description: "Tapis 140x200cm 100% laine tissée main. Texture naturelle.",
-    image: "https://images.unsplash.com/photo-1575414003591-ece8d0416c7a?w=600&h=400&fit=crop",
-    badge: "Naturel",
-    badgeColor: "bg-neutral-500",
-    keywords: "tapis laine tisse main gris 140x200"
-  },
-
-  // SOUS-CATÉGORIE: Cozy living room (5 produits)
-  {
-    id: "lr-cozy-001",
-    title: "Canapé Profond Velours Vert",
-    description: "Canapé 3 places assise profonde 70cm. Velours vert forêt.",
-    image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&h=400&fit=crop",
-    badge: "Cozy",
-    badgeColor: "bg-emerald-700",
-    keywords: "canape profond velours vert foret assise 70cm"
-  },
-  {
-    id: "lr-cozy-002",
-    title: "Plaid XXL Tricot Grosse Maille",
-    description: "Couverture 150x200cm grosse maille torsadée. Beige naturel.",
-    image: "https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?w=600&h=400&fit=crop",
-    badge: "Chaud",
-    badgeColor: "bg-orange-500",
-    keywords: "plaid xxl tricot grosse maille 150x200 beige"
-  },
-  {
-    id: "lr-cozy-003",
-    title: "Lampe à Poser Céramique Crème",
-    description: "Lampe chevet artisanale céramique texturée. Abat-jour lin.",
-    image: "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=600&h=400&fit=crop",
-    badge: "Chaleureux",
-    badgeColor: "bg-amber-600",
-    keywords: "lampe poser ceramique creme artisanale abat jour lin"
-  },
-  {
-    id: "lr-cozy-004",
-    title: "Tapis Shaggy Poils Longs Gris",
-    description: "Tapis 160x230cm poils 5cm ultra doux. Antidérapant.",
-    image: "https://images.unsplash.com/photo-1575414003591-ece8d0416c7a?w=600&h=400&fit=crop",
-    badge: "Doux",
-    badgeColor: "bg-gray-400",
-    keywords: "tapis shaggy poils longs gris 160x230 5cm"
-  },
-  {
-    id: "lr-cozy-005",
-    title: "Coussins Fourrure Synthétique",
-    description: "Lot de 2 coussins 45x45cm imitation fourrure. Blanc cassé.",
-    image: "https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?w=600&h=400&fit=crop",
-    badge: "Doux",
-    badgeColor: "bg-stone-300",
-    keywords: "coussins fourrure synthetique 45x45 blanc casse"
-  }
-];
-
-// ==========================================
-// 2. HOME DECOR IDEAS (35 produits totaux)
-// ==========================================
-
-const homeDecorProducts = [
-  // SOUS-CATÉGORIE: Modern bedroom decor (6 produits)
-  {
-    id: "hd-bed-001",
-    title: "Tête de Lit Capitonnée Velours",
-    description: "Tête de lit 160cm boutons diamant. Velours bleu nuit.",
-    image: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=600&h=400&fit=crop",
-    badge: "Chambre",
-    badgeColor: "bg-indigo-600",
-    keywords: "tete de lit capitonnee velours bleu nuit 160cm"
-  },
-  {
-    id: "hd-bed-002",
-    title: "Lampe de Chevet Tactile",
-    description: "Lampe 3 intensités contrôle tactile. Base bois et abat-jour tissu.",
-    image: "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=600&h=400&fit=crop",
-    badge: "Moderne",
-    badgeColor: "bg-blue-500",
-    keywords: "lampe chevet tactile 3 intensites bois"
-  },
-  {
-    id: "hd-bed-003",
-    title: "Parure de Lit Percale Coton",
-    description: "Housse de couette 240x220cm + 2 taies. Percale 100% coton.",
-    image: "https://images.unsplash.com/photo-1522771753035-a0a1f66cd459?w=600&h=400&fit=crop",
-    badge: "Luxe",
-    badgeColor: "bg-slate-600",
-    keywords: "parure lit percale coton 240x220 housse couette"
-  },
-  {
-    id: "hd-bed-004",
-    title: "Table de Nuit Scandinave",
-    description: "Chevet 2 tiroirs chêne et blanc. Pieds compas vintage.",
-    image: "https://images.unsplash.com/photo-1532372320572-cda25653a26d?w=600&h=400&fit=crop",
-    badge: "Design",
-    badgeColor: "bg-amber-500",
-    keywords: "table de nuit scandinave 2 tiroirs chene blanc"
-  },
-  {
-    id: "hd-bed-005",
-    title: "Miroir de Maquillage LED",
-    description: "Miroir grossissant x10 avec éclairage LED. Rotation 360°.",
-    image: "https://images.unsplash.com/photo-1618220179428-22790b461013?w=600&h=400&fit=crop",
-    badge: "Pratique",
-    badgeColor: "bg-pink-500",
-    keywords: "miroir maquillage led grossissant x10"
-  },
-  {
-    id: "hd-bed-006",
-    title: "Valet de Chambre Design",
-    description: "Valet porte-vêtements métal noir et bois. Style contemporain.",
-    image: "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=600&h=400&fit=crop",
-    badge: "Élégant",
-    badgeColor: "bg-gray-600",
-    keywords: "valet de chambre design metal noir bois"
-  },
-
-  // SOUS-CATÉGORIE: Minimalist home decor (6 produits)
-  {
-    id: "hd-min-001",
-    title: "Étagère Murale Invisible",
-    description: "Lot de 4 étagères flottantes 60cm. Fixation cachée.",
-    image: "https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=600&h=400&fit=crop",
-    badge: "Invisible",
-    badgeColor: "bg-gray-400",
-    keywords: "etagere murale invisible flottante lot 4 60cm"
-  },
-  {
-    id: "hd-min-002",
-    title: "Vase Soliflore Verre Fumé",
-    description: "Set de 3 vases tubes verre fumé. Design épuré.",
-    image: "https://images.unsplash.com/photo-1578500494198-246f612d3b3d?w=600&h=400&fit=crop",
-    badge: "Simple",
-    badgeColor: "bg-slate-500",
-    keywords: "vase soliflore verre fume set 3 tubes"
-  },
-  {
-    id: "hd-min-003",
-    title: "Horloge Murale Sans Chiffres",
-    description: "Horloge 40cm design aiguilles uniquement. Bois clair.",
-    image: "https://images.unsplash.com/photo-1563863788434-e58a36330cf0?w=600&h=400&fit=crop",
-    badge: "Épuré",
-    badgeColor: "bg-stone-400",
-    keywords: "horloge murale sans chiffres 40cm bois clair"
-  },
-  {
-    id: "hd-min-004",
-    title: "Panier Rangement Jonc de Mer",
-    description: "Lot de 3 paniers tressés naturels. Poignées intégrées.",
-    image: "https://images.unsplash.com/photo-1592078615290-033ee584e267?w=600&h=400&fit=crop",
-    badge: "Naturel",
-    badgeColor: "bg-amber-600",
-    badge: "Naturel",
-    badgeColor: "bg-amber-600",
-    keywords: "panier rangement jonc de mer lot 3 tresse"
-  },
-  {
-    id: "hd-min-005",
-    title: "Bougeoirs Métal Noir Mat",
-    description: "Set de 3 chandeliers modernes noir mat. Hauteurs variées.",
-    image: "https://images.unsplash.com/photo-1602028915047-37269d1a73f7?w=600&h=400&fit=crop",
-    badge: "Élégant",
-    badgeColor: "bg-zinc-600",
-    keywords: "bougeoirs metal noir mat set 3 modernes"
-  },
-  {
-    id: "hd-min-006",
-    title: "Porte-Revues Design Fil",
-    description: "Range-magazines métal filaire doré. Design léger.",
-    image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&h=400&fit=crop",
-    badge: "Léger",
-    badgeColor: "bg-yellow-600",
-    keywords: "porte revues design fil metal dore"
-  },
-
-  // SOUS-CATÉGORIE: Small space decor (5 produits)
-  {
-    id: "hd-small-001",
-    title: "Lit Coffre Hydraulique 140cm",
-    description: "Lit 2 places avec coffre rangement 400L. Ouverture assistée.",
-    image: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=600&h=400&fit=crop",
-    badge: "Rangement",
-    badgeColor: "bg-green-600",
-    keywords: "lit coffre hydraulique 140cm rangement 400l"
-  },
-  {
-    id: "hd-small-002",
-    title: "Table de Chevet Suspendue",
-    description: "Tablette murale chevet 40cm avec tiroir. Gain de place.",
-    image: "https://images.unsplash.com/photo-1532372320572-cda25653a26d?w=600&h=400&fit=crop",
-    badge: "Flottant",
-    badgeColor: "bg-emerald-500",
-    keywords: "table de chevet suspendue murale 40cm tiroir"
-  },
-  {
-    id: "hd-small-003",
-    title: "Miroir Mural Rangement Bijoux",
-    description: "Miroir 120x40cm avec armoire bijoux intégrée derrière.",
-    image: "https://images.unsplash.com/photo-1618220179428-22790b461013?w=600&h=400&fit=crop",
-    badge: "2 en 1",
-    badgeColor: "bg-teal-600",
-    keywords: "miroir mural rangement bijoux armoire 120x40"
-  },
-  {
-    id: "hd-small-004",
-    title: "Échelle Décorative Porte-Serviettes",
-    description: "Échelle bois 150cm 5 barreaux. Pour serviettes ou plaids.",
-    image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&h=400&fit=crop",
-    badge: "Malin",
-    badgeColor: "bg-lime-600",
-    keywords: "echelle decorative porte serviettes bois 150cm"
-  },
-  {
-    id: "hd-small-005",
-    title: "Paniers Empilables Tissu",
-    description: "Lot de 4 boîtes tissu rigide empilables. Étiquettes incluses.",
-    image: "https://images.unsplash.com/photo-1592078615290-033ee584e267?w=600&h=400&fit=crop",
-    badge: "Organisation",
-    badgeColor: "bg-green-500",
-    keywords: "paniers empilables tissu rigide lot 4 etiquettes"
-  },
-
-  // SOUS-CATÉGORIE: Luxury home decor (6 produits)
-  {
-    id: "hd-luxe-001",
-    title: "Parure Satin de Coton 120 Fils",
-    description: "Housse couette 260x240cm satin 120 fils/cm². Blanc hôtel luxe.",
-    image: "https://images.unsplash.com/photo-1522771753035-a0a1f66cd459?w=600&h=400&fit=crop",
-    badge: "Premium",
-    badgeColor: "bg-yellow-600",
-    keywords: "parure satin coton 120 fils 260x240 blanc luxe"
-  },
-  {
-    id: "hd-luxe-002",
-    title: "Lampe Art Déco Cristal",
-    description: "Lampe à poser base cristal et abat-jour soie. Style 1920.",
-    image: "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=600&h=400&fit=crop",
-    badge: "Art Déco",
-    badgeColor: "bg-amber-600",
-    keywords: "lampe art deco cristal abat jour soie 1920"
-  },
-  {
-    id: "hd-luxe-003",
-    title: "Vase Murano Style Soufflé",
-    description: "Vase verre artisanal multicouleurs. Pièce unique 35cm.",
-    image: "https://images.unsplash.com/photo-1578500494198-246f612d3b3d?w=600&h=400&fit=crop",
-    badge: "Artisanal",
-    badgeColor: "bg-purple-600",
-    keywords: "vase murano style souffle verre artisanal 35cm"
-  },
-  {
-    id: "hd-luxe-004",
-    title: "Boîte à Bijoux Velours",
-    description: "Coffret bijoux 3 niveaux velours gris. Miroir intégré.",
-    image: "https://images.unsplash.com/photo-1590736969955-71cc94901144?w=600&h=400&fit=crop",
-    badge: "Sophistiqué",
-    badgeColor: "bg-slate-600",
-    keywords: "boite a bijoux velours 3 niveaux gris miroir"
-  },
-  {
-    id: "hd-luxe-005",
-    title: "Diffuseur Parfum Bâtons",
-    description: "Set luxe diffuseur 200ml + bâtons rotin. Parfum ambre musc.",
-    image: "https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=600&h=400&fit=crop",
-    badge: "Parfum",
-    badgeColor: "bg-rose-600",
-    keywords: "diffuseur parfum batons 200ml ambre musc luxe"
-  },
-  {
-    id: "hd-luxe-006",
-    title: "Cadre Photo Doré Martelé",
-    description: "Lot de 3 cadres 13x18cm métal doré martelé. Chevalets inclus.",
-    image: "https://images.unsplash.com/photo-1513519245088-0e12902e35ca?w=600&h=400&fit=crop",
-    badge: "Mémoire",
-    badgeColor: "bg-yellow-700",
-    keywords: "cadre photo dore martele lot 3 13x18 metal"
-  },
-
-  // SOUS-CATÉGORIE: Indoor plants decoration (6 produits)
-  {
-    id: "hd-plant-001",
-    title: "Pot Céramique Émaillé Bleu",
-    description: "Grand pot 25cm émail réactif bleu. Effet unique chaque pièce.",
-    image: "https://images.unsplash.com/photo-1485955900006-10f4d324d411?w=600&h=400&fit=crop",
-    badge: "Céramique",
-    badgeColor: "bg-blue-600",
-    keywords: "pot ceramique emaille bleu 25cm reactif"
-  },
-  {
-    id: "hd-plant-002",
-    title: "Support Plantes Métal Noir",
-    description: "Étagère plantes 4 niveaux 100cm. Style industriel.",
-    image: "https://images.unsplash.com/photo-1463320898484-cdee8141c787?w=600&h=400&fit=crop",
-    badge: "Industriel",
-    badgeColor: "bg-gray-700",
-    keywords: "support plantes metal noir 4 niveaux 100cm"
-  },
-  {
-    id: "hd-plant-003",
-    title: "Macramé Suspension Plante",
-    description: "Lot de 3 suspensions macramé coton naturel. Fait main.",
-    image: "https://images.unsplash.com/photo-1485955900006-10f4d324d411?w=600&h=400&fit=crop",
-    badge: "Boho",
-    badgeColor: "bg-orange-400",
-    keywords: "macrame suspension plante lot 3 coton naturel"
-  },
-  {
-    id: "hd-plant-004",
-    title: "Jardinière Fenêtre Auto-Irrigante",
-    description: "Bac plantes 40cm avec réserve d'eau. Système auto-irrigation.",
-    image: "https://images.unsplash.com/photo-1463320898484-cdee8141c787?w=600&h=400&fit=crop",
-    badge: "Malin",
-    badgeColor: "bg-green-600",
-    keywords: "jardiniere fenetre auto irrigante 40cm reserve eau"
-  },
-  {
-    id: "hd-plant-005",
-    title: "Arrosoir Cuivre Vintage",
-    description: "Arrosoir 1,5L cuivre vieilli aspect vintage. Long bec précis.",
-    image: "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=600&h=400&fit=crop",
-    badge: "Vintage",
-    badgeColor: "bg-amber-700",
-    keywords: "arrosoir cuivre vintage 1,5l vieilli long bec"
-  },
-  {
-    id: "hd-plant-006",
-    title: "Terreau Universel 20L Bio",
-    description: "Sac terreau enrichi compost bio. Pour plantes d'intérieur.",
-    image: "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=600&h=400&fit=crop",
-    badge: "Bio",
-    badgeColor: "bg-green-700",
-    keywords: "terreau universel 20l bio compost plantes interieur"
-  },
-
-  // SOUS-CATÉGORIE: Wall decoration ideas (6 produits)
-  {
-    id: "hd-wall-001",
-    title: "Papier Peint panoramique Forêt",
-    description: "Lé 3 bandes 3m x 2,8m motif forêt brumeuse. Intissé.",
-    image: "https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?w=600&h=400&fit=crop",
-    badge: "Dramatique",
-    badgeColor: "bg-emerald-800",
-    keywords: "papier peint panoramique foret 3 bandes intisse"
-  },
-  {
-    id: "hd-wall-002",
-    title: "Etagère Hexagonale Murale",
-    description: "Lot de 6 étagères hexagones bois et métal. Modulables.",
-    image: "https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=600&h=400&fit=crop",
-    badge: "Géométrique",
-    badgeColor: "bg-indigo-600",
-    keywords: "etagere hexagonale murale lot 6 bois metal"
-  },
-  {
-    id: "hd-wall-003",
-    title: "Lettres Lumineuses LED",
-    description: "Enseigne lumineuse personnalisable A-Z. Piles ou USB.",
-    image: "https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?w=600&h=400&fit=crop",
-    badge: "Personnel",
-    badgeColor: "bg-pink-500",
-    keywords: "lettres lumineuses led enseigne personnalisable"
-  },
-  {
-    id: "hd-wall-004",
-    title: "Tapisserie Murale Mandala",
-    description: "Tenture 200x150cm coton motif mandala. Multiples usages.",
-    image: "https://images.unsplash.com/photo-1513519245088-0e12902e35ca?w=600&h=400&fit=crop",
-    badge: "Boho",
-    badgeColor: "bg-purple-500",
-    keywords: "tapisserie murale mandala 200x150 coton"
-  },
-  {
-    id: "hd-wall-005",
-    title: "Crochets Patères Design",
-    description: "Lot de 5 patères bois formes géométriques. Vis cachées.",
-    image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&h=400&fit=crop",
-    badge: "Utile",
-    badgeColor: "bg-amber-600",
-    keywords: "crochets pateres design bois geometriques lot 5"
-  },
-  {
-    id: "hd-wall-006",
-    title: "Cadres Photo Gallery Wall",
-    description: "Set de 10 cadres assortis noir et blanc. Gabarit inclus.",
-    image: "https://images.unsplash.com/photo-1513519245088-0e12902e35ca?w=600&h=400&fit=crop",
-    badge: "Galerie",
-    badgeColor: "bg-gray-600",
-    keywords: "cadres photo gallery wall set 10 assortis gabarit"
-  }
-];
-
-// ==========================================
-// 3. STUDENT GADGETS (35 produits totaux)
-// ==========================================
-
-const studentGadgets = [
-  // SOUS-CATÉGORIE: Must-have student gadgets (7 produits)
-  {
-    id: "sg-must-001",
-    title: "Chargeur Solaire Portable 20000mAh",
-    description: "Batterie externe solaire 4 panneaux. 2 ports USB + LED.",
-    image: "https://images.unsplash.com/photo-1617788138017-80ad40651399?w=600&h=400&fit=crop",
-    badge: "Essentiel",
-    badgeColor: "bg-green-600",
-    keywords: "chargeur solaire portable 20000mah batterie externe"
-  },
-  {
-    id: "sg-must-002",
-    title: "Câble Multi-Connecteurs 6 en 1",
-    description: "Câble charge universel Lightning, USB-C, Micro-USB. 1m.",
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop",
-    badge: "Universel",
-    badgeColor: "bg-blue-600",
-    keywords: "cable multi connecteurs 6 en 1 lightning usb-c"
-  },
-  {
-    id: "sg-must-003",
-    title: "Bouteille Infuseur à Fruits",
-    description: "Gourde 800ml avec infuseur. Tritan sans BPA.",
-    image: "https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=600&h=400&fit=crop",
-    badge: "Santé",
-    badgeColor: "bg-cyan-600",
-    keywords: "bouteille infuseur fruits 800ml tritan sans bpa"
-  },
-  {
-    id: "sg-must-004",
-    title: "Mini Ventilateur USB Silencieux",
-    description: "Ventilateur bureau 4 pouces 3 vitesses. Rotation 360°.",
-    image: "https://images.unsplash.com/photo-1563861826100-9cb868fdbe1c?w=600&h=400&fit=crop",
-    badge: "Confort",
-    badgeColor: "bg-sky-500",
-    keywords: "mini ventilateur usb silencieux 4 pouces bureau"
-  },
-  {
-    id: "sg-must-005",
-    title: "Lampe de Lecture Pince LED",
-    description: "Lampe livre rechargeable 3 modes lumière. Pince flexible.",
-    image: "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=600&h=400&fit=crop",
-    badge: "Lecture",
-    badgeColor: "bg-indigo-500",
-    keywords: "lampe lecture pince led rechargeable 3 modes"
-  },
-  {
-    id: "sg-must-006",
-    title: "Trousse de Toilette Suspendable",
-    description: "Trousse voyage 4 compartiments crochet suspension. Étanche.",
-    image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&h=400&fit=crop",
-    badge: "Voyage",
-    badgeColor: "bg-teal-600",
-    keywords: "trousse de toilette suspendable 4 compartiments etanche"
-  },
-  {
-    id: "sg-must-007",
-    title: "Cadenas à Code TSA",
-    description: "Lot de 2 cadenas voyage code 4 chiffres. Approuvés TSA.",
-    image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&h=400&fit=crop",
-    badge: "Sécurité",
-    badgeColor: "bg-red-600",
-    keywords: "cadenas code tsa lot 2 voyage 4 chiffres"
-  },
-
-  // SOUS-CATÉGORIE: Productivity gadgets for students (7 produits)
-  {
-    id: "sg-prod-001",
-    title: "Minuteur Pomodoro Digital",
-    description: "Timer gestion du temps technique Pomodoro. Magnétique.",
-    image: "https://images.unsplash.com/photo-1563863788434-e58a36330cf0?w=600&h=400&fit=crop",
-    badge: "Focus",
-    badgeColor: "bg-red-500",
-    keywords: "minuteur pomodoro digital timer magnetique"
-  },
-  {
-    id: "sg-prod-002",
-    title: "Bloc-notes Effaçable Réutilisable",
-    description: "Cahier intelligent 32 pages. Efface avec chiffon humide.",
-    image: "https://images.unsplash.com/photo-1544816155-12df9643f363?w=600&h=400&fit=crop",
-    badge: "Écolo",
-    badgeColor: "bg-green-600",
-    keywords: "bloc notes effacable reutilisable 32 pages intelligent"
-  },
-  {
-    id: "sg-prod-003",
-    title: "Marque-pages Électroniques",
-    description: "Lot de 3 signets digitaux avec minuterie de lecture.",
-    image: "https://images.unsplash.com/photo-1544816155-12df9643f363?w=600&h=400&fit=crop",
-    badge: "Organisation",
-    badgeColor: "bg-blue-500",
-    keywords: "marque pages electroniques lot 3 minuterie lecture"
-  },
-  {
-    id: "sg-prod-004",
-    title: "Presse-Papiers Numérique",
-    description: "Enregistre 1000 copies. Récupère tout ce que vous copiez.",
-    image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&h=400&fit=crop",
-    badge: "Productivité",
-    badgeColor: "bg-purple-600",
-    keywords: "presse papiers numerique 1000 copies historique"
-  },
-  {
-    id: "sg-prod-005",
-    title: "Lunettes Anti-Lumière Bleue",
-    description: "Monture légère filtres lumière bleue écrans. Anti-fatigue.",
-    image: "https://images.unsplash.com/photo-1574258495973-f010dfbb5371?w=600&h=400&fit=crop",
-    badge: "Santé",
-    badgeColor: "bg-amber-600",
-    keywords: "lunettes anti lumiere bleue monture legere ecrans"
-  },
-  {
-    id: "sg-prod-006",
-    title: "Sous-main Organisateur Bureau",
-    description: "Tapis bureau multifonction compartiments + planning semaine.",
-    image: "https://images.unsplash.com/photo-1544816155-12df9643f363?w=600&h=400&fit=crop",
-    badge: "Organisation",
-    badgeColor: "bg-indigo-600",
-    keywords: "sous main organisateur bureau compartiments planning"
-  },
-  {
-    id: "sg-prod-007",
-    title: "Stylos Connectés Numérique",
-    description: "Stylo enregistre écriture sur papier. Transfert app mobile.",
-    image: "https://images.unsplash.com/photo-1585336261022-680e295ce3fe?w=600&h=400&fit=crop",
-    badge: "Tech",
-    badgeColor: "bg-cyan-600",
-    keywords: "stylos connectes numerique transfert app mobile"
-  },
-
-  // SOUS-CATÉGORIE: University tech gadgets (7 produits)
-  {
-    id: "sg-uni-001",
-    title: "Clé USB 3.0 128Go Rapide",
-    description: "Flash drive 128Go haute vitesse 150Mo/s. Design métal.",
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop",
-    badge: "Stockage",
-    badgeColor: "bg-blue-600",
-    keywords: "cle usb 3.0 128go rapide 150mo/s metal"
-  },
-  {
-    id: "sg-uni-002",
-    title: "Souris Présentateur Laser",
-    description: "Télécommande présentation PowerPoint pointeur laser rouge.",
-    image: "https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=600&h=400&fit=crop",
-    badge: "Présentation",
-    badgeColor: "bg-red-600",
-    keywords: "souris presentateur laser telecommande powerpoint"
-  },
-  {
-    id: "sg-uni-003",
-    title: "Scanner Portable Document",
-    description: "Scanner A4 portable USB. Numérise en PDF et JPG.",
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop",
-    badge: "Numérisation",
-    badgeColor: "bg-green-600",
-    keywords: "scanner portable document a4 usb pdf jpg"
-  },
-  {
-    id: "sg-uni-004",
-    title: "Dictaphone Enregistreur Vocal",
-    description: "Enregistreur 16Go 1160h audio. Réduction bruit intégrée.",
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop",
-    badge: "Audio",
-    badgeColor: "bg-purple-600",
-    keywords: "dictaphone enregistreur vocal 16go 1160h reduction bruit"
-  },
-  {
-    id: "sg-uni-005",
-    title: "Tablette Graphique A5",
-    description: "Tablette dessin 8x6 pouces 8192 niveaux pression. Stylet sans pile.",
-    image: "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=600&h=400&fit=crop",
-    badge: "Créatif",
-    badgeColor: "bg-pink-600",
-    keywords: "tablette graphique a5 8x6 pouces 8192 pression"
-  },
-  {
-    id: "sg-uni-006",
-    title: "Imprimante Portable Thermique",
-    description: "Mini imprimante Bluetooth photos 57mm. Sans encre.",
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop",
-    badge: "Impression",
-    badgeColor: "bg-orange-600",
-    keywords: "imprimante portable thermique bluetooth 57mm sans encre"
-  },
-  {
-    id: "sg-uni-007",
-    title: "Projecteur Mini LED Poche",
-    description: "Mini projecteur 1080p supporté. Connexion smartphone.",
-    image: "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?w=600&h=400&fit=crop",
-    badge: "Projection",
-    badgeColor: "bg-indigo-600",
-    keywords: "projecteur mini led poche 1080p smartphone"
-  },
-
-  // SOUS-CATÉGORIE: Affordable student gadgets (7 produits)
-  {
-    id: "sg-aff-001",
-    title: "Écouteurs Filaires Basiques",
-    description: "Intra-auriculaires avec micro. Son clair, câble renforcé.",
-    image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600&h=400&fit=crop",
-    badge: "Pas Cher",
-    badgeColor: "bg-green-600",
-    keywords: "ecouteurs filaires basiques micro intra auriculaires"
-  },
-  {
-    id: "sg-aff-002",
-    title: "Support Téléphone Bureau",
-    description: "Support smartphone angle réglable aluminium. Pliable.",
-    image: "https://images.unsplash.com/photo-1586105251261-72a756497a11?w=600&h=400&fit=crop",
-    badge: "Utile",
-    badgeColor: "bg-blue-500",
-    keywords: "support telephone bureau aluminium reglable pliable"
-  },
-  {
-    id: "sg-aff-003",
-    title: "Trousse Organisateur Câbles",
-    description: "Pochette rangement câbles élastiques + mailles. 3 compartiments.",
-    image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&h=400&fit=crop",
-    badge: "Organisation",
-    badgeColor: "bg-teal-600",
-    keywords: "trousse organisateur cables elastiques 3 compartiments"
-  },
-  {
-    id: "sg-aff-004",
-    title: "Bouteille Pliable Silicone",
-    description: "Gourde pliable 600ml silicone alimentaire. Clip ceinture.",
-    image: "https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=600&h=400&fit=crop",
-    badge: "Compact",
-    badgeColor: "bg-cyan-600",
-    keywords: "bouteille pliable silicone 600ml gourde clip"
-  },
-  {
-    id: "sg-aff-005",
-    title: "Clips Rangement Câbles Magnétiques",
-    description: "Lot de 6 clips aimantés gestion câbles bureau. Multicolore.",
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop",
-    badge: "Malin",
-    badgeColor: "bg-purple-500",
-    keywords: "clips rangement cables magnetiques lot 6 aimantes"
-  },
-  {
-    id: "sg-aff-006",
-    title: "Mousqueton Porte-Clés Multifonction",
-    description: "Mousqueton 5 en 1 couteau, tournevis, ouvre-bouteille.",
-    image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&h=400&fit=crop",
-    badge: "Multi-Outils",
-    badgeColor: "bg-red-600",
-    keywords: "mousqueton porte cles multifonction 5 en 1 outil"
-  },
-  {
-    id: "sg-aff-007",
-    title: "Sachets Compression Voyage",
-    description: "Lot de 6 sacs compression gain place valise. Étanches.",
-    image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&h=400&fit=crop",
-    badge: "Voyage",
-    badgeColor: "bg-indigo-500",
-    keywords: "sachets compression voyage lot 6 gain place etanches"
-  },
-
-  // SOUS-CATÉGORIE: Useful tech for studying (7 produits)
-  {
-    id: "sg-tech-001",
-    title: "Adaptateur USB-C vers HDMI",
-    description: "Hub USB-C 4 en 1 HDMI 4K, USB 3.0, charge PD 100W.",
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop",
-    badge: "Connectique",
-    badgeColor: "bg-blue-600",
-    keywords: "adaptateur usb-c vers hdmi 4 en 1 4k pd 100w"
-  },
-  {
-    id: "sg-tech-002",
-    title: "Station Charge Induction",
-    description: "Chargeur sans fil rapide 15W téléphone + écouteurs + montre.",
-    image: "https://images.unsplash.com/photo-1617788138017-80ad40651399?w=600&h=400&fit=crop",
-    badge: "Charge",
-    badgeColor: "bg-green-600",
-    keywords: "station charge induction sans fil rapide 15w 3 en 1"
-  },
-  {
-    id: "sg-tech-003",
-    title: "Webcam HD 1080p Micro Intégré",
-    description: "Caméra PC full HD autofocus. Cache confidentialité inclus.",
-    image: "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=600&h=400&fit=crop",
-    badge: "Visio",
-    badgeColor: "bg-purple-600",
-    keywords: "webcam hd 1080p micro integre autofocus cache"
-  },
-  {
-    id: "sg-tech-004",
-    title: "Enceinte Bluetooth Étanche",
-    description: "Mini enceinte 5W IPX7 waterproof. 12h autonomie.",
-    image: "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=600&h=400&fit=crop",
-    badge: "Audio",
-    badgeColor: "bg-cyan-600",
-    keywords: "enceinte bluetooth etanche ipx7 5w 12h autonomie"
-  },
-  {
-    id: "sg-tech-005",
-    title: "Power Bank Solaire 30000mAh",
-    description: "Batterie externe grande capacité 4 ports. Torche LED.",
-    image: "https://images.unsplash.com/photo-1617788138017-80ad40651399?w=600&h=400&fit=crop",
-    badge: "Autonomie",
-    badgeColor: "bg-orange-600",
-    keywords: "power bank solaire 30000mah 4 ports torche led"
-  },
-  {
-    id: "sg-tech-006",
-    title: "Stylet Universel Écran Tactile",
-    description: "Stylet capacitif précision 1.5mm. Compatible tous écrans.",
-    image: "https://images.unsplash.com/photo-1585336261022-680e295ce3fe?w=600&h=400&fit=crop",
-    badge: "Précision",
-    badgeColor: "bg-pink-600",
-    keywords: "stylet universel ecran tactile capacitif 1.5mm"
-  },
-  {
-    id: "sg-tech-007",
-    title: "Refroidisseur PC Portable 6 Ventilateurs",
-    description: "Plateau refroidissant 6 fans silencieux. LED bleues.",
-    image: "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=600&h=400&fit=crop",
-    badge: "Cooling",
-    badgeColor: "bg-blue-500",
-    keywords: "refroidisseur pc portable 6 ventilateurs silencieux led"
-  }
-];
-
-// ==========================================
-// 4. DESK / LAPTOP SETUP (35 produits totaux)
-// ==========================================
-
-const deskSetupProducts = [
-  // SOUS-CATÉGORIE: Minimalist desk setup (6 produits)
-  {
-    id: "ds-min-001",
-    title: "Bureau Électrique Réglable Hauteur",
-    description: "Bureau assis-debout 120x60cm. Moteur silencieux, mémoire 4 positions.",
-    image: "https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?w=600&h=400&fit=crop",
-    badge: "Ergonomique",
-    badgeColor: "bg-blue-600",
-    keywords: "bureau electrique reglable hauteur assis debout 120x60"
-  },
-  {
-    id: "ds-min-002",
-    title: "Sous-main Cuir PU Double Face",
-    description: "Tapis bureau 80x40cm cuir synthétique. Gris/noir réversible.",
-    image: "https://images.unsplash.com/photo-1544816155-12df9643f363?w=600&h=400&fit=crop",
-    badge: "Élégant",
-    badgeColor: "bg-slate-600",
-    keywords: "sous main cuir pu double face 80x40 reversible"
-  },
-  {
-    id: "ds-min-003",
-    title: "Organisateur Bureau Bois Blanc",
-    description: "Set rangement 4 pièces bois laqué blanc. Style nordique.",
-    image: "https://images.unsplash.com/photo-1544816155-12df9643f363?w=600&h=400&fit=crop",
-    badge: "Organisation",
-    badgeColor: "bg-stone-500",
-    keywords: "organisateur bureau bois blanc set 4 pieces nordique"
-  },
-  {
-    id: "ds-min-004",
-    title: "Support Écran Réglable Aluminium",
-    description: "Rehausseur moniteur 3 hauteurs. Design aéré ventilation.",
-    image: "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=600&h=400&fit=crop",
-    badge: "Ergonomique",
-    badgeColor: "bg-gray-600",
-    keywords: "support ecran reglable aluminium 3 hauteurs"
-  },
-  {
-    id: "ds-min-005",
-    title: "Lampe Bureau LED Sans Fil",
-    description: "Lampe rechargeable intensité variable. Design ultra-fin.",
-    image: "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=600&h=400&fit=crop",
-    badge: "Sans Fil",
-    badgeColor: "bg-indigo-600",
-    keywords: "lampe bureau led sans fil rechargeable intensite"
-  },
-  {
-    id: "ds-min-006",
-    title: "Rangement Câbles Adhésif",
-    description: "Lot de 10 clips câbles adhésifs sous bureau. Invisible.",
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop",
-    badge: "Caché",
-    badgeColor: "bg-zinc-600",
-    keywords: "rangment cables adhesif lot 10 clips sous bureau"
-  },
-
-  // SOUS-CATÉGORIE: Student desk setup (6 produits)
-  {
-    id: "ds-stud-001",
-    title: "Bureau d'Étudiant Pliable",
-    description: "Table travail 100x50cm pliante. Aucun montage requis.",
-    image: "https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?w=600&h=400&fit=crop",
-    badge: "Pratique",
-    badgeColor: "bg-green-600",
-    keywords: "bureau etudiant pliable 100x50 sans montage"
-  },
-  {
-    id: "ds-stud-002",
-    title: "Chaise Bureau Ergonomique Maille",
-    description: "Fauteuil étudiant support lombaire ajustable. Accoudoirs pliables.",
-    image: "https://images.unsplash.com/photo-1505843490538-5133c6c7d0e1?w=600&h=400&fit=crop",
-    badge: "Confort",
-    badgeColor: "bg-blue-500",
-    keywords: "chaise bureau ergonomique maille lombaire etudiant"
-  },
-  {
-    id: "ds-stud-003",
-    title: "Lampe de Bureau Étudiant LED",
-    description: "Lampe 5 modes couleur + 5 intensités. Port USB charge.",
-    image: "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=600&h=400&fit=crop",
-    badge: "Lumière",
-    badgeColor: "bg-yellow-500",
-    keywords: "lampe bureau etudiant led 5 modes 5 intensites usb"
-  },
-  {
-    id: "ds-stud-004",
-    title: "Organisateur Tiroir Bureau",
-    description: "Set de 8 boîtes compartimentées tiroir. Antidérapant.",
-    image: "https://images.unsplash.com/photo-1544816155-12df9643f363?w=600&h=400&fit=crop",
-    badge: "Rangement",
-    badgeColor: "bg-teal-600",
-    keywords: "organisateur tiroir bureau set 8 boites compartiments"
-  },
-  {
-    id: "ds-stud-005",
-    title: "Porte-Documents Incliné",
-    description: "Support documents lecture mains libres. 7 positions angle.",
-    image: "https://images.unsplash.com/photo-1544816155-12df9643f363?w=600&h=400&fit=crop",
-    badge: "Lecture",
-    badgeColor: "bg-orange-500",
-    keywords: "porte documents incline support lecture 7 positions"
-  },
-  {
-    id: "ds-stud-006",
-    title: "Tableau Blanc Magnétique 60x45",
-    description: "Petit tableau effaçable murale. 3 marqueurs + aimants.",
-    image: "https://images.unsplash.com/photo-1544816155-12df9643f363?w=600&h=400&fit=crop",
-    badge: "Organisation",
-    badgeColor: "bg-green-600",
-    keywords: "tableau blanc magnetique 60x45 marqueurs aimants"
-  },
-
-  // SOUS-CATÉGORIE: MacBook desk setup (6 produits)
-  {
-    id: "ds-mac-001",
-    title: "Station Accueil MacBook Pro",
-    description: "Dock USB-C 12 en 1 double écran 4K, Ethernet, SD, charge 100W.",
-    image: "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=600&h=400&fit=crop",
-    badge: "Mac",
-    badgeColor: "bg-gray-700",
-    keywords: "station accueil macbook pro dock 12 en 1 4k ethernet"
-  },
-  {
-    id: "ds-mac-002",
-    title: "Support MacBook Vertical Aluminium",
-    description: "Stand laptop vertical space grey. Optimise l'espace bureau.",
-    image: "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=600&h=400&fit=crop",
-    badge: "Space Gray",
-    badgeColor: "bg-slate-600",
-    keywords: "support macbook vertical aluminium space grey"
-  },
-  {
-    id: "ds-mac-003",
-    title: "Hub USB-C MacBook Air",
-    description: "Adaptateur 7 en 1 spécialement conçu MacBook Air M1/M2.",
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop",
-    badge: "MacBook",
-    badgeColor: "bg-blue-500",
-    keywords: "hub usb-c macbook air 7 en 1 adaptateur m1 m2"
-  },
-  {
-    id: "ds-mac-004",
-    title: "Coque MacBook Pro 14 Protection",
-    description: "Housse rigide cristal + protection clavier. Transparent.",
-    image: "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=600&h=400&fit=crop",
-    badge: "Protection",
-    badgeColor: "bg-cyan-600",
-    keywords: "coque macbook pro 14 protection cristal clavier"
-  },
-  {
-    id: "ds-mac-005",
-    title: "Chargeur MacBook 100W GaN",
-    description: "Chargeur rapide 3 ports USB-C. Technologie GaN compact.",
-    image: "https://images.unsplash.com/photo-1617788138017-80ad40651399?w=600&h=400&fit=crop",
-    badge: "Charge",
-    badgeColor: "bg-green-600",
-    keywords: "chargeur macbook 100w gan 3 ports usb-c rapide"
-  },
-  {
-    id: "ds-mac-006",
-    title: "Adaptateur MagSafe USB-C",
-    description: "Câble charge magnétique 100W compatible MacBook. LED indicateur.",
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop",
-    badge: "MagSafe",
-    badgeColor: "bg-gray-500",
-    keywords: "adaptateur magsafe usb-c 100w macbook magnetique"
-  },
-
-  // SOUS-CATÉGORIE: Aesthetic workspace (6 produits)
-  {
-    id: "ds-aes-001",
-    title: "Tapis Souris XXL Gaming",
-    description: "Sous-main bureau 90x40cm motif monde. Bords cousus.",
-    image: "https://images.unsplash.com/photo-1544816155-12df9643f363?w=600&h=400&fit=crop",
-    badge: "XXL",
-    badgeColor: "bg-purple-600",
-    keywords: "tapis souris xxl gaming 90x40 motif monde"
-  },
-  {
-    id: "ds-aes-002",
-    title: "Lampe Néon LED Personnalisable",
-    description: "Enseigne néon USB forme personnalisable. 10 couleurs.",
-    image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=600&h=400&fit=crop",
-    badge: "Néon",
-    badgeColor: "bg-pink-600",
-    keywords: "lampe neon led personnalisable usb 10 couleurs"
-  },
-  {
-    id: "ds-aes-003",
-    title: "Support Casque Audio Design",
-    description: "Porte-casque bois et aluminium. Accroche câble intégrée.",
-    image: "https://images.unsplash.com/photo-1546435770-a3e426bf472b?w=600&h=400&fit=crop",
-    badge: "Design",
-    badgeColor: "bg-amber-600",
-    keywords: "support casque audio design bois aluminium"
-  },
-  {
-    id: "ds-aes-004",
-    title: "Plantes Artificielles Bureau",
-    description: "Lot de 3 succulentes pot céramique. Entretien zéro.",
-    image: "https://images.unsplash.com/photo-1485955900006-10f4d324d411?w=600&h=400&fit=crop",
-    badge: "Vert",
-    badgeColor: "bg-green-600",
-    keywords: "plantes artificielles bureau lot 3 succulentes ceramique"
-  },
-  {
-    id: "ds-aes-005",
-    title: "Guirlande LED USB Blanc Chaud",
-    description: "String lights 5m 50 LEDs. Télécommande 8 modes.",
-    image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=600&h=400&fit=crop",
-    badge: "Cozy",
-    badgeColor: "bg-orange-400",
-    keywords: "guirlande led usb blanc chaud 5m 50 leds telecommande"
-  },
-  {
-    id: "ds-aes-006",
-    title: "Porte-Stylo Rotatif 360°",
-    description: "Organisateur stylos rotatif 6 compartiments. Design moderne.",
-    image: "https://images.unsplash.com/photo-1544816155-12df9643f363?w=600&h=400&fit=crop",
-    badge: "Rotation",
-    badgeColor: "bg-indigo-600",
-    keywords: "porte stylo rotatif 360 6 compartiments moderne"
-  },
-
-  // SOUS-CATÉGORIE: Gaming / tech desk setup (6 produits)
-  {
-    id: "ds-game-001",
-    title: "Bureau Gaming LED RGB",
-    description: "Bureau gamer 140x60cm avec LED RGB intégrées. Porte-gobelet.",
-    image: "https://images.unsplash.com/photo-1598550476439-6847785fcea6?w=600&h=400&fit=crop",
-    badge: "Gaming",
-    badgeColor: "bg-red-600",
-    keywords: "bureau gaming led rgb 140x60 gamer porte gobelet"
-  },
-  {
-    id: "ds-game-002",
-    title: "Souris Gamer Sans Fil",
-    description: "Souris gaming 16000 DPI programmable. RGB, ultra-légère.",
-    image: "https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=600&h=400&fit=crop",
-    badge: "Gaming",
-    badgeColor: "bg-red-700",
-    keywords: "souris gamer sans fil 16000 dpi rgb ultralegere"
-  },
-  {
-    id: "ds-game-003",
-    title: "Clavier Mécanique RGB",
-    description: "Clavier gaming switches bleus rétroéclairé RGB. Repose-poignet.",
-    image: "https://images.unsplash.com/photo-1595225476474-87563907a212?w=600&h=400&fit=crop",
-    badge: "Mécanique",
-    badgeColor: "bg-purple-700",
-    keywords: "clavier mecanique rgb gaming switches bleus repose poignet"
-  },
-  {
-    id: "ds-game-004",
-    title: "Casque Gaming 7.1 Surround",
-    description: "Casque gamer micro rétractable. Son surround virtuel 7.1.",
-    image: "https://images.unsplash.com/photo-1546435770-a3e426bf472b?w=600&h=400&fit=crop",
-    badge: "Audio",
-    badgeColor: "bg-blue-700",
-    keywords: "casque gaming 7.1 surround micro retractable"
-  },
-  {
-    id: "ds-game-005",
-    title: "Webcam Streaming 1080p 60fps",
-    description: "Caméra gamer autofocus rapide. Filtre confidentialité.",
-    image: "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=600&h=400&fit=crop",
-    badge: "Stream",
-    badgeColor: "bg-pink-700",
-    keywords: "webcam streaming 1080p 60fps autofocus gaming"
-  },
-  {
-    id: "ds-game-006",
-    title: "Microphone USB Streaming",
-    description: "Micro gamer cardioïde avec bras articulé. Filtre anti-pop.",
-    image: "https://images.unsplash.com/photo-1590602847861-f357a9332bbc?w=600&h=400&fit=crop",
-    badge: "Stream",
-    badgeColor: "bg-red-800",
-    keywords: "microphone usb streaming gamer bras articule filtre pop"
-  },
-// SOUS-CATÉGORIE: Desk productivity accessories (5 produits)
-  {
-    id: "ds-prod-001",
-    title: "Minuteur Cube Productivité",
-    description: "Timer cube 5/15/30/60 min. Gestion temps Pomodoro.",
-    image: "https://images.unsplash.com/photo-1563863788434-e58a36330cf0?w=600&h=400&fit=crop",
-    badge: "Focus",
-    badgeColor: "bg-red-500",
-    keywords: "minuteur cube productivite 5 15 30 60 pomodoro"
-  },
-  {
-    id: "ds-prod-002",
-    title: "Support Documents Métal",
-    description: "Porte-copie inclinable 7 positions. Clip métal robuste.",
-    image: "https://images.unsplash.com/photo-1544816155-12df9643f363?w=600&h=400&fit=crop",
-    badge: "Efficace",
-    badgeColor: "bg-blue-600",
-    keywords: "support documents metal inclinable 7 positions"
-  },
-  {
-    id: "ds-prod-003",
-    title: "Trieur Documents 5 Compartiments",
-    description: "Organisateur papier vertical bois. Étiquettes incluses.",
-    image: "https://images.unsplash.com/photo-1544816155-12df9643f363?w=600&h=400&fit=crop",
-    badge: "Papier",
-    badgeColor: "bg-amber-600",
-    keywords: "trieur documents 5 compartiments vertical bois"
-  },
-  {
-    id: "ds-prod-004",
-    title: "Ardoise Mémo Bureau",
-    description: "Petit tableau noir magnétique 30x40cm. Support + craies.",
-    image: "https://images.unsplash.com/photo-1544816155-12df9643f363?w=600&h=400&fit=crop",
-    badge: "Mémo",
-    badgeColor: "bg-gray-700",
-    keywords: "ardoise memo bureau magnetique 30x40 support craies"
-  },
-  {
-    id: "ds-prod-005",
-    title: "Bloc Mémo Adhésif 3M",
-    description: "Pack de 12 blocs post-it colorés. Diverses tailles.",
-    image: "https://images.unsplash.com/photo-1544816155-12df9643f363?w=600&h=400&fit=crop",
-    badge: "Notes",
-    badgeColor: "bg-yellow-500",
-    keywords: "bloc memo adhesif 3m pack 12 post it colores"
-  }
-];
-
-// ==========================================
-// 5. BUDGET-FRIENDLY TIPS (30 produits totaux)
-// ==========================================
-
-const budgetFriendlyProducts = [
-  // SOUS-CATÉGORIE: Small budget home decor (6 produits)
-  {
-    id: "bf-bud-001",
-    title: "Cadres Photo Lot de 10",
-    description: "10 cadres 10x15cm à 20x30cm assortis. Noir et blanc.",
-    image: "https://images.unsplash.com/photo-1513519245088-0e12902e35ca?w=600&h=400&fit=crop",
-    badge: "Pas Cher",
-    badgeColor: "bg-green-600",
-    keywords: "cadres photo lot 10 10x15 20x30 noir blanc"
-  },
-  {
-    id: "bf-bud-002",
-    title: "Bougies LED à Piles",
-    description: "Lot de 6 bougies LED vacillantes. Télécommande timer.",
-    image: "https://images.unsplash.com/photo-1602028915047-37269d1a73f7?w=600&h=400&fit=crop",
-    badge: "Ambiance",
-    badgeColor: "bg-orange-500",
-    keywords: "bougies led piles lot 6 vacillantes telecommande"
-  },
-  {
-    id: "bf-bud-003",
-    title: "Stickers Muraux Géométriques",
-    description: "Set de 48 stickers dorés et noirs. Formes géométriques.",
-    image: "https://images.unsplash.com/photo-1513519245088-0e12902e35ca?w=600&h=400&fit=crop",
-    badge: "Déco",
-    badgeColor: "bg-yellow-600",
-    keywords: "stickers muraux geometriques set 48 dores noirs"
-  },
-  {
-    id: "bf-bud-004",
-    title: "Housse Coussin Pas Cher",
-    description: "Lot de 4 housses 45x45cm polyester. Multiples motifs.",
-    image: "https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?w=600&h=400&fit=crop",
-    badge: "Textile",
-    badgeColor: "bg-blue-500",
-    keywords: "housse coussin pas cher lot 4 45x45 polyester"
-  },
-  {
-    id: "bf-bud-005",
-    title: "Vases Verre Lot de 3",
-    description: "Trio vases transparents formats variés. Design simple.",
-    image: "https://images.unsplash.com/photo-1578500494198-246f612d3b3d?w=600&h=400&fit=crop",
-    badge: "Vases",
-    badgeColor: "bg-cyan-600",
-    keywords: "vases verre lot 3 transparents formats varies"
-  },
-  {
-    id: "bf-bud-006",
-    title: "Miroir Adhésif Mural",
-    description: "Set de 16 carreaux miroir 15x15cm. Effet agrandissant.",
-    image: "https://images.unsplash.com/photo-1618220179428-22790b461013?w=600&h=400&fit=crop",
-    badge: "Malin",
-    badgeColor: "bg-purple-600",
-    keywords: "miroir adhesif mural set 16 carreaux 15x15"
-  },
-
-  // SOUS-CATÉGORIE: DIY home decoration (6 produits)
-  {
-    id: "bf-diy-001",
-    title: "Kit Peinture par Numéros",
-    description: "Toile 40x50cm avec peintures et pinceaux. Plusieurs motifs.",
-    image: "https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=600&h=400&fit=crop",
-    badge: "Créatif",
-    badgeColor: "bg-pink-600",
-    keywords: "kit peinture par numeros toile 40x50 peintures pinceaux"
-  },
-  {
-    id: "bf-diy-002",
-    title: "Macramé Kit Débutant",
-    description: "Kit complet macramé avec corde et tutoriel. Suspension plante.",
-    image: "https://images.unsplash.com/photo-1513519245088-0e12902e35ca?w=600&h=400&fit=crop",
-    badge: "Fait Main",
-    badgeColor: "bg-orange-600",
-    keywords: "macrame kit debutant complet corde tutoriel suspension"
-  },
-  {
-    id: "bf-diy-003",
-    title: "Papier Peint Adhésif",
-    description: "Rouleau 10m x 45cm autocollant. Motifs variés.",
-    image: "https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?w=600&h=400&fit=crop",
-    badge: "Facile",
-    badgeColor: "bg-green-600",
-    keywords: "papier peint adhesif rouleau 10m 45cm autocollant"
-  },
-  {
-    id: "bf-diy-004",
-    title: "Kit Mosaïque Déco",
-    description: "Set création mosaïque avec tessons et colle. Dessous de verre.",
-    image: "https://images.unsplash.com/photo-1578500494198-246f612d3b3d?w=600&h=400&fit=crop",
-    badge: "Art",
-    badgeColor: "bg-purple-600",
-    keywords: "kit mosaique deco set tessons colle dessous verre"
-  },
-  {
-    id: "bf-diy-005",
-    title: "Tissage Mural Kit",
-    description: "Métier à tisser + fils laine. Créez votre tenture murale.",
-    image: "https://images.unsplash.com/photo-1513519245088-0e12902e35ca?w=600&h=400&fit=crop",
-    badge: "Tissage",
-    badgeColor: "bg-amber-600",
-    keywords: "tissage mural kit metier a tisser fils laine tenture"
-  },
-  {
-    id: "bf-diy-006",
-    title: "Béton Créatif Kit",
-    description: "Moulages béton pour créer pots et vide-poches. Facile.",
-    image: "https://images.unsplash.com/photo-1513519245088-0e12902e35ca?w=600&h=400&fit=crop",
-    badge: "Béton",
-    badgeColor: "bg-gray-600",
-    keywords: "beton creatif kit moulages pots vide poches facile"
-  },
-
-  // SOUS-CATÉGORIE: Home organization hacks (6 produits)
-  {
-    id: "bf-org-001",
-    title: "Organisateur Tiroir Réglable",
-    description: "Séparateurs tiroir extensibles lot de 8. Plastique blanc.",
-    image: "https://images.unsplash.com/photo-1544816155-12df9643f363?w=600&h=400&fit=crop",
-    badge: "Tiroir",
-    badgeColor: "bg-blue-600",
-    keywords: "organisateur tiroir reglable extensibles lot 8 plastique"
-  },
-  {
-    id: "bf-org-002",
-    title: "Boîtes Rangement Empilables",
-    description: "Lot de 6 boîtes transparentes avec couvercles. Étiquettes.",
-    image: "https://images.unsplash.com/photo-1592078615290-033ee584e267?w=600&h=400&fit=crop",
-    badge: "Transparent",
-    badgeColor: "bg-cyan-600",
-    keywords: "boites rangement empilables lot 6 transparentes etiquettes"
-  },
-  {
-    id: "bf-org-003",
-    title: "Crochets Adhésifs Muraux",
-    description: "Lot de 12 crochets charges lourdes 5kg. Sans perçage.",
-    image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&h=400&fit=crop",
-    badge: "Sans Trou",
-    badgeColor: "bg-green-600",
-    keywords: "crochets adhesifs muraux lot 12 charges lourdes 5kg"
-  },
-  {
-    id: "bf-org-004",
-    title: "Range-Chaussures Empilable",
-    description: "Lot de 10 supports chaussures gain place. Plastique solide.",
-    image: "https://images.unsplash.com/photo-1544816155-12df9643f363?w=600&h=400&fit=crop",
-    badge: "Chaussures",
-    badgeColor: "bg-orange-600",
-    keywords: "range chaussures empilable lot 10 gain place plastique"
-  },
-  {
-    id: "bf-org-005",
-    title: "Sac de Rangement Sous Vide",
-    description: "Lot de 6 sacs compression aspirateur. Gain place x4.",
-    image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&h=400&fit=crop",
-    badge: "Compression",
-    badgeColor: "bg-purple-600",
-    keywords: "sac rangement sous vide lot 6 compression aspirateur"
-  },
-  {
-    id: "bf-org-006",
-    title: "Organisateur Câbles Bureau",
-    description: "Gaine range-câbles 3m + 20 clips adhésifs. Caché et propre.",
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop",
-    badge: "Câbles",
-    badgeColor: "bg-gray-600",
-    keywords: "organisateur cables bureau gaine 3m 20 clips adhesifs"
-  },
-
-  // SOUS-CATÉGORIE: Small apartment tips (6 produits)
-  {
-    id: "bf-apt-001",
-    title: "Étagère d'Angle 5 Niveaux",
-    description: "Meuble d'angle 30x30x180cm gain place maximal. Bois clair.",
-    image: "https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=600&h=400&fit=crop",
-    badge: "Angle",
-    badgeColor: "bg-green-600",
-    keywords: "etagere angle 5 niveaux 30x30x180 gain place bois"
-  },
-  {
-    id: "bf-apt-002",
-    title: "Lit Mezzanine 90cm avec Bureau",
-    description: "Lit enfant/junior mezzanine avec bureau intégré dessous.",
-    image: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=600&h=400&fit=crop",
-    badge: "Vertical",
-    badgeColor: "bg-blue-600",
-    keywords: "lit mezzanine 90cm bureau integre junior enfant"
-  },
-  {
-    id: "bf-apt-003",
-    title: "Table Murale Rabattable",
-    description: "Table pliante murale 80x60cm. 2 positions, bureau ou repas.",
-    image: "https://images.unsplash.com/photo-1533090481720-856c6e3c1fdc?w=600&h=400&fit=crop",
-    badge: "Rabattable",
-    badgeColor: "bg-amber-600",
-    keywords: "table murale rabattable 80x60 pliante 2 positions"
-  },
-  {
-    id: "bf-apt-004",
-    title: "Canapé Convertible Express",
-    description: "Canapé 2 places convertible couchage 140cm. Ouverture rapide.",
-    image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&h=400&fit=crop",
-    badge: "Convertible",
-    badgeColor: "bg-red-600",
-    keywords: "canape convertible express 2 places 140cm rapide"
-  },
-  {
-    id: "bf-apt-005",
-    title: "Portant Vêtements Compact",
-    description: "Penderie ouverte métal 80cm roulettes. Étagère chaussures.",
-    image: "https://images.unsplash.com/photo-1558997519-83ea9252edf8?w=600&h=400&fit=crop",
-    badge: "Dressing",
-    badgeColor: "bg-pink-600",
-    keywords: "portant vetements compact 80cm roulettes etagere"
-  },
-  {
-    id: "bf-apt-006",
-    title: "Miroir sur Pied Agrandissant",
-    description: "Miroir 160cm sur pied rotatif. Agrandit visuellement pièce.",
-    image: "https://images.unsplash.com/photo-1618220179428-22790b461013?w=600&h=400&fit=crop",
-    badge: "Illusion",
-    badgeColor: "bg-purple-600",
-    keywords: "miroir sur pied agrandissant 160cm rotatif visuel"
-  },
-
-  // SOUS-CATÉGORIE: Before & after decor ideas (6 produits)
-  {
-    id: "bf-bef-001",
-    title: "Peinture Murale Blanche 10L",
-    description: "Peinture acrylique mate couvrante. 10L = 100m² environ.",
-    image: "https://images.unsplash.com/photo-1562259949-e8e7689d7828?w=600&h=400&fit=crop",
-    badge: "Base",
-    badgeColor: "bg-gray-200",
-    keywords: "peinture murale blanche 10l acrylique mate couvrante"
-  },
-  {
-    id: "bf-bef-002",
-    title: "Rouleau Peinture Anti-Goutte",
-    description: "Set rouleaux fibres courtes + bac. Finition lisse.",
-    image: "https://images.unsplash.com/photo-1562259949-e8e7689d7828?w=600&h=400&fit=crop",
-    badge: "Outils",
-    badgeColor: "bg-blue-600",
-    keywords: "rouleau peinture anti goutte set fibres courtes bac"
-  },
-  {
-    id: "bf-bef-003",
-    title: "Papier Peint Intissé Tendance",
-    description: "Rouleau 10m x 53cm motif géométrique. Facile à poser.",
-    image: "https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?w=600&h=400&fit=crop",
-    badge: "Rapide",
-    badgeColor: "bg-green-600",
-    keywords: "papier peint intisse tendance 10m 53cm geometrique"
-  },
-  {
-    id: "bf-bef-004",
-    title: "Poignées Meubles Design Lot 10",
-    description: "Lot de 10 poignées dorées ou noires modernes. Vis incluses.",
-    image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&h=400&fit=crop",
-    badge: "Détail",
-    badgeColor: "bg-yellow-600",
-    keywords: "poignees meubles design lot 10 dorees noires modernes"
-  },
-  {
-    id: "bf-bef-005",
-    title: "Film Adhésif Meuble Bois",
-    description: "Rouleau 5m x 90cm aspect bois. Relooke meubles facilement.",
-    image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&h=400&fit=crop",
-    badge: "Relooking",
-    badgeColor: "bg-amber-600",
-    keywords: "film adhesif meuble bois rouleau 5m 90cm aspect"
-  },
-  {
-    id: "bf-bef-006",
-    title: "Joint Silicone Blanc Salle de Bain",
-    description: "Mastic sanitaire anti-moisissure. Pistolet inclus.",
-    image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&h=400&fit=crop",
-    badge: "Finition",
-    badgeColor: "bg-cyan-600",
-    keywords: "joint silicone blanc salle de bain anti moisissure pistolet"
-  }
-];
-
-// ==========================================
-// 6. AMAZON FINDS (35 produits totaux)
-// ==========================================
-
-const amazonFindsProducts = [
-  // SOUS-CATÉGORIE: Amazon home decor (6 produits)
-  {
-    id: "af-home-001",
-    title: "Diffuseur Huiles Essentielles 500ml",
-    description: "Humidificateur ultrasonique 7 couleurs LED. Autonomie 12h.",
-    image: "https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=600&h=400&fit=crop",
-    badge: "Bien-être",
-    badgeColor: "bg-purple-600",
-    keywords: "diffuseur huiles essentielles 500ml humidificateur led"
-  },
-  {
-    id: "af-home-002",
-    title: "Robot Aspirateur Laveur",
-    description: "Aspirateur robot 2000Pa avec serpillière. Navigation intelligente.",
-    image: "https://images.unsplash.com/photo-1518640467707-6811f4a6ab73?w=600&h=400&fit=crop",
-    badge: "Tech",
-    badgeColor: "bg-blue-600",
-    keywords: "robot aspirateur laveur 2000pa serpilliere navigation"
-  },
-  {
-    id: "af-home-003",
-    title: "Enceinte Connectée avec Alexa",
-    description: "Smart speaker assistant vocal. Contrôle voiture maison connectée.",
-    image: "https://images.unsplash.com/photo-1545454675-3531b543be5d?w=600&h=400&fit=crop",
-    badge: "Connecté",
-    badgeColor: "bg-cyan-600",
-    keywords: "enceinte connectee alexa smart speaker assistant vocal"
-  },
-  {
-    id: "af-home-004",
-    title: "Couverture Chauffante Électrique",
-    description: "Plaid chauffant 160x120cm 6 températures. Lavable machine.",
-    image: "https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?w=600&h=400&fit=crop",
-    badge: "Chaud",
-    badgeColor: "bg-orange-600",
-    keywords: "couverture chauffante electrique 160x120 6 temperatures"
-  },
-  {
-    id: "af-home-005",
-    title: "Purificateur Air HEPA",
-    description: "Filtre HEPA 99,97% particules. Silencieux, veilleuse.",
-    image: "https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=600&h=400&fit=crop",
-    badge: "Air",
-    badgeColor: "bg-green-600",
-    keywords: "purificateur air hepa 99.97% silencieux veilleuse"
-  },
-  {
-    id: "af-home-006",
-    title: "Tapis de Bain Mémoire de Forme",
-    description: "Lot de 2 tapis absorbant antidérapant. Lavable.",
-    image: "https://images.unsplash.com/photo-1620626011761-996317b8d101?w=600&h=400&fit=crop",
-    badge: "Confort",
-    badgeColor: "bg-blue-500",
-    keywords: "tapis de bain memoire forme lot 2 absorbant antiderapant"
-  },
-
-  // SOUS-CATÉGORIE: Useful Amazon gadgets (6 produits)
-  {
-    id: "af-gad-001",
-    title: "Ouvre-Boîte Électrique One-Touch",
-    description: "Ouvre-boîte automatique sans effort. Coupe sécurisée.",
-    image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&h=400&fit=crop",
-    badge: "Cuisine",
-    badgeColor: "bg-red-600",
-    keywords: "ouvre boite electrique one touch automatique securise"
-  },
-  {
-    id: "af-gad-002",
-    title: "Détecteur Fuite Eau Connecté",
-    description: "Alarme inondation WiFi alerte smartphone. 3 capteurs inclus.",
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop",
-    badge: "Sécurité",
-    badgeColor: "bg-blue-600",
-    keywords: "detecteur fuite eau connecte wifi alerte smartphone"
-  },
-  {
-    id: "af-gad-003",
-    title: "Coussin Lombaire Massage",
-    description: "Oreiller massant shiatsu chauffant. Maison/bureau/voiture.",
-    image: "https://images.unsplash.com/photo-1544816155-12df9643f363?w=600&h=400&fit=crop",
-    badge: "Massage",
-    badgeColor: "bg-green-600",
-    keywords: "coussin lombaire massage shiatsu chauffant bureau voiture"
-  },
-  {
-    id: "af-gad-004",
-    title: "Mini Frigo 4L Cosmétiques",
-    description: "Réfrigérateur portable chambre. Skincare et boissons.",
-    image: "https://images.unsplash.com/photo-1584568694244-14fbdf83bd30?w=600&h=400&fit=crop",
-    badge: "Frais",
-    badgeColor: "bg-cyan-600",
-    keywords: "mini frigo 4l cosmetiques portable chambre skincare"
-  },
-  {
-    id: "af-gad-005",
-    title: "Lampe UV Désinfection",
-    description: "Stérilisateur UV portable. Téléphone, masques, clés.",
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop",
-    badge: "Hygiène",
-    badgeColor: "bg-purple-600",
-    keywords: "lampe uv desinfection sterilisateur portable telephone"
-  },
-  {
-    id: "af-gad-006",
-    title: "Balance Cuisine Connectée",
-    description: "Balance précision 1g connectée app. 5kg max.",
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop",
-    badge: "Précision",
-    badgeColor: "bg-orange-600",
-    keywords: "balance cuisine connectee precision 1g app 5kg"
-  },
-
-  // SOUS-CATÉGORIE: Amazon must-haves for home (6 produits)
-  {
-    id: "af-must-001",
-    title: "Enrouleur Câbles Automatique",
-    description: "Range-câbles automatique 3 unités. Plus de nœuds !",
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop",
-    badge: "Malin",
-    badgeColor: "bg-blue-600",
-    keywords: "enrouleur cables automatique 3 unites range noeuds"
-  },
-  {
-    id: "af-must-002",
-    title: "Éponges Magiques Effaçantes",
-    description: "Lot de 20 éponges mélamine. Tâches sans produit.",
-    image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&h=400&fit=crop",
-    badge: "Ménage",
-    badgeColor: "bg-pink-600",
-    keywords: "eponges magiques effacantes lot 20 melamine sans produit"
-  },
-  {
-    id: "af-must-003",
-    title: "Support Téléphone Lit Paresseux",
-    description: "Bras flexible 360° pour téléphone. Lit, canapé, bureau.",
-    image: "https://images.unsplash.com/photo-1586105251261-72a756497a11?w=600&h=400&fit=crop",
-    badge: "Paresseux",
-    badgeColor: "bg-purple-600",
-    keywords: "support telephone lit paresseux bras flexible 360"
-  },
-  {
-    id: "af-must-004",
-    title: "Brosse Toilettes Silicone",
-    description: "Brosse WC silicone antidérapante. Séchage rapide, hygiénique.",
-    image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&h=400&fit=crop",
-    badge: "WC",
-    badgeColor: "bg-blue-600",
-    keywords: "brosse toilettes silicone antiderapante sechage rapide"
-  },
-  {
-    id: "af-must-005",
-    title: "Sous-Vide Machine Alimentaire",
-    description: "Appareil mise sous vide aliments. Conservation 5x plus longue.",
-    image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&h=400&fit=crop",
-    badge: "Cuisine",
-    badgeColor: "bg-green-600",
-    keywords: "sous vide machine alimentaire conservation 5x plus longue"
-  },
-  {
-    id: "af-must-006",
-    title: "Coupe-Légumes Multifonction",
-    description: "Mandoline 7 lames interchangeables. Récupérateur inclus.",
-    image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&h=400&fit=crop",
-    badge: "Cuisine",
-    badgeColor: "bg-orange-600",
-    keywords: "coupe legumes multifonction mandoline 7 lames recupérateur"
-  },
-
-  // SOUS-CATÉGORIE: Amazon student gadgets (6 produits)
-  {
-    id: "af-stud-001",
-    title: "Imprimante Thermique Portable",
-    description: "Mini imprimante Bluetooth étiquettes/photos. Sans encre.",
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop",
-    badge: "Impression",
-    badgeColor: "bg-pink-600",
-    keywords: "imprimante thermique portable bluetooth sans encre"
-  },
-{
-    id: "af-stud-002",
-    title: "Réveil Projecteur Plafond",
-    description: "Réveil digital projection heure plafond. 7 sons nature.",
-    image: "https://images.unsplash.com/photo-1563863788434-e58a36330cf0?w=600&h=400&fit=crop",
-    badge: "Réveil",
-    badgeColor: "bg-blue-600",
-    keywords: "reveil projecteur plafond digital 7 sons nature"
-  },
-  {
-    id: "af-stud-003",
-    title: "Lampe Bureau Chargeur Sans Fil",
-    description: "Lampe LED avec base charge induction téléphone. 2 en 1.",
-    image: "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=600&h=400&fit=crop",
-    badge: "2 en 1",
-    badgeColor: "bg-purple-600",
-    keywords: "lampe bureau chargeur sans fil led induction telephone"
-  },
-  {
-    id: "af-stud-004",
-    title: "Support Tablette Lit Réglable",
-    description: "Bras articulé tablette/iPad pour lit. Angle réglable.",
-    image: "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=600&h=400&fit=crop",
-    badge: "Confort",
-    badgeColor: "bg-indigo-600",
-    keywords: "support tablette lit reglable bras articule ipad angle"
-  },
-  {
-    id: "af-stud-005",
-    title: "Bouteille Infusion Thé Glacé",
-    description: "Bouteille 700ml avec infuseur fruits/thé. Étanche.",
-    image: "https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=600&h=400&fit=crop",
-    badge: "Boisson",
-    badgeColor: "bg-cyan-600",
-    keywords: "bouteille infusion the glace 700ml infuseur fruits etanche"
-  },
-  {
-    id: "af-stud-006",
-    title: "Oreiller Orthopédique Cervical",
-    description: "Coussin mémoire forme ergonomique. Douleurs cervicales.",
-    image: "https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?w=600&h=400&fit=crop",
-    badge: "Sommeil",
-    badgeColor: "bg-blue-500",
-    keywords: "oreiller orthopedique cervical memoire forme ergonomique"
-  },
-
-  // SOUS-CATÉGORIE: Viral Amazon products (6 produits)
-  {
-    id: "af-vir-001",
-    title: "Gobelet Pliable Silicone",
-    description: "Tasse rétractable 350ml. Clip ceinture, voyage écolo.",
-    image: "https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=600&h=400&fit=crop",
-    badge: "Viral",
-    badgeColor: "bg-green-600",
-    keywords: "gobelet pliable silicone 350ml retractable voyage"
-  },
-  {
-    id: "af-vir-002",
-    title: "Éplucheur Électrique Automatique",
-    description: "Machine épluche fruits/légumes automatique. Rapide !",
-    image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&h=400&fit=crop",
-    badge: "TikTok",
-    badgeColor: "bg-pink-600",
-    keywords: "eplucheur electrique automatique fruits legumes rapide"
-  },
-  {
-    id: "af-vir-003",
-    title: "Coussin de Siège Orthopédique",
-    description: "Coussin coccyx mémoire forme. Posture, douleurs dos.",
-    image: "https://images.unsplash.com/photo-1544816155-12df9643f363?w=600&h=400&fit=crop",
-    badge: "Tendance",
-    badgeColor: "bg-purple-600",
-    keywords: "coussin siege orthopedique coccyx memoire forme posture"
-  },
-  {
-    id: "af-vir-004",
-    title: "Lampe Lune 3D Tactile",
-    description: "Veilleuse lune 16 couleurs contrôle tactile. Rechargeable.",
-    image: "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=600&h=400&fit=crop",
-    badge: "Déco",
-    badgeColor: "bg-indigo-600",
-    keywords: "lampe lune 3d tactile 16 couleurs rechargeable veilleuse"
-  },
-  {
-    id: "af-vir-005",
-    title: "Organisateur Sac à Main",
-    description: "Insert organiseur feutre 13 compartiments. Transfert sac à sac.",
-    image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&h=400&fit=crop",
-    badge: "Organisation",
-    badgeColor: "bg-orange-600",
-    keywords: "organisateur sac a main insert feutre 13 compartiments"
-  },
-  {
-    id: "af-vir-006",
-    title: "Brosse Démêlante Cheveux",
-    description: "Brosse démêlage sans douleur, wet or dry. Tous types cheveux.",
-    image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&h=400&fit=crop",
-    badge: "Beauté",
-    badgeColor: "bg-pink-500",
-    keywords: "brosse demelante cheveux sans douleur wet dry tous types"
-  }
-];
-
-// ==========================================
-// FONCTION DE RENDU DES PRODUITS
-// ==========================================
-
-function renderProductCard(product) {
-  return `
-    <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100">
-      <div class="relative">
-        <img src="${product.image}" alt="${product.title}" class="product-image" loading="lazy">
-        <div class="absolute top-3 left-3 ${product.badgeColor} text-white px-3 py-1 rounded-full text-xs font-bold">${product.badge}</div>
-      </div>
-      <div class="p-5">
-        <h3 class="text-lg font-bold mb-2">${product.title}</h3>
-        <p class="text-gray-600 text-sm mb-4">${product.description}</p>
-        <a href="${amazonLink(product.keywords)}" target="_blank" rel="noopener" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">
-          Voir sur Amazon →
-        </a>
-      </div>
-    </div>
-  `;
-}
-
-function renderProductGrid(products, containerId) {
-  const container = document.getElementById(containerId);
-  if (container) {
-    container.innerHTML = products.map(renderProductCard).join('');
-n  }
-}
-
-// Export pour utilisation dans index.html
-if (typeof module !== 'undefined' && module.exports) {
-  module.exports = {
-    livingRoomProducts,
-    homeDecorProducts,
-    studentGadgets,
-    deskSetupProducts,
-    budgetFriendlyProducts,
-    amazonFindsProducts,
-    renderProductGrid
-  };
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 px-4">
+        <div class="max-w-7xl mx-auto text-center">
+            <p class="mb-4">© 2024 Mon Univers Amazon. Tous droits réservés.</p>
+            <p class="text-gray-400 text-sm">Ce site contient des liens affiliés Amazon. En tant que Partenaire Amazon, nous réalisons un bénéfice sur les achats éligibles.</p>
+        </div>
+    </footer>
+</body>
+</html>
