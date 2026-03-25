@@ -3,217 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Amazon World | Decor, Gadgets & Budget Tips</title>
-    <meta name="description" content="Discover hand-picked Amazon products: modern decor, student gadgets, desk setups, and budget-friendly tips.">
+    <title>My Amazon World</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        * { font-family: 'Inter', sans-serif; }
-        .product-card { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
-        .product-card:hover { transform: translateY(-8px); box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); }
-        .amazon-btn { 
-            background: linear-gradient(135deg, #FF9900 0%, #FF6600 100%);
-            transition: all 0.3s ease;
-        }
-        .amazon-btn:hover { transform: scale(1.05); box-shadow: 0 10px 30px rgba(255, 153, 0, 0.4); }
-        .product-image { width: 100%; height: 250px; object-fit: contain; background: #f3f4f6; }
-        .grain {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            pointer-events: none; z-index: 50; opacity: 0.015;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-        }
-        .sticky-nav { position: sticky; top: 0; z-index: 40; }
-        .hero-gradient { background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%); }
-        .line-clamp-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-        .line-clamp-3 { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+        .product-card:hover { transform: translateY(-5px); transition: 0.3s; }
+        .amazon-btn { background: #FF9900; }
+        .amazon-btn:hover { background: #FF6600; }
+        .product-image { height: 200px; object-fit: contain; background: #f9fafb; }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-900">
-    <div class="grain"></div>
+<body class="bg-gray-100">
 
-    <!-- Navigation -->
-    <nav class="sticky-nav bg-white/90 backdrop-blur-md border-b border-gray-200 shadow-sm">
-        <div class="max-w-7xl mx-auto px-4 py-4">
-            <div class="flex justify-between items-center">
-                <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 bg-gradient-to-br from-orange-400 to-orange-600 rounded-xl flex items-center justify-center text-white font-bold text-xl">A</div>
-                    <div>
-                        <h1 class="font-bold text-lg">My Amazon World</h1>
-                        <p class="text-xs text-gray-500">Decor • Gadgets • Budget Tips</p>
-                    </div>
-                </div>
-                <div class="hidden md:flex gap-6 text-sm font-medium">
-                    <a href="#living" class="hover:text-orange-600 transition">Living Room</a>
-                    <a href="#home" class="hover:text-orange-600 transition">Home Decor</a>
-                    <a href="#student" class="hover:text-orange-600 transition">Student</a>
-                </div>
+    <!-- Header -->
+    <header class="bg-white shadow-md sticky top-0 z-10">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+            <h1 class="text-xl font-bold text-orange-600">My Amazon World</h1>
+            <div class="space-x-4">
+                <a href="#living" class="hover:text-orange-500">Living Room</a>
+                <a href="#home" class="hover:text-orange-500">Home Decor</a>
+                <a href="#student" class="hover:text-orange-500">Student</a>
             </div>
         </div>
-    </nav>
+    </header>
 
     <!-- Hero -->
-    <section class="hero-gradient text-white py-16 px-4">
-        <div class="max-w-4xl mx-auto text-center">
-            <span class="inline-block px-4 py-2 bg-white/20 backdrop-blur rounded-full text-sm font-semibold mb-6">🔥 200+ Curated Products</span>
-            <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">Transform Your Space<br><span class="text-yellow-300">Without Breaking the Bank</span></h1>
-            <p class="text-xl text-white/90 mb-8">Discover 200+ hand-picked Amazon products: modern decor, student gadgets, desk setups, and budget-friendly tips.</p>
-        </div>
+    <section class="bg-gradient-to-r from-purple-500 to-pink-500 text-white text-center py-16">
+        <h1 class="text-4xl font-bold">Transform Your Space</h1>
+        <p class="text-xl mt-2">Hand-picked Amazon products for your home</p>
     </section>
 
-    <!-- LIVING ROOM DECOR -->
-    <section id="living" class="py-12 px-4 max-w-7xl mx-auto">
-        <div class="flex items-center gap-3 mb-8">
-            <div class="w-12 h-12 bg-gradient-to-br from-rose-400 to-pink-600 rounded-xl flex items-center justify-center text-white text-2xl">🛋️</div>
-            <div><h2 class="text-3xl font-bold">Living Room Decor</h2><p class="text-gray-600">Products to elevate your living space</p></div>
-        </div>
-        <div id="living-products" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div class="text-center py-10">Loading products...</div>
-        </div>
-    </section>
-
-    <!-- HOME DECOR IDEAS -->
-    <section id="home" class="py-12 px-4 max-w-7xl mx-auto bg-white">
-        <div class="flex items-center gap-3 mb-8">
-            <div class="w-12 h-12 bg-gradient-to-br from-teal-400 to-cyan-600 rounded-xl flex items-center justify-center text-white text-2xl">🏠</div>
-            <div><h2 class="text-3xl font-bold">Home Decor Ideas</h2><p class="text-gray-600">Products for every room</p></div>
-        </div>
-        <div id="home-products" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div class="text-center py-10">Loading products...</div>
-        </div>
-    </section>
-
-    <!-- STUDENT GADGETS -->
-    <section id="student" class="py-12 px-4 max-w-7xl mx-auto bg-gradient-to-br from-blue-50 to-indigo-100">
-        <div class="flex items-center gap-3 mb-8">
-            <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center text-white text-2xl">🎓</div>
-            <div><h2 class="text-3xl font-bold">Student Gadgets</h2><p class="text-gray-600">Products to ace your studies</p></div>
-        </div>
-        <div id="student-products" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div class="text-center py-10">Loading products...</div>
+    <!-- Living Room Section -->
+    <section id="living" class="max-w-6xl mx-auto px-4 py-12">
+        <h2 class="text-2xl font-bold mb-6">🛋️ Living Room Decor</h2>
+        <div class="grid md:grid-cols-3 gap-6">
+            <!-- PRODUIT 1 - REMPLACEZ PAR VOTRE PRODUIT -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden product-card">
+                <img src="https://m.media-amazon.com/images/I/71cX1tVnH0L._AC_SL1500_.jpg" class="product-image w-full">
+                <div class="p-4">
+                    <h3 class="font-bold text-lg">3-Seat Sofa Dark Gray</h3>
+                    <p class="text-gray-600 text-sm mt-1">Comfortable sofa with padded armrests.</p>
+                    <p class="text-orange-600 font-bold mt-2">$299.99</p>
+                    <a href="https://www.amazon.com/dp/B09G9D7K6S?tag=breezy01-21" target="_blank" class="amazon-btn block text-center text-white py-2 rounded mt-3">View on Amazon →</a>
+                </div>
+            </div>
+            <!-- PRODUIT 2 - REMPLACEZ PAR VOTRE PRODUIT -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden product-card">
+                <img src="https://m.media-amazon.com/images/I/61aBcDeFghL._AC_SL1500_.jpg" class="product-image w-full">
+                <div class="p-4">
+                    <h3 class="font-bold text-lg">Lift-Top Coffee Table</h3>
+                    <p class="text-gray-600 text-sm mt-1">Coffee table with hidden storage.</p>
+                    <p class="text-orange-600 font-bold mt-2">$129.99</p>
+                    <a href="https://www.amazon.com/dp/B0B2S9N7KY?tag=breezy01-21" target="_blank" class="amazon-btn block text-center text-white py-2 rounded mt-3">View on Amazon →</a>
+                </div>
+            </div>
+            <!-- PRODUIT 3 - REMPLACEZ PAR VOTRE PRODUIT -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden product-card">
+                <img src="https://m.media-amazon.com/images/I/61qQ8qKqQqL._AC_SL1500_.jpg" class="product-image w-full">
+                <div class="p-4">
+                    <h3 class="font-bold text-lg">LED Floor Lamp</h3>
+                    <p class="text-gray-600 text-sm mt-1">Wood tripod with linen shade.</p>
+                    <p class="text-orange-600 font-bold mt-2">$49.99</p>
+                    <a href="https://www.amazon.com/dp/B0C7P8K2XJ?tag=breezy01-21" target="_blank" class="amazon-btn block text-center text-white py-2 rounded mt-3">View on Amazon →</a>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-12 px-4">
-        <div class="max-w-7xl mx-auto text-center">
-            <p class="mb-4">© 2025 My Amazon World. All rights reserved.</p>
-            <p class="text-gray-400 text-sm">This site contains affiliate links. As an Amazon Associate, I earn from qualifying purchases.</p>
-        </div>
+    <footer class="bg-gray-800 text-white text-center py-6 mt-8">
+        <p class="text-sm">© 2025 My Amazon World. As an Amazon Associate, I earn from qualifying purchases.</p>
     </footer>
 
-    <script>
-        // ============================================
-        // YOUR AMAZON STORE ID
-        const STORE_ID = 'breezy01-21';
-        // ============================================
-
-        // ============================================
-        // PRODUCTS WITH REAL AMAZON ASIN
-        // ============================================
-        const productsData = {
-            living: [
-                {
-                    asin: "B09G9D7K6S",
-                    title: "3-Seat Sofa Dark Gray - Scandinavian Design",
-                    image: "https://m.media-amazon.com/images/I/71cX1tVnH0L._AC_SL1500_.jpg",
-                    price: "299.99",
-                    description: "Comfortable sofa with padded armrests, perfect for small living rooms."
-                },
-                {
-                    asin: "B0B2S9N7KY",
-                    title: "Lift-Top Coffee Table with Storage - White",
-                    image: "https://m.media-amazon.com/images/I/61aBcDeFghL._AC_SL1500_.jpg",
-                    price: "129.99",
-                    description: "Lift-top coffee table with hidden storage compartment, ideal for small spaces."
-                },
-                {
-                    asin: "B0C7P8K2XJ",
-                    title: "LED Floor Lamp - Wood Tripod & Linen Shade",
-                    image: "https://m.media-amazon.com/images/I/61qQ8qKqQqL._AC_SL1500_.jpg",
-                    price: "49.99",
-                    description: "Scandinavian floor lamp with adjustable warm light, perfect for cozy evenings."
-                }
-            ],
-            home: [
-                {
-                    asin: "B09B9N8N9J",
-                    title: "Gold Wall Mirror - Baroque Style 80x80cm",
-                    image: "https://m.media-amazon.com/images/I/71MiroirDore._AC_SL1500_.jpg",
-                    price: "89.99",
-                    description: "Elegant gold mirror that visually expands your space."
-                },
-                {
-                    asin: "B0B5K7P2ZN",
-                    title: "Natural Berber Rug - 160x230 cm",
-                    image: "https://m.media-amazon.com/images/I/81TapisBerbere._AC_SL1500_.jpg",
-                    price: "159.99",
-                    description: "Handwoven cotton and jute rug with fringe details, boho style."
-                },
-                {
-                    asin: "B0C4P9L3WR",
-                    title: "Velvet Decorative Cushions - Set of 4",
-                    image: "https://m.media-amazon.com/images/I/71CoussinVelours._AC_SL1500_.jpg",
-                    price: "34.99",
-                    description: "Set of 4 velvet cushion covers, beige and terracotta tones, 45x45 cm."
-                }
-            ],
-            student: [
-                {
-                    asin: "B09Q7S8J5Z",
-                    title: "Noise Cancelling Bluetooth Headphones",
-                    image: "https://m.media-amazon.com/images/I/61CasqueAntiBruit._AC_SL1500_.jpg",
-                    price: "79.99",
-                    description: "Active noise cancellation, 30h battery life, perfect for study sessions."
-                },
-                {
-                    asin: "B08Y8W5VSM",
-                    title: "20000mAh Power Bank - Fast USB-C Charging",
-                    image: "https://m.media-amazon.com/images/I/71PowerBank._AC_SL1500_.jpg",
-                    price: "29.99",
-                    description: "High-capacity external battery, 2 USB ports, compatible with smartphones and tablets."
-                },
-                {
-                    asin: "B0C2N8R4TG",
-                    title: "LED Desk Lamp - Touch Control & Dimmable",
-                    image: "https://m.media-amazon.com/images/I/61LampeBureau._AC_SL1500_.jpg",
-                    price: "39.99",
-                    description: "Foldable LED lamp with 3 color temperatures, touch sensor, eye-friendly light."
-                }
-            ]
-        };
-
-        // Function to display products
-        function displayProducts(containerId, products) {
-            const container = document.getElementById(containerId);
-            if (!container) return;
-            
-            if (!products || products.length === 0) {
-                container.innerHTML = '<div class="text-center py-10">No products available at the moment.</div>';
-                return;
-            }
-            
-            container.innerHTML = products.map(product => `
-                <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100">
-                    <div class="relative">
-                        <img src="${product.image}" class="product-image" alt="${product.title}" loading="lazy" onerror="this.src='https://via.placeholder.com/600x400?text=Image+not+available'">
-                        <div class="absolute top-3 left-3 bg-orange-500 text-white px-3 py-1 rounded-full text-xs font-bold">Amazon</div>
-                    </div>
-                    <div class="p-5">
-                        <h3 class="text-lg font-bold mb-2 line-clamp-2">${product.title}</h3>
-                        <p class="text-gray-600 text-sm mb-3 line-clamp-3">${product.description || 'Discover this product on Amazon.'}</p>
-                        <div class="text-xl font-bold text-orange-600 mb-4">$${product.price} USD</div>
-                        <a href="https://www.amazon.com/dp/${product.asin}?tag=${STORE_ID}" target="_blank" rel="sponsored" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm transition">
-                            View on Amazon →
-                        </a>
-                    </div>
-                </div>
-            `).join('');
-        }
-
-        // Load all categories
-        displayProducts('living-products', productsData.living);
-        displayProducts('home-products', productsData.home);
-        displayProducts('student-products', productsData.student);
-    </script>
 </body>
 </html>
