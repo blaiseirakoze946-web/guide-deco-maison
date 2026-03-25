@@ -3,76 +3,431 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Amazon World</title>
+    <title>My Amazon World | Living Room, Home Decor & Student Essentials</title>
+    <meta name="description" content="Discover carefully selected Amazon products: modern living room furniture, home decor ideas, and essential student gadgets.">
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        .product-card:hover { transform: translateY(-5px); transition: 0.3s; }
-        .amazon-btn { background: #FF9900; }
-        .amazon-btn:hover { background: #FF6600; }
-        .product-image { height: 200px; object-fit: contain; background: #f9fafb; }
+        * { font-family: 'Inter', sans-serif; }
+        html { scroll-behavior: smooth; }
+        .product-card { 
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); 
+        }
+        .product-card:hover { 
+            transform: translateY(-8px); 
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); 
+        }
+        .amazon-btn { 
+            background: linear-gradient(135deg, #FF9900 0%, #FF6600 100%);
+            transition: all 0.3s ease;
+        }
+        .amazon-btn:hover { 
+            transform: scale(1.05); 
+            box-shadow: 0 10px 30px rgba(255, 153, 0, 0.4); 
+        }
+        .product-image { 
+            width: 100%; 
+            height: 250px; 
+            object-fit: contain; 
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        }
+        .sticky-nav { 
+            position: sticky; 
+            top: 0; 
+            z-index: 40; 
+        }
+        .hero-gradient { 
+            background: linear-gradient(135deg, #1e3a5f 0%, #2d5a87 50%, #3d7ab5 100%); 
+        }
+        .line-clamp-2 { 
+            display: -webkit-box; 
+            -webkit-line-clamp: 2; 
+            -webkit-box-orient: vertical; 
+            overflow: hidden; 
+        }
+        .line-clamp-3 { 
+            display: -webkit-box; 
+            -webkit-line-clamp: 3; 
+            -webkit-box-orient: vertical; 
+            overflow: hidden; 
+        }
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #FF9900;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        .category-badge {
+            background: linear-gradient(135deg, #FF9900 0%, #FF6600 100%);
+        }
     </style>
+<base target="_blank">
 </head>
-<body class="bg-gray-100">
+<body class="bg-gray-50 text-gray-900">
 
-    <!-- Header -->
-    <header class="bg-white shadow-md sticky top-0 z-10">
-        <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
-            <h1 class="text-xl font-bold text-orange-600">My Amazon World</h1>
-            <div class="space-x-4">
-                <a href="#living" class="hover:text-orange-500">Living Room</a>
-                <a href="#home" class="hover:text-orange-500">Home Decor</a>
-                <a href="#student" class="hover:text-orange-500">Student</a>
+    <!-- Navigation -->
+    <nav class="sticky-nav bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center gap-3">
+                    <div class="w-12 h-12 bg-gradient-to-br from-orange-400 to-orange-600 rounded-xl flex items-center justify-center text-white font-bold text-2xl shadow-lg">A</div>
+                    <div>
+                        <h1 class="font-bold text-xl text-gray-900">My Amazon World</h1>
+                        <p class="text-xs text-gray-500">Living Room • Home Decor • Student</p>
+                    </div>
+                </div>
+                <div class="hidden md:flex gap-8 text-sm font-semibold">
+                    <a href="#living" class="nav-link text-gray-700 hover:text-orange-600 transition">Living Room</a>
+                    <a href="#home" class="nav-link text-gray-700 hover:text-orange-600 transition">Home Decor</a>
+                    <a href="#student" class="nav-link text-gray-700 hover:text-orange-600 transition">Student</a>
+                </div>
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden p-2 rounded-lg hover:bg-gray-100" onclick="toggleMobileMenu()">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4 border-t border-gray-100 pt-4">
+                <a href="#living" class="block py-2 text-gray-700 hover:text-orange-600 font-medium">Living Room</a>
+                <a href="#home" class="block py-2 text-gray-700 hover:text-orange-600 font-medium">Home Decor</a>
+                <a href="#student" class="block py-2 text-gray-700 hover:text-orange-600 font-medium">Student</a>
             </div>
         </div>
-    </header>
+    </nav>
 
-    <!-- Hero -->
-    <section class="bg-gradient-to-r from-purple-500 to-pink-500 text-white text-center py-16">
-        <h1 class="text-4xl font-bold">Transform Your Space</h1>
-        <p class="text-xl mt-2">Hand-picked Amazon products for your home</p>
+    <!-- Hero Section -->
+    <section class="hero-gradient text-white py-16 md:py-24 px-4">
+        <div class="max-w-4xl mx-auto text-center">
+            <span class="inline-block px-4 py-2 bg-white/20 backdrop-blur rounded-full text-sm font-semibold mb-6">🔥 Curated Products</span>
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">Transform Your Space<br><span class="text-yellow-300">Without Breaking the Bank</span></h1>
+            <p class="text-xl text-white/90 mb-8 max-w-2xl mx-auto">Discover carefully selected Amazon products: modern living room furniture, beautiful home decor, and essential student gadgets.</p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#living" class="bg-white text-blue-900 px-8 py-3 rounded-full font-bold hover:bg-yellow-300 transition shadow-lg">Explore Living Room</a>
+                <a href="#student" class="bg-orange-500 text-white px-8 py-3 rounded-full font-bold hover:bg-orange-600 transition shadow-lg">Student Deals</a>
+            </div>
+        </div>
     </section>
 
-    <!-- Living Room Section -->
-    <section id="living" class="max-w-6xl mx-auto px-4 py-12">
-        <h2 class="text-2xl font-bold mb-6">🛋️ Living Room Decor</h2>
-        <div class="grid md:grid-cols-3 gap-6">
-            <!-- PRODUIT 1 - REMPLACEZ PAR VOTRE PRODUIT -->
-            <div class="bg-white rounded-lg shadow-md overflow-hidden product-card">
-                <img src="https://m.media-amazon.com/images/I/71cX1tVnH0L._AC_SL1500_.jpg" class="product-image w-full">
-                <div class="p-4">
-                    <h3 class="font-bold text-lg">3-Seat Sofa Dark Gray</h3>
-                    <p class="text-gray-600 text-sm mt-1">Comfortable sofa with padded armrests.</p>
-                    <p class="text-orange-600 font-bold mt-2">$299.99</p>
-                    <a href="https://www.amazon.com/dp/B09G9D7K6S?tag=breezy01-21" target="_blank" class="amazon-btn block text-center text-white py-2 rounded mt-3">View on Amazon →</a>
+    <!-- LIVING ROOM SECTION -->
+    <section id="living" class="py-16 px-4 max-w-7xl mx-auto">
+        <div class="flex items-center gap-4 mb-10">
+            <div class="w-14 h-14 bg-gradient-to-br from-rose-400 to-pink-600 rounded-xl flex items-center justify-center text-white text-3xl shadow-lg">🛋️</div>
+            <div>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Living Room</h2>
+                <p class="text-gray-600">Stylish furniture to elevate your living space</p>
+            </div>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <!-- Product 1: Folding Sofa Bed -->
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100">
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&h=400&fit=crop" class="product-image" alt="MAXYOYO Folding Sofa Bed" loading="lazy">
+                    <div class="absolute top-4 left-4 category-badge text-white px-3 py-1 rounded-full text-xs font-bold shadow-md">Best Seller</div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-lg font-bold mb-2 line-clamp-2 text-gray-900">MAXYOYO Folding Sofa Bed - Convertible Sleeper Chair</h3>
+                    <p class="text-gray-600 text-sm mb-4 line-clamp-3">Foldable mattress with back support, portable folding chair bed comfortable floor sofa lounge for bedroom living room in dark gray.</p>
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="text-2xl font-bold text-orange-600">$149.99</div>
+                        <div class="flex items-center text-yellow-500 text-sm">
+                            <span>★★★★☆</span>
+                            <span class="text-gray-400 ml-1">(1,993)</span>
+                        </div>
+                    </div>
+                    <a href="https://www.amazon.com/dp/B0DDTCQGTR?tag=breezy01-21" target="_blank" rel="sponsored" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">
+                        Buy on Amazon →
+                    </a>
                 </div>
             </div>
-            <!-- PRODUIT 2 - REMPLACEZ PAR VOTRE PRODUIT -->
-            <div class="bg-white rounded-lg shadow-md overflow-hidden product-card">
-                <img src="https://m.media-amazon.com/images/I/61aBcDeFghL._AC_SL1500_.jpg" class="product-image w-full">
-                <div class="p-4">
-                    <h3 class="font-bold text-lg">Lift-Top Coffee Table</h3>
-                    <p class="text-gray-600 text-sm mt-1">Coffee table with hidden storage.</p>
-                    <p class="text-orange-600 font-bold mt-2">$129.99</p>
-                    <a href="https://www.amazon.com/dp/B0B2S9N7KY?tag=breezy01-21" target="_blank" class="amazon-btn block text-center text-white py-2 rounded mt-3">View on Amazon →</a>
+
+            <!-- Product 2: Futon Sofa Bed -->
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100">
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1540574163026-643ea20ade25?w=600&h=400&fit=crop" class="product-image" alt="Flamaker Futon Sofa Bed" loading="lazy">
+                </div>
+                <div class="p-6">
+                    <h3 class="text-lg font-bold mb-2 line-clamp-2 text-gray-900">Flamaker Futon Sofa Bed Modern Folding Recliner</h3>
+                    <p class="text-gray-600 text-sm mb-4 line-clamp-3">Convertible lounge for living room with 2 cup holders, removable armrests in PU leather black. Perfect for small spaces.</p>
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="text-2xl font-bold text-orange-600">$189.99</div>
+                        <div class="flex items-center text-yellow-500 text-sm">
+                            <span>★★★★☆</span>
+                            <span class="text-gray-400 ml-1">(4,944)</span>
+                        </div>
+                    </div>
+                    <a href="https://www.amazon.com/dp/B086RKPN2V?tag=breezy01-21" target="_blank" rel="sponsored" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">
+                        Buy on Amazon →
+                    </a>
                 </div>
             </div>
-            <!-- PRODUIT 3 - REMPLACEZ PAR VOTRE PRODUIT -->
-            <div class="bg-white rounded-lg shadow-md overflow-hidden product-card">
-                <img src="https://m.media-amazon.com/images/I/61qQ8qKqQqL._AC_SL1500_.jpg" class="product-image w-full">
-                <div class="p-4">
-                    <h3 class="font-bold text-lg">LED Floor Lamp</h3>
-                    <p class="text-gray-600 text-sm mt-1">Wood tripod with linen shade.</p>
-                    <p class="text-orange-600 font-bold mt-2">$49.99</p>
-                    <a href="https://www.amazon.com/dp/B0C7P8K2XJ?tag=breezy01-21" target="_blank" class="amazon-btn block text-center text-white py-2 rounded mt-3">View on Amazon →</a>
+
+            <!-- Product 3: Cloud Modular Sofa -->
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100">
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?w=600&h=400&fit=crop" class="product-image" alt="GRUSIGN Cloud Modular Sofa" loading="lazy">
+                    <div class="absolute top-4 left-4 bg-green-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow-md">No Assembly</div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-lg font-bold mb-2 line-clamp-2 text-gray-900">GRUSIGN Cloud Modular Sectional Sofa</h3>
+                    <p class="text-gray-600 text-sm mb-4 line-clamp-3">Boneless L-shaped sofa with deep seat, memory foam compression, washable covers. Cat-claw resistant, high-resilience foam.</p>
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="text-2xl font-bold text-orange-600">$599.99</div>
+                        <div class="flex items-center text-yellow-500 text-sm">
+                            <span>★★★★★</span>
+                            <span class="text-gray-400 ml-1">(141)</span>
+                        </div>
+                    </div>
+                    <a href="https://www.amazon.com/dp/B0GMWKDNBC?tag=breezy01-21" target="_blank" rel="sponsored" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">
+                        Buy on Amazon →
+                    </a>
                 </div>
             </div>
+
+        </div>
+    </section>
+
+    <!-- HOME DECOR SECTION -->
+    <section id="home" class="py-16 px-4 max-w-7xl mx-auto bg-white">
+        <div class="flex items-center gap-4 mb-10">
+            <div class="w-14 h-14 bg-gradient-to-br from-teal-400 to-cyan-600 rounded-xl flex items-center justify-center text-white text-3xl shadow-lg">🏠</div>
+            <div>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Home Decor</h2>
+                <p class="text-gray-600">Beautiful accents for every room in your home</p>
+            </div>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <!-- Product 4: Throw Pillows -->
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100">
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?w=600&h=400&fit=crop" class="product-image" alt="Utopia Bedding Throw Pillows" loading="lazy">
+                    <div class="absolute top-4 left-4 category-badge text-white px-3 py-1 rounded-full text-xs font-bold shadow-md">Top Rated</div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-lg font-bold mb-2 line-clamp-2 text-gray-900">Utopia Bedding Throw Pillows Insert (Pack of 2)</h3>
+                    <p class="text-gray-600 text-sm mb-4 line-clamp-3">Bed and couch pillows with premium quality, white color, 18 x 18 inches. Perfect for decorative pillow covers.</p>
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="text-2xl font-bold text-orange-600">$18.99</div>
+                        <div class="flex items-center text-yellow-500 text-sm">
+                            <span>★★★★★</span>
+                            <span class="text-gray-400 ml-1">(89,432)</span>
+                        </div>
+                    </div>
+                    <a href="https://www.amazon.com/dp/B010HWDOGS?tag=breezy01-21" target="_blank" rel="sponsored" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">
+                        Buy on Amazon →
+                    </a>
+                </div>
+            </div>
+
+            <!-- Product 5: LED Strip Lights -->
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100">
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1565814329452-e1efa11c5b89?w=600&h=400&fit=crop" class="product-image" alt="Tenmiro LED Strip Lights" loading="lazy">
+                </div>
+                <div class="p-6">
+                    <h3 class="text-lg font-bold mb-2 line-clamp-2 text-gray-900">Tenmiro 65.6ft LED Strip Lights</h3>
+                    <p class="text-gray-600 text-sm mb-4 line-clamp-3">Ultra long RGB color changing LED light strips with music sync, remote and app control for bedroom, room decor.</p>
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="text-2xl font-bold text-orange-600">$19.99</div>
+                        <div class="flex items-center text-yellow-500 text-sm">
+                            <span>★★★★☆</span>
+                            <span class="text-gray-400 ml-1">(45,678)</span>
+                        </div>
+                    </div>
+                    <a href="https://www.amazon.com/dp/B07DR5M347?tag=breezy01-21" target="_blank" rel="sponsored" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">
+                        Buy on Amazon →
+                    </a>
+                </div>
+            </div>
+
+            <!-- Product 6: Artificial Plants -->
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100">
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1485955900006-10f4d324d411?w=600&h=400&fit=crop" class="product-image" alt="Der Rose Artificial Plants" loading="lazy">
+                    <div class="absolute top-4 left-4 bg-purple-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow-md">Editor's Pick</div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-lg font-bold mb-2 line-clamp-2 text-gray-900">Der Rose 3 Pack Small Fake Plants</h3>
+                    <p class="text-gray-600 text-sm mb-4 line-clamp-3">Artificial plants for home decor indoor, mini potted faux plants for shelf, desk, bathroom, farmhouse room decorations.</p>
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="text-2xl font-bold text-orange-600">$15.99</div>
+                        <div class="flex items-center text-yellow-500 text-sm">
+                            <span>★★★★★</span>
+                            <span class="text-gray-400 ml-1">(23,456)</span>
+                        </div>
+                    </div>
+                    <a href="https://www.amazon.com/dp/B08HRBPW8B?tag=breezy01-21" target="_blank" rel="sponsored" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">
+                        Buy on Amazon →
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- STUDENT SECTION -->
+    <section id="student" class="py-16 px-4 max-w-7xl mx-auto bg-gradient-to-br from-blue-50 to-indigo-100">
+        <div class="flex items-center gap-4 mb-10">
+            <div class="w-14 h-14 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center text-white text-3xl shadow-lg">🎓</div>
+            <div>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Student Essentials</h2>
+                <p class="text-gray-600">Gadgets and supplies to succeed in your studies</p>
+            </div>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <!-- Product 7: iPad -->
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100">
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=600&h=400&fit=crop" class="product-image" alt="Apple iPad" loading="lazy">
+                    <div class="absolute top-4 left-4 category-badge text-white px-3 py-1 rounded-full text-xs font-bold shadow-md">#1 Best Seller</div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-lg font-bold mb-2 line-clamp-2 text-gray-900">Apple iPad (11-inch, A16 Chip)</h3>
+                    <p class="text-gray-600 text-sm mb-4 line-clamp-3">Liquid Retina display, 128GB, Wi-Fi 6, 12MP front/back camera, Touch ID, all-day battery life - Blue.</p>
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="text-2xl font-bold text-orange-600">$349.00</div>
+                        <div class="flex items-center text-yellow-500 text-sm">
+                            <span>★★★★★</span>
+                            <span class="text-gray-400 ml-1">(20,945)</span>
+                        </div>
+                    </div>
+                    <a href="https://www.amazon.com/dp/B0DZ75TN5F?tag=breezy01-21" target="_blank" rel="sponsored" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">
+                        Buy on Amazon →
+                    </a>
+                </div>
+            </div>
+
+            <!-- Product 8: Backpack -->
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100">
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600&h=400&fit=crop" class="product-image" alt="Travel Backpack" loading="lazy">
+                    <div class="absolute top-4 left-4 bg-pink-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow-md">USB Charging</div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-lg font-bold mb-2 line-clamp-2 text-gray-900">Travel Laptop Backpack with USB Port</h3>
+                    <p class="text-gray-600 text-sm mb-4 line-clamp-3">TSA 15.6-inch laptop backpack, flight approved with shoe compartment, college nurse bag for weekend business hiking - Pink.</p>
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="text-2xl font-bold text-orange-600">$29.99</div>
+                        <div class="flex items-center text-yellow-500 text-sm">
+                            <span>★★★★★</span>
+                            <span class="text-gray-400 ml-1">(24,677)</span>
+                        </div>
+                    </div>
+                    <a href="https://www.amazon.com/dp/B09MQWWP87?tag=breezy01-21" target="_blank" rel="sponsored" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">
+                        Buy on Amazon →
+                    </a>
+                </div>
+            </div>
+
+            <!-- Product 9: Desk Organizer -->
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100">
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1504198266287-1659872e6590?w=600&h=400&fit=crop" class="product-image" alt="Desk Organizer" loading="lazy">
+                </div>
+                <div class="p-6">
+                    <h3 class="text-lg font-bold mb-2 line-clamp-2 text-gray-900">Desk Organizer with 6 Compartments & 2 Drawers</h3>
+                    <p class="text-gray-600 text-sm mb-4 line-clamp-3">Plastic makeup organizer, desktop storage pen holder for school, home, office supplies in white. Keep your desk tidy!</p>
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="text-2xl font-bold text-orange-600">$9.99</div>
+                        <div class="flex items-center text-yellow-500 text-sm">
+                            <span>★★★★☆</span>
+                            <span class="text-gray-400 ml-1">(966)</span>
+                        </div>
+                    </div>
+                    <a href="https://www.amazon.com/dp/B0C2ZBBPY9?tag=breezy01-21" target="_blank" rel="sponsored" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm">
+                        Buy on Amazon →
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Amazon Associates Disclosure -->
+    <section class="py-8 px-4 bg-gray-100 border-t border-gray-200">
+        <div class="max-w-4xl mx-auto text-center">
+            <p class="text-sm text-gray-600">
+                <span class="font-semibold">Affiliate Disclosure:</span> As an Amazon Associate, I earn from qualifying purchases. 
+                The links on this page are affiliate links, which means I may receive a small commission if you make a purchase through them, 
+                at no additional cost to you.
+            </p>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white text-center py-6 mt-8">
-        <p class="text-sm">© 2025 My Amazon World. As an Amazon Associate, I earn from qualifying purchases.</p>
+    <footer class="bg-gray-900 text-white py-12 px-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 bg-gradient-to-br from-orange-400 to-orange-600 rounded-lg flex items-center justify-center text-white font-bold">A</div>
+                        <h3 class="font-bold text-lg">My Amazon World</h3>
+                    </div>
+                    <p class="text-gray-400 text-sm">Your trusted source for curated Amazon products. We find the best deals so you don't have to.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#living" class="hover:text-orange-400 transition">Living Room</a></li>
+                        <li><a href="#home" class="hover:text-orange-400 transition">Home Decor</a></li>
+                        <li><a href="#student" class="hover:text-orange-400 transition">Student</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Legal</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li>Amazon Associates Program Participant</li>
+                        <li>All product images © Amazon.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 text-center">
+                <p class="text-gray-500 text-sm mb-2">© 2024 My Amazon World. All rights reserved.</p>
+                <p class="text-gray-600 text-xs">
+                    My Amazon World is a participant in the Amazon Services LLC Associates Program, an affiliate advertising program 
+                    designed to provide a means for sites to earn advertising fees by advertising and linking to Amazon.com.
+                </p>
+            </div>
+        </div>
     </footer>
 
+    <script>
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('mobile-menu').classList.add('hidden');
+            });
+        });
+
+        // Add scroll effect to navigation
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('shadow-md');
+            } else {
+                nav.classList.remove('shadow-md');
+            }
+        });
+    </script>
 </body>
 </html>
