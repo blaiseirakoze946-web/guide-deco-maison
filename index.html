@@ -23,26 +23,10 @@
         .amazon-btn { 
             background: linear-gradient(135deg, #FF9900 0%, #FF6600 100%);
             transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
         }
         .amazon-btn:hover { 
             transform: scale(1.05); 
             box-shadow: 0 10px 30px rgba(255, 153, 0, 0.4); 
-        }
-        .amazon-btn::after {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-            transform: rotate(30deg);
-            transition: all 0.6s;
-        }
-        .amazon-btn:hover::after {
-            left: 100%;
         }
         
         .product-image { 
@@ -50,10 +34,6 @@
             height: 260px; 
             object-fit: cover; 
             background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
-            transition: transform 0.3s ease;
-        }
-        .product-card:hover .product-image {
-            transform: scale(1.05);
         }
         
         .sticky-nav { 
@@ -65,26 +45,18 @@
         
         .hero-gradient { 
             background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #2563eb 100%); 
-            position: relative;
-            overflow: hidden;
-        }
-        .hero-gradient::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
         }
         
         .category-badge {
             background: linear-gradient(135deg, #FF9900 0%, #FF6600 100%);
-            box-shadow: 0 4px 15px rgba(255, 153, 0, 0.3);
         }
         
         .prime-badge {
             background: linear-gradient(135deg, #00a8e1 0%, #0077c1 100%);
+        }
+        
+        .discount-badge {
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
         }
         
         .nav-link {
@@ -109,10 +81,6 @@
             letter-spacing: -2px;
         }
         
-        .discount-badge {
-            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
-        }
-        
         .float-animation {
             animation: float 3s ease-in-out infinite;
         }
@@ -126,10 +94,6 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-        }
-        
-        .section-badge {
-            background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
         }
     </style>
 <base target="_blank">
@@ -200,10 +164,10 @@
         
         <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             
-            <!-- Product 1 -->
+            <!-- Product 1: MAXYOYO Folding Sofa Bed -->
             <div class="product-card rounded-2xl overflow-hidden shadow-lg border border-gray-100 group">
                 <div class="relative overflow-hidden">
-                    <img src="https://m.media-amazon.com/images/I/71t8iO4qRqL._AC_UL640_QL65_.jpg" class="product-image" alt="MAXYOYO Folding Sofa Bed" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400&h=300&fit=crop" class="product-image" alt="Folding Sofa Bed" loading="lazy">
                     <div class="absolute top-4 left-4 category-badge text-white px-3 py-1 rounded-full text-xs font-bold shadow-md">Best Seller</div>
                     <div class="absolute top-4 right-4 discount-badge text-white px-3 py-1 rounded-full text-xs font-bold shadow-md">-15%</div>
                 </div>
@@ -222,16 +186,15 @@
                     </div>
                     <div class="flex items-center gap-2 mb-4">
                         <span class="prime-badge text-white text-xs px-2 py-1 rounded font-bold">prime</span>
-                        <span class="text-xs text-gray-500">Free delivery</span>
                     </div>
                     <a href="https://www.amazon.com/dp/B0DDTCQGTR?tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm uppercase tracking-wide">Buy on Amazon →</a>
                 </div>
             </div>
 
-            <!-- Product 2 -->
+            <!-- Product 2: Flamaker Futon -->
             <div class="product-card rounded-2xl overflow-hidden shadow-lg border border-gray-100 group">
                 <div class="relative overflow-hidden">
-                    <img src="https://m.media-amazon.com/images/I/71w7Ye2XHoL._AC_UL640_QL65_.jpg" class="product-image" alt="Flamaker Futon" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1540574163026-643ea20ade25?w=400&h=300&fit=crop" class="product-image" alt="Modern Futon Sofa" loading="lazy">
                     <div class="absolute top-4 right-4 discount-badge text-white px-3 py-1 rounded-full text-xs font-bold shadow-md">-20%</div>
                 </div>
                 <div class="p-5">
@@ -249,16 +212,15 @@
                     </div>
                     <div class="flex items-center gap-2 mb-4">
                         <span class="prime-badge text-white text-xs px-2 py-1 rounded font-bold">prime</span>
-                        <span class="text-xs text-gray-500">Free delivery</span>
                     </div>
                     <a href="https://www.amazon.com/dp/B086RKPN2V?tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm uppercase tracking-wide">Buy on Amazon →</a>
                 </div>
             </div>
 
-            <!-- Product 3 -->
+            <!-- Product 3: Cloud Modular Sofa -->
             <div class="product-card rounded-2xl overflow-hidden shadow-lg border border-gray-100 group">
                 <div class="relative overflow-hidden">
-                    <img src="https://m.media-amazon.com/images/I/81J5R9+4DVL._AC_UL640_QL65_.jpg" class="product-image" alt="GRUSIGN Cloud Sofa" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?w=400&h=300&fit=crop" class="product-image" alt="Cloud Sectional Sofa" loading="lazy">
                     <div class="absolute top-4 left-4 bg-green-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow-md">No Assembly</div>
                 </div>
                 <div class="p-5">
@@ -273,16 +235,15 @@
                     </div>
                     <div class="flex items-center gap-2 mb-4">
                         <span class="prime-badge text-white text-xs px-2 py-1 rounded font-bold">prime</span>
-                        <span class="text-xs text-gray-500">Free delivery</span>
                     </div>
                     <a href="https://www.amazon.com/dp/B0GMWKDNBC?tag=breezy01-21" class="amazon-btn block w-full text-center text-white font-bold py-3 rounded-xl text-sm uppercase tracking-wide">Buy on Amazon →</a>
                 </div>
             </div>
 
-            <!-- Product 4 -->
+            <!-- Product 4: Sectional Sofa -->
             <div class="product-card rounded-2xl overflow-hidden shadow-lg border border-gray-100 group">
                 <div class="relative overflow-hidden">
-                    <img src="https://m.media-amazon.com/images/I/71QpPpJ+5hL._AC_UL640_QL65_.jpg" class="product-image" alt="Yaheetech Sectional" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1550226891-ef816aed4a98?w=400&h=300&fit=crop" class="product-image" alt="L-Shape Sectional" loading="lazy">
                 </div>
                 <div class="p-5">
                     <h3 class="text-base font-bold mb-2 text-gray-900 line-clamp-2 leading-tight">Yaheetech Sectional Sofa L-Shape Couch with Chaise</h3>
@@ -301,10 +262,10 @@
                 </div>
             </div>
 
-            <!-- Product 5 -->
+            <!-- Product 5: Loveseat -->
             <div class="product-card rounded-2xl overflow-hidden shadow-lg border border-gray-100 group">
                 <div class="relative overflow-hidden">
-                    <img src="https://m.media-amazon.com/images/I/71t8iO4qRqL._AC_UL640_QL65_.jpg" class="product-image" alt="Shintenchi Loveseat" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1567016432779-094069958ea5?w=400&h=300&fit=crop" class="product-image" alt="Modern Loveseat" loading="lazy">
                     <div class="absolute top-4 left-4 discount-badge text-white px-3 py-1 rounded-full text-xs font-bold shadow-md">-30%</div>
                 </div>
                 <div class="p-5">
@@ -327,10 +288,10 @@
                 </div>
             </div>
 
-            <!-- Product 6 -->
+            <!-- Product 6: Storage Sofa -->
             <div class="product-card rounded-2xl overflow-hidden shadow-lg border border-gray-100 group">
                 <div class="relative overflow-hidden">
-                    <img src="https://m.media-amazon.com/images/I/71w7Ye2XHoL._AC_UL640_QL65_.jpg" class="product-image" alt="VanAcc Sofa" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400&h=300&fit=crop" class="product-image" alt="Sofa with Storage" loading="lazy">
                 </div>
                 <div class="p-5">
                     <h3 class="text-base font-bold mb-2 text-gray-900 line-clamp-2 leading-tight">VanAcc 89" Sofa Couch with Storage Chaise</h3>
@@ -349,10 +310,10 @@
                 </div>
             </div>
 
-            <!-- Product 7 -->
+            <!-- Product 7: Futon Couch -->
             <div class="product-card rounded-2xl overflow-hidden shadow-lg border border-gray-100 group">
                 <div class="relative overflow-hidden">
-                    <img src="https://m.media-amazon.com/images/I/81J5R9+4DVL._AC_UL640_QL65_.jpg" class="product-image" alt="Furmax Futon" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1540574163026-643ea20ade25?w=400&h=300&fit=crop" class="product-image" alt="Convertible Futon" loading="lazy">
                 </div>
                 <div class="p-5">
                     <h3 class="text-base font-bold mb-2 text-gray-900 line-clamp-2 leading-tight">Furmax Futon Sofa Bed Modern Convertible Couch</h3>
@@ -371,10 +332,10 @@
                 </div>
             </div>
 
-            <!-- Product 8 -->
+            <!-- Product 8: Linen Sectional -->
             <div class="product-card rounded-2xl overflow-hidden shadow-lg border border-gray-100 group">
                 <div class="relative overflow-hidden">
-                    <img src="https://m.media-amazon.com/images/I/71QpPpJ+5hL._AC_UL640_QL65_.jpg" class="product-image" alt="Lilola Home Sectional" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?w=400&h=300&fit=crop" class="product-image" alt="Linen Sectional" loading="lazy">
                     <div class="absolute top-4 left-4 category-badge text-white px-3 py-1 rounded-full text-xs font-bold shadow-md">Popular</div>
                 </div>
                 <div class="p-5">
@@ -394,10 +355,10 @@
                 </div>
             </div>
 
-            <!-- Product 9 -->
+            <!-- Product 9: Convertible Sectional -->
             <div class="product-card rounded-2xl overflow-hidden shadow-lg border border-gray-100 group">
                 <div class="relative overflow-hidden">
-                    <img src="https://m.media-amazon.com/images/I/71t8iO4qRqL._AC_UL640_QL65_.jpg" class="product-image" alt="Honbay Sectional" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1550226891-ef816aed4a98?w=400&h=300&fit=crop" class="product-image" alt="Convertible Sectional" loading="lazy">
                 </div>
                 <div class="p-5">
                     <h3 class="text-base font-bold mb-2 text-gray-900 line-clamp-2 leading-tight">HONBAY Convertible Sectional Sofa Couch</h3>
@@ -416,10 +377,10 @@
                 </div>
             </div>
 
-            <!-- Product 10 -->
+            <!-- Product 10: Mid-Century Sofa -->
             <div class="product-card rounded-2xl overflow-hidden shadow-lg border border-gray-100 group">
                 <div class="relative overflow-hidden">
-                    <img src="https://m.media-amazon.com/images/I/71w7Ye2XHoL._AC_UL640_QL65_.jpg" class="product-image" alt="Serta Rane Sofa" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1567016432779-094069958ea5?w=400&h=300&fit=crop" class="product-image" alt="Mid-Century Convertible Sofa" loading="lazy">
                 </div>
                 <div class="p-5">
                     <h3 class="text-base font-bold mb-2 text-gray-900 line-clamp-2 leading-tight">Serta Rane Collection Convertible Sofa</h3>
@@ -455,10 +416,10 @@
         
         <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             
-            <!-- Product 1 -->
+            <!-- Product 1: Throw Pillows -->
             <div class="product-card rounded-2xl overflow-hidden shadow-lg border border-gray-100 group">
                 <div class="relative overflow-hidden">
-                    <img src="https://m.media-amazon.com/images/I/71n-8Z1xF-L._AC_UL640_QL65_.jpg" class="product-image" alt="Utopia Bedding Pillows" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?w=400&h=300&fit=crop" class="product-image" alt="Throw Pillows" loading="lazy">
                     <div class="absolute top-4 left-4 category-badge text-white px-3 py-1 rounded-full text-xs font-bold shadow-md">Top Rated</div>
                     <div class="absolute top-4 right-4 discount-badge text-white px-3 py-1 rounded-full text-xs font-bold shadow-md">-40%</div>
                 </div>
@@ -482,10 +443,10 @@
                 </div>
             </div>
 
-            <!-- Product 2 -->
+            <!-- Product 2: LED Strip Lights -->
             <div class="product-card rounded-2xl overflow-hidden shadow-lg border border-gray-100 group">
                 <div class="relative overflow-hidden">
-                    <img src="https://m.media-amazon.com/images/I/71eB5z+5VVL._AC_UL640_QL65_.jpg" class="product-image" alt="LED Strip Lights" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1565814329452-e1efa11c5b89?w=400&h=300&fit=crop" class="product-image" alt="LED Strip Lights" loading="lazy">
                     <div class="absolute top-4 right-4 discount-badge text-white px-3 py-1 rounded-full text-xs font-bold shadow-md">-50%</div>
                 </div>
                 <div class="p-5">
@@ -508,10 +469,10 @@
                 </div>
             </div>
 
-            <!-- Product 3 -->
+            <!-- Product 3: Artificial Plants -->
             <div class="product-card rounded-2xl overflow-hidden shadow-lg border border-gray-100 group">
                 <div class="relative overflow-hidden">
-                    <img src="https://m.media-amazon.com/images/I/71X9G0u4hJL._AC_UL640_QL65_.jpg" class="product-image" alt="Artificial Plants" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1485955900006-10f4d324d411?w=400&h=300&fit=crop" class="product-image" alt="Artificial Plants" loading="lazy">
                     <div class="absolute top-4 left-4 bg-purple-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow-md">Editor's Pick</div>
                 </div>
                 <div class="p-5">
@@ -531,10 +492,10 @@
                 </div>
             </div>
 
-            <!-- Product 4 -->
+            <!-- Product 4: Full Length Mirror -->
             <div class="product-card rounded-2xl overflow-hidden shadow-lg border border-gray-100 group">
                 <div class="relative overflow-hidden">
-                    <img src="https://m.media-amazon.com/images/I/71n-8Z1xF-L._AC_UL640_QL65_.jpg" class="product-image" alt="Wall Mirror" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1595515106969-1ce29566ff1c?w=400&h=300&fit=crop" class="product-image" alt="Full Length Mirror" loading="lazy">
                 </div>
                 <div class="p-5">
                     <h3 class="text-base font-bold mb-2 text-gray-900 line-clamp-2 leading-tight">NeuType Full Length Mirror Standing Hanging or Leaning</h3>
@@ -553,10 +514,10 @@
                 </div>
             </div>
 
-            <!-- Product 5 -->
+            <!-- Product 5: Area Rug -->
             <div class="product-card rounded-2xl overflow-hidden shadow-lg border border-gray-100 group">
                 <div class="relative overflow-hidden">
-                    <img src="https://m.media-amazon.com/images/I/71eB5z+5VVL._AC_UL640_QL65_.jpg" class="product-image" alt="Area Rug" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1575414003591-ece8d0416c7a?w=400&h=300&fit=crop" class="product-image" alt="Moroccan Area Rug" loading="lazy">
                 </div>
                 <div class="p-5">
                     <h3 class="text-base font-bold mb-2 text-gray-900 line-clamp-2 leading-tight">nuLOOM Moroccan Blythe Area Rug 5x7</h3>
@@ -575,10 +536,10 @@
                 </div>
             </div>
 
-            <!-- Product 6 -->
+            <!-- Product 6: Blackout Curtains -->
             <div class="product-card rounded-2xl overflow-hidden shadow-lg border border-gray-100 group">
                 <div class="relative overflow-hidden">
-                    <img src="https://m.media-amazon.com/images/I/71X9G0u4hJL._AC_UL640_QL65_.jpg" class="product-image" alt="Blackout Curtains" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1507089947368-19c1da9775ae?w=400&h=300&fit=crop" class="product-image" alt="Blackout Curtains" loading="lazy">
                     <div class="absolute top-4 left-4 bg-blue-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow-md">Blackout</div>
                 </div>
                 <div class="p-5">
@@ -598,10 +559,10 @@
                 </div>
             </div>
 
-            <!-- Product 7 -->
+            <!-- Product 7: Canvas Wall Art -->
             <div class="product-card rounded-2xl overflow-hidden shadow-lg border border-gray-100 group">
                 <div class="relative overflow-hidden">
-                    <img src="https://m.media-amazon.com/images/I/71n-8Z1xF-L._AC_UL640_QL65_.jpg" class="product-image" alt="Wall Art" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1513519245088-0e12902e35a6?w=400&h=300&fit=crop" class="product-image" alt="Abstract Wall Art" loading="lazy">
                 </div>
                 <div class="p-5">
                     <h3 class="text-base font-bold mb-2 text-gray-900 line-clamp-2 leading-tight">Canvas Wall Art Abstract Painting Prints 3 Panels</h3>
@@ -620,10 +581,10 @@
                 </div>
             </div>
 
-            <!-- Product 8 -->
+            <!-- Product 8: Table Lamp -->
             <div class="product-card rounded-2xl overflow-hidden shadow-lg border border-gray-100 group">
                 <div class="relative overflow-hidden">
-                    <img src="https://m.media-amazon.com/images/I/71eB5z+5VVL._AC_UL640_QL65_.jpg" class="product-image" alt="Table Lamp" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=400&h=300&fit=crop" class="product-image" alt="Touch Control Table Lamp" loading="lazy">
                 </div>
                 <div class="p-5">
                     <h3 class="text-base font-bold mb-2 text-gray-900 line-clamp-2 leading-tight">Touch Control Table Lamp 3-Way Dimmable Bedside</h3>
@@ -642,10 +603,10 @@
                 </div>
             </div>
 
-            <!-- Product 9 -->
+            <!-- Product 9: Fleece Throw Blanket -->
             <div class="product-card rounded-2xl overflow-hidden shadow-lg border border-gray-100 group">
                 <div class="relative overflow-hidden">
-                    <img src="https://m.media-amazon.com/images/I/71X9G0u4hJL._AC_UL640_QL65_.jpg" class="product-image" alt="Throw Blanket" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1580587771525-78b7dba5b91b?w=400&h=300&fit=crop" class="product-image" alt="Fleece Throw Blanket" loading="lazy">
                     <div class="absolute top-4 left-4 bg-pink-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow-md">Cozy</div>
                 </div>
                 <div class="p-5">
@@ -665,10 +626,10 @@
                 </div>
             </div>
 
-            <!-- Product 10 -->
+            <!-- Product 10: Corner Shelves -->
             <div class="product-card rounded-2xl overflow-hidden shadow-lg border border-gray-100 group">
                 <div class="relative overflow-hidden">
-                    <img src="https://m.media-amazon.com/images/I/71n-8Z1xF-L._AC_UL640_QL65_.jpg" class="product-image" alt="Corner Shelves" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1594620302200-9a762244a156?w=400&h=300&fit=crop" class="product-image" alt="Wall Mount Corner Shelves" loading="lazy">
                 </div>
                 <div class="p-5">
                     <h3 class="text-base font-bold mb-2 text-gray-900 line-clamp-2 leading-tight">Greenco 5 Tier Wall Mount Corner Shelves</h3>
@@ -704,10 +665,10 @@
         
         <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             
-            <!-- Product 1 -->
+            <!-- Product 1: Apple iPad -->
             <div class="product-card rounded-2xl overflow-hidden shadow-lg border border-gray-100 group">
                 <div class="relative overflow-hidden">
-                    <img src="https://m.media-amazon.com/images/I/71x3c1dD3IL._AC_UL640_QL65_.jpg" class="product-image" alt="Apple iPad" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=400&h=300&fit=crop" class="product-image" alt="Apple iPad" loading="lazy">
                     <div class="absolute top-4 left-4 category-badge text-white px-3 py-1 rounded-full text-xs font-bold shadow-md">#1 Best Seller</div>
                 </div>
                 <div class="p-5">
@@ -727,10 +688,10 @@
                 </div>
             </div>
 
-            <!-- Product 2 -->
+            <!-- Product 2: Laptop Backpack -->
             <div class="product-card rounded-2xl overflow-hidden shadow-lg border border-gray-100 group">
                 <div class="relative overflow-hidden">
-                    <img src="https://m.media-amazon.com/images/I/71+8u6NdW7L._AC_UL640_QL65_.jpg" class="product-image" alt="Backpack" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&h=300&fit=crop" class="product-image" alt="Travel Laptop Backpack" loading="lazy">
                     <div class="absolute top-4 left-4 bg-pink-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow-md">USB Charging</div>
                     <div class="absolute top-4 right-4 discount-badge text-white px-3 py-1 rounded-full text-xs font-bold shadow-md">-35%</div>
                 </div>
@@ -754,10 +715,10 @@
                 </div>
             </div>
 
-            <!-- Product 3 -->
+            <!-- Product 3: Desk Organizer -->
             <div class="product-card rounded-2xl overflow-hidden shadow-lg border border-gray-100 group">
                 <div class="relative overflow-hidden">
-                    <img src="https://m.media-amazon.com/images/I/71X9G0u4hJL._AC_UL640_QL65_.jpg" class="product-image" alt="Desk Organizer" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1504198266287-1659872e6590?w=400&h=300&fit=crop" class="product-image" alt="Desk Organizer" loading="lazy">
                     <div class="absolute top-4 right-4 discount-badge text-white px-3 py-1 rounded-full text-xs font-bold shadow-md">-20%</div>
                 </div>
                 <div class="p-5">
@@ -780,10 +741,10 @@
                 </div>
             </div>
 
-            <!-- Product 4 -->
+            <!-- Product 4: Kindle Paperwhite -->
             <div class="product-card rounded-2xl overflow-hidden shadow-lg border border-gray-100 group">
                 <div class="relative overflow-hidden">
-                    <img src="https://m.media-amazon.com/images/I/71x3c1dD3IL._AC_UL640_QL65_.jpg" class="product-image" alt="Kindle" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1592496001020-d31bd830651f?w=400&h=300&fit=crop" class="product-image" alt="Kindle Paperwhite" loading="lazy">
                 </div>
                 <div class="p-5">
                     <h3 class="text-base font-bold mb-2 text-gray-900 line-clamp-2 leading-tight">Kindle Paperwhite 16 GB 7" Display</h3>
@@ -802,10 +763,10 @@
                 </div>
             </div>
 
-            <!-- Product 5 -->
+            <!-- Product 5: Laptop Stand -->
             <div class="product-card rounded-2xl overflow-hidden shadow-lg border border-gray-100 group">
                 <div class="relative overflow-hidden">
-                    <img src="https://m.media-amazon.com/images/I/71+8u6NdW7L._AC_UL640_QL65_.jpg" class="product-image" alt="Laptop Stand" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?w=400&h=300&fit=crop" class="product-image" alt="Aluminum Laptop Stand" loading="lazy">
                 </div>
                 <div class="p-5">
                     <h3 class="text-base font-bold mb-2 text-gray-900 line-clamp-2 leading-tight">Soundance Laptop Stand Aluminum Computer Riser</h3>
@@ -824,10 +785,10 @@
                 </div>
             </div>
 
-            <!-- Product 6 -->
+            <!-- Product 6: Dry Erase Board -->
             <div class="product-card rounded-2xl overflow-hidden shadow-lg border border-gray-100 group">
                 <div class="relative overflow-hidden">
-                    <img src="https://m.media-amazon.com/images/I/71X9G0u4hJL._AC_UL640_QL65_.jpg" class="product-image" alt="Whiteboard" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1501504905252-473c47e087f8?w=400&h=300&fit=crop" class="product-image" alt="Dry Erase Whiteboard" loading="lazy">
                     <div class="absolute top-4 left-4 bg-green-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow-md">Study Aid</div>
                 </div>
                 <div class="p-5">
@@ -847,10 +808,10 @@
                 </div>
             </div>
 
-            <!-- Product 7 -->
+            <!-- Product 7: AirPods -->
             <div class="product-card rounded-2xl overflow-hidden shadow-lg border border-gray-100 group">
                 <div class="relative overflow-hidden">
-                    <img src="https://m.media-amazon.com/images/I/71x3c1dD3IL._AC_UL640_QL65_.jpg" class="product-image" alt="AirPods" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1600294037681-c80b4cb5b434?w=400&h=300&fit=crop" class="product-image" alt="Apple AirPods" loading="lazy">
                 </div>
                 <div class="p-5">
                     <h3 class="text-base font-bold mb-2 text-gray-900 line-clamp-2 leading-tight">Apple AirPods 4 Wireless Earbuds with ANC</h3>
@@ -869,10 +830,10 @@
                 </div>
             </div>
 
-            <!-- Product 8 -->
+            <!-- Product 8: Graphing Calculator -->
             <div class="product-card rounded-2xl overflow-hidden shadow-lg border border-gray-100 group">
                 <div class="relative overflow-hidden">
-                    <img src="https://m.media-amazon.com/images/I/71+8u6NdW7L._AC_UL640_QL65_.jpg" class="product-image" alt="Calculator" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=400&h=300&fit=crop" class="product-image" alt="TI-84 Calculator" loading="lazy">
                 </div>
                 <div class="p-5">
                     <h3 class="text-base font-bold mb-2 text-gray-900 line-clamp-2 leading-tight">Texas Instruments TI-84 Plus CE Graphing Calculator</h3>
@@ -891,10 +852,10 @@
                 </div>
             </div>
 
-            <!-- Product 9 -->
+            <!-- Product 9: Water Bottle -->
             <div class="product-card rounded-2xl overflow-hidden shadow-lg border border-gray-100 group">
                 <div class="relative overflow-hidden">
-                    <img src="https://m.media-amazon.com/images/I/71X9G0u4hJL._AC_UL640_QL65_.jpg" class="product-image" alt="Water Bottle" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=400&h=300&fit=crop" class="product-image" alt="Hydro Flask Water Bottle" loading="lazy">
                     <div class="absolute top-4 left-4 bg-cyan-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow-md">Hydration</div>
                 </div>
                 <div class="p-5">
@@ -914,10 +875,10 @@
                 </div>
             </div>
 
-            <!-- Product 10 -->
+            <!-- Product 10: Spiral Notebook -->
             <div class="product-card rounded-2xl overflow-hidden shadow-lg border border-gray-100 group">
                 <div class="relative overflow-hidden">
-                    <img src="https://m.media-amazon.com/images/I/71x3c1dD3IL._AC_UL640_QL65_.jpg" class="product-image" alt="Notebook" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1544816155-12df9643f363?w=400&h=300&fit=crop" class="product-image" alt="Five Star Notebook" loading="lazy">
                 </div>
                 <div class="p-5">
                     <h3 class="text-base font-bold mb-2 text-gray-900 line-clamp-2 leading-tight">Five Star Spiral Notebooks 5 Subject College Ruled</h3>
@@ -961,7 +922,7 @@
                         <div class="w-10 h-10 bg-gradient-to-br from-orange-400 to-orange-600 rounded-lg flex items-center justify-center text-white font-bold">A</div>
                         <h3 class="font-bold text-lg">My Amazon World</h3>
                     </div>
-                    <p class="text-gray-400 text-sm">Your trusted source for 30 curated Amazon products. We find the best deals so you don't have to.</p>
+                    <p class="text-gray-400 text-sm">Your trusted source for 30 curated Amazon products.</p>
                 </div>
                 <div>
                     <h4 class="font-bold mb-4">Categories</h4>
