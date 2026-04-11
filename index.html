@@ -317,6 +317,245 @@
 
 </body>
 </html>
+    <!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tapis Salon Décor - Produit Amazon</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .product-card {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+            max-width: 400px;
+            width: 100%;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 80px rgba(0,0,0,0.4);
+        }
+        
+        .product-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .product-content {
+            padding: 25px;
+        }
+        
+        .product-badge {
+            display: inline-block;
+            background: #ff4757;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+        
+        .product-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #2f3542;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+        
+        .product-rating {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .stars {
+            color: #ffa502;
+            font-size: 16px;
+            margin-right: 10px;
+        }
+        
+        .rating-text {
+            color: #747d8c;
+            font-size: 14px;
+        }
+        
+        .product-description {
+            color: #57606f;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .product-price {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f1f2f6;
+            border-radius: 10px;
+        }
+        
+        .price-current {
+            font-size: 28px;
+            font-weight: 800;
+            color: #2ed573;
+        }
+        
+        .price-original {
+            font-size: 16px;
+            color: #a4b0be;
+            text-decoration: line-through;
+        }
+        
+        .discount-badge {
+            background: #ff4757;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        
+        .cta-button {
+            display: block;
+            width: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding: 18px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .cta-button:hover {
+            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+            transform: scale(1.02);
+        }
+        
+        .amazon-logo {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 12px;
+            color: #a4b0be;
+        }
+        
+        .features {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+        
+        .features li {
+            padding: 8px 0;
+            color: #57606f;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .features li::before {
+            content: "✓";
+            color: #2ed573;
+            font-weight: bold;
+            margin-right: 10px;
+            font-size: 16px;
+        }
+        
+        @media (max-width: 480px) {
+            .product-card {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="product-card">
+        <!-- Image du produit Amazon -->
+        <img src="https://m.media-amazon.com/images/I/81dC3L7P9-L._AC_SX679_.jpg" 
+             alt="Tapis Salon Checkerboard" 
+             class="product-image">
+        
+        <div class="product-content">
+            <!-- Badge promotion -->
+            <span class="product-badge">Promo -30%</span>
+            
+            <!-- Titre du produit -->
+            <h2 class="product-title">
+                LIVEBOX Tapis Salon à Damier 150x210cm, Tapis Géométrique Moderne Antidérapant, Tapis de Décoration Intérieure Style Farmhouse, Tapis Lavable pour Salon Chambre Salle à Manger (Noir et Blanc)
+            </h2>
+            
+            <!-- Évaluation -->
+            <div class="product-rating">
+                <span class="stars">★★★★☆</span>
+                <span class="rating-text">4.1/5 (367 avis clients)</span>
+            </div>
+            
+            <!-- Description courte -->
+            <p class="product-description">
+                Tapis moderne à motif damier noir et blanc, parfait pour ajouter une touche géométrique élégante à votre salon. Fabriqué en polyester doux avec dos antidérapant, lavable en machine pour un entretien facile.
+            </p>
+            
+            <!-- Caractéristiques -->
+            <ul class="features">
+                <li>Dimensions: 150 x 210 cm (5' x 7')</li>
+                <li>100% Polyester - Dos antidérapant TPE</li>
+                <li>Lavable en machine</li>
+                <li>Style moderne et géométrique</li>
+            </ul>
+            
+            <!-- Prix -->
+            <div class="product-price">
+                <div>
+                    <span class="price-current">$48.96</span>
+                    <span class="price-original">$69.99</span>
+                </div>
+                <span class="discount-badge">-30%</span>
+            </div>
+            
+            <!-- Bouton d'achat Amazon -->
+            <a href="https://www.amazon.com/dp/B0DNZBFPZR?tag=breezy01-21" 
+               class="cta-button" 
+               target="_blank" 
+               rel="noopener noreferrer">
+                Voir sur Amazon
+            </a>
+            
+            <p class="amazon-logo">Lien affilié Amazon • breezy01-21</p>
+        </div>
+    </div>
+</body>
+</html>
 
     <!-- HOME DECOR SECTION -->
     <section id="home" class="py-16 px-4 max-w-7xl mx-auto bg-white">
